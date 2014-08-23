@@ -8,6 +8,8 @@ var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
+var browserSync = require('browser-sync');
+var reload = browserSync.reload;
 
 var paths = {
   sass: ['./scss/**/*.scss']
@@ -49,4 +51,23 @@ gulp.task('git-check', function(done) {
     process.exit(1);
   }
   done();
+});
+
+// Watch Files For Changes & Reload
+gulp.task('serve', ['sass'], function () {
+  browserSync({
+    notify: false,
+    // Run as an https by uncommenting 'https: true'
+    // Note: this uses an unsigned certificate which on first access
+    //       will present a certificate warning in the browser.
+    // https: true,
+    server: {
+      baseDir: 'www'
+    }
+  });
+
+  gulp.watch(['www/**/*.html'], reload);
+  gulp.watch(['scss/**/*.scss'], ['sass', reload]);
+  gulp.watch(['www/js/**/*.js'], ['jshint']);
+  gulp.watch(['www/img/**/*'], reload);
 });
