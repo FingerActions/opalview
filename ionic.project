@@ -1,4 +1,5 @@
 {
   "name": "opal",
-  "app_id": ""
+  "app_id": "",
+  "sass": true
 }
