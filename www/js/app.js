@@ -5,6 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
+'use strict';
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
 .run(function ($ionicPlatform) {
@@ -16,7 +17,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
     if (window.StatusBar) {
       // org.apache.cordova.statusbar required
-      StatusBar.styleDefault();
+      //StatusBar.styleDefault();
     }
   });
 })
@@ -31,9 +32,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
   // setup an abstract state for the tabs directive
   .state('tab', {
-    url: "/tab",
+    url: '/tab',
     abstract: true,
-    templateUrl: "templates/tabs.html"
+    templateUrl: 'templates/tabs.html'
   })
 
   // Each tab has its own nav history stack:

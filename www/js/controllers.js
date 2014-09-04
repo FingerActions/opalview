@@ -1,6 +1,7 @@
+'use strict';
 angular.module('starter.controllers', [])
 
-.controller('CardCtrl', function ($scope) {})
+.controller('CardCtrl', function () {})
 
 .controller('HistoryCtrl', function ($scope, Friends) {
 	$scope.friends = Friends.all();
@@ -10,6 +11,6 @@ angular.module('starter.controllers', [])
 	$scope.friend = Friends.get($stateParams.friendId);
 })
 
-.controller('CalculatorCtrl', function ($scope) {})
+.controller('CalculatorCtrl', function () {})
 
-.controller('AboutCtrl', function ($scope) {});
+.controller('AboutCtrl', function () {});

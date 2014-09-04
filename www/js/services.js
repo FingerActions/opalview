@@ -1,3 +1,4 @@
+'use strict';
 angular.module('starter.services', [])
 
 /**
@@ -22,5 +23,5 @@ angular.module('starter.services', [])
       // Simple index lookup
       return friends[friendId];
     }
-  }
+  };
 });
