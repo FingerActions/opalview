@@ -2,7 +2,13 @@
 angular.module('starter.controllers', [])
 
 .controller('CardCtrl', function (account) {
-	account.init();
+	account.init(function (){
+		account.login('', '', function(data, status, header){
+			console.log(data);
+			console.log(status);
+			console.log(header);
+		});
+	});
 })
 
 .controller('HistoryCtrl', function ($scope, friends) {

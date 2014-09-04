@@ -28,22 +28,29 @@ angular.module('starter.services', [])
 })
 
 .factory('account', function($http){
-  var url = 'https://www.opal.com.au/';
-  var init = function() {
-    $http.get(url)
+  var baseUrl = 'https://www.opal.com.au/';
+  var init = function(cb) {
+    $http.get(baseUrl)
       .success(function(data, status, header) {
-        console.log(header());
+        cb(data, status, header);
       });
   };
 
-  var login = function(username, password) {
-    $http.post(''+username+password)
-      .success();
+  var login = function(username, password, cb) {
+    $http.post(baseUrl + 'login/registeredUserUsernameAndPasswordLogin' +
+      '?h_username=' + username +
+      '&h_password=' + password
+    )
+      .success(function(data, status, header) {
+        cb(data, status, header);
+      });
   };
 
-  var logout = function() {
+  var logout = function(cb) {
     $http.post('')
-      .success();
+      .success(function(data, status, header) {
+        cb(data, status, header);
+      });
   };
 
   // Public API
