@@ -4,7 +4,7 @@ angular.module('starter.services', [])
 /**
  * A simple example service that returns some data.
  */
-.factory('Friends', function() {
+.factory('friends', function() {
   // Might use a resource here that returns a JSON array
 
   // Some fake testing data
@@ -15,6 +15,7 @@ angular.module('starter.services', [])
     { id: 3, name: 'Ash Ketchum' }
   ];
 
+  // Public API
   return {
     all: function() {
       return friends;
@@ -23,5 +24,23 @@ angular.module('starter.services', [])
       // Simple index lookup
       return friends[friendId];
     }
+  };
+})
+
+.factory('account', function($http){
+  var login = function(username, password) {
+    $http.post(''+username+password)
+      .then();
+  };
+
+  var logout = function() {
+    $http.post('')
+      .then();
+  };
+
+  // Public API
+  return {
+    login: login,
+    logout: logout
   };
 });
