@@ -1,7 +1,9 @@
 'use strict';
 angular.module('starter.controllers', [])
 
-.controller('CardCtrl', function () {})
+.controller('CardCtrl', function (account) {
+	account.init();
+})
 
 .controller('HistoryCtrl', function ($scope, friends) {
 	$scope.friends = friends.all();
