@@ -1,12 +1,17 @@
 'use strict';
 angular.module('starter.controllers', [])
 
-.controller('CardCtrl', function (account) {
+.controller('CardCtrl', function (account, $http) {
 	account.init(function (){
 		account.login('', '', function(data, status, header){
 			console.log(data);
 			console.log(status);
-			console.log(header);
+			console.log(header());
+
+			$http.get('https://www.opal.com.au/registered/index').success(function(data, status) {
+					console.log(data);
+					console.log(status);
+			});
 		});
 	});
 })
