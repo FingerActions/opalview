@@ -68,6 +68,6 @@ gulp.task('serve', ['sass'], function () {
 
   gulp.watch(['www/**/*.html'], reload);
   gulp.watch(['scss/**/*.scss'], ['sass', reload]);
-  gulp.watch(['www/js/**/*.js'], ['jshint']);
+  gulp.watch(['www/js/**/*.js']);
   gulp.watch(['www/img/**/*'], reload);
 });
