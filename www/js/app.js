@@ -78,6 +78,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
   })
 
+  .state('tab.today', {
+    url: '/today',
+    views: {
+      'tab-today': {
+        templateUrl: 'templates/tab-today.html',
+        controller: 'TodayCtrl'
+      }
+    }
+  })
+
   .state('tab.about', {
     url: '/about',
     views: {
