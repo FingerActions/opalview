@@ -10,16 +10,20 @@ angular.module('starter.services', [])
   // Some fake testing data
   var friends = [{
     id: 0,
-    name: 'Haotian'
+    name: 'Haotian',
+    cardNumber: 432898429423492
   }, {
     id: 1,
-    name: 'Mao'
+    name: 'Mao',
+    cardNumber: 723842794273842
   }, {
     id: 2,
-    name: 'Mark Zurkburg'
+    name: 'Mark Zurkburg',
+    cardNumber: 647242897489237
   }, {
     id: 3,
-    name: 'Bill Gates'
+    name: 'Bill Gates',
+    cardNumber: 152371638271638
   }];
 
   // Public API
