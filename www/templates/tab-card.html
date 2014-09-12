@@ -1,99 +1,112 @@
 <ion-header-bar align-title="center" class="bar-positive">
   <h1 class="title">Card</h1>
   <div class="buttons">
-    <button class="button button-clear" ng-click=""><i class="ion-android-add"></i></button>
+    <button class="button button-clear" ng-click=""><i class="ion-android-add"></i>
+    </button>
   </div>
 </ion-header-bar>
 <ion-content>
+  <fing-acts-coverflow ng-transclude>
+    <img src="img/bus.png"></img>
+    <img src="img/ionic.png"></img>
+    <img src="img/train.png"></img>
+  </fing-acts-coverflow>
   <div class="row responsive-sm">
-  	  <div class="col">
-		  <div class="card">
-		  	 <div class="item item-divider item-energized">
-		  		 Welcome to Opal Mate
-		  	 </div>
-		  <div class="item item-text-wrap">
-		  	G'day Sydney commuters! To get started to use this App,
-		  	Please press the plus button to add your card.
-		  </div>
-	  </div>
-  </div>
+    <div class="col">
+      <div class="card">
+        <div class="item item-divider item-energized">
+          Welcome to Opal Mate
+        </div>
+        <div class="item item-text-wrap">
+          G'day Sydney commuters! To get started to use this App, Please press the plus button to add your card.
+        </div>
+      </div>
+    </div>
 
-  <div class="row responsive-sm">
-  	  <div class="col col-80 col-offset-10">
-		  <div class="card">
-		  	<div class="item item-divider item-dark">
-		  		<span>MAOCHENYAN</span><span style="float:right">$25.50</span>
-		  	</div>
-		    <div class="item item-text-wrap">
-		  	<div>Most Recent Trip:</div>
+    <div class="row responsive-sm">
+      <div class="col col-80 col-offset-10">
+        <div class="card">
+          <div class="item item-divider item-dark">
+            <span>MAOCHENYAN</span><span style="float:right">$25.50</span>
+          </div>
+          <div class="item item-text-wrap">
+            <div>Most Recent Trip:</div>
 
-		  	<div class="row">
-			  		<div class="col">Friday</div><div class="col">22/08/2014</div><div class="col">20:32</div>
-			</div>
+            <div class="row">
+              <div class="col">Friday</div>
+              <div class="col">22/08/2014</div>
+              <div class="col">20:32</div>
+            </div>
 
-		  	<div class="row responsive-sm">
-				<div class="col">
-			  		<div class="item item-avatar">
-				  		<img src="../img/train.png">
-				  		<h2>Central  to  Hurstville</h2>
-				  		<p>$2.87 off-peak</p>
-			  		</div>
-				</div>
-		  	</div>
+            <div class="row responsive-sm">
+              <div class="col">
+                <div class="item item-avatar">
+                  <img src="../img/train.png">
+                  <h2>Central  to  Hurstville</h2>
+                  <p>$2.87 off-peak</p>
+                </div>
+              </div>
+            </div>
 
-			<div class="row">
-			  		<div class="col">Friday</div><div class="col">22/08/2014</div><div class="col">20:32</div>
-			</div>
+            <div class="row">
+              <div class="col">Friday</div>
+              <div class="col">22/08/2014</div>
+              <div class="col">20:32</div>
+            </div>
 
-		  	<div class="row responsive-sm">
-				<div class="col">
-			  		<div class="item item-avatar">
-				  		<img src="../img/Bus.png">
-				  		<h2>Central  to  Hurstville</h2>
-				  		<p>$2.87 off-peak</p>
-			  		</div>
-				</div>
-		  	</div>
-		  </div>
-  </div>
+            <div class="row responsive-sm">
+              <div class="col">
+                <div class="item item-avatar">
+                  <img src="../img/Bus.png">
+                  <h2>Central  to  Hurstville</h2>
+                  <p>$2.87 off-peak</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-   <div class="row responsive-sm">
-  	  <div class="col col-80 col-offset-10">
-		  <div class="card">
-		  	<div class="item item-divider item-dark">
-		  		<span>CHANGHAOTIAN</span><span style="float:right">$25.50</span>
-		  	</div>
-		    <div class="item item-text-wrap">
-		  	<div>Most Recent Trip:</div>
+        <div class="row responsive-sm">
+          <div class="col col-80 col-offset-10">
+            <div class="card">
+              <div class="item item-divider item-dark">
+                <span>CHANGHAOTIAN</span><span style="float:right">$25.50</span>
+              </div>
+              <div class="item item-text-wrap">
+                <div>Most Recent Trip:</div>
 
-		  	<div class="row">
-			  		<div class="col">Friday</div><div class="col">22/08/2014</div><div class="col">20:32</div>
-			</div>
+                <div class="row">
+                  <div class="col">Friday</div>
+                  <div class="col">22/08/2014</div>
+                  <div class="col">20:32</div>
+                </div>
 
-		  	<div class="row responsive-sm">
-				<div class="col">
-			  		<div class="item item-avatar">
-				  		<img src="../img/Ferry.png">
-				  		<h2>Central  to  Hurstville</h2>
-				  		<p>$2.87 off-peak</p>
-			  		</div>
-				</div>
-		  	</div>
+                <div class="row responsive-sm">
+                  <div class="col">
+                    <div class="item item-avatar">
+                      <img src="../img/Ferry.png">
+                      <h2>Central  to  Hurstville</h2>
+                      <p>$2.87 off-peak</p>
+                    </div>
+                  </div>
+                </div>
 
-			<div class="row">
-			  		<div class="col">Friday</div><div class="col">22/08/2014</div><div class="col">20:32</div>
-			</div>
+                <div class="row">
+                  <div class="col">Friday</div>
+                  <div class="col">22/08/2014</div>
+                  <div class="col">20:32</div>
+                </div>
 
-		  	<div class="row responsive-sm">
-				<div class="col">
-			  		<div class="item item-avatar">
-				  		<img src="../img/train.png">
-				  		<h2>Central  to  Hurstville</h2>
-				  		<p>$2.87 off-peak</p>
-			  		</div>
-				</div>
-		  	</div>
-		  </div>
-  </div>
+                <div class="row responsive-sm">
+                  <div class="col">
+                    <div class="item item-avatar">
+                      <img src="../img/train.png">
+                      <h2>Central  to  Hurstville</h2>
+                      <p>$2.87 off-peak</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
 </ion-content>
