@@ -28,4 +28,4 @@ angular.module('starter.controllers', [])
 
 .controller('AboutCtrl', function () {})
 
-.controller('TodayCtrl', function () {})
+.controller('TodayCtrl', function () {});
