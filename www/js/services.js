@@ -64,10 +64,24 @@ angular.module('starter.services', [])
       });
   };
 
+  var save = function (username, password) {
+    window.localStorage.setItem('opal', username + ';' + password);
+  };
+
+  var load = function () {
+    var credential = window.localStorage.getItem('opal').split(';');
+    return {
+      username: credential[0],
+      password: credential[1]
+    };
+  };
+
   // Public API
   return {
     init: init,
     login: login,
-    logout: logout
+    logout: logout,
+    save: save,
+    load: load
   };
 });
