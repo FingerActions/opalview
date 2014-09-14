@@ -7,15 +7,15 @@
     <div class="list">
       <label class="item item-input">
         <i class="icon ion-person placeholder-icon"></i>
-        <input type="text" placeholder="Username">
+        <input type="text" placeholder="Username" ng-model="username">
       </label>
       <label class="item item-input">
         <i class="icon ion-locked placeholder-icon"></i>
-        <input type="password" placeholder="Password">
+        <input type="password" placeholder="Password" ng-model="password">
       </label>
     </div>
     <div class="row responsive-sm">
-      <button class="button button-block button-positive">
+      <button class="button button-block button-positive" ng-click="login()">
         Login
       </button>
     </div>

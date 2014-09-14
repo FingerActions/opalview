@@ -43,7 +43,9 @@ angular.module('starter.services', [])
   var init = function (cb) {
     $http.get(baseUrl)
       .success(function (data, status, header) {
-        cb(data, status, header);
+        if(cb){
+          cb(data, status, header);
+        }
       });
   };
 

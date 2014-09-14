@@ -2,8 +2,10 @@
 angular.module('starter.controllers', [])
 
 .controller('CardCtrl', function (account, $http, $scope, $ionicModal) {
-	account.init(function () {
-		account.login('', '', function (data, status, header) {
+	account.init();
+
+	$scope.login = function () {
+		account.login($scope.username, $scope.password, function (data, status, header) {
 			console.log(data);
 			console.log(status);
 			console.log(header());
@@ -12,7 +14,7 @@ angular.module('starter.controllers', [])
 				console.log(status);
 			});
 		});
-	});
+	};
 
 	$ionicModal.fromTemplateUrl('templates/account/fing-acts-login.html', {
 		scope: $scope,
