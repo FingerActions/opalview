@@ -46,7 +46,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('CardDetailCtrl', function ($scope, $stateParams, cards) {
-	$scope.card = cards.get($stateParams.cardId);
+	$scope.cards = cards.get($stateParams.cardId);
 })
 
 .controller('CalculatorCtrl', function () {})
