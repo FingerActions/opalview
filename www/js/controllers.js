@@ -14,7 +14,7 @@ angular.module('starter.controllers', [])
 		});
 	});
 
-	$ionicModal.fromTemplateUrl('loginModal.html', {
+	$ionicModal.fromTemplateUrl('templates/account/fing-acts-login.html', {
 		scope: $scope,
 		animation: 'slide-in-up'
 	}).then(function (modal) {
