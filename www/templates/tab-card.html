@@ -1,11 +1,14 @@
 <ion-header-bar align-title="center" class="bar-positive">
   <h1 class="title">Card</h1>
   <div class="buttons">
-    <button class="button button-clear" ng-click=""><i class="ion-android-add"></i>
+    <button class="button button-clear" ng-click="openModal()"><i class="ion-android-add"></i>
     </button>
   </div>
 </ion-header-bar>
 <ion-content>
   <fing-acts-welcome></fing-acts-welcome>
   <fing-acts-card></fing-acts-card>
+	<script id="loginModal.html" type="text/ng-template">
+ 		<fing-acts-login></fing-acts-login>
+  </script>
 </ion-content>
