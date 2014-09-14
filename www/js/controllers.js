@@ -40,12 +40,12 @@ angular.module('starter.controllers', [])
 	});
 })
 
-.controller('HistoryCtrl', function ($scope, friends) {
-	$scope.friends = friends.all();
+.controller('HistoryCtrl', function ($scope, cards) {
+	$scope.cards = cards.all();
 })
 
-.controller('FriendDetailCtrl', function ($scope, $stateParams, friends) {
-	$scope.friend = friends.get($stateParams.friendId);
+.controller('CardDetailCtrl', function ($scope, $stateParams, cards) {
+	$scope.card = cards.get($stateParams.cardId);
 })
 
 .controller('CalculatorCtrl', function () {})

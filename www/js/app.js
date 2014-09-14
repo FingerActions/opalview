@@ -62,8 +62,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       url: '/friend/:friendId',
       views: {
         'tab-friends': {
-          templateUrl: 'templates/friend-detail.html',
-          controller: 'FriendDetailCtrl'
+          templateUrl: 'templates/card-detail.html',
+          controller: 'CardDetailCtrl'
         }
       }
     })
