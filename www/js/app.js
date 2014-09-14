@@ -58,8 +58,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       }
     }
   })
-    .state('tab.friend-detail', {
-      url: '/friend/:friendId',
+    .state('tab.card-detail', {
+      url: '/card/:cardId',
       views: {
         'tab-friends': {
           templateUrl: 'templates/card-detail.html',
