@@ -9,7 +9,7 @@
 angular.module('fing.acts.directives')
 	.directive('fingActsLogin', function () {
 		return {
-			templateUrl: 'templates/login.html',
+			templateUrl: 'templates/account/fing-acts-login.html',
 			restrict: 'E'
 		};
 	});
