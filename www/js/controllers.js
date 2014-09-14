@@ -5,14 +5,13 @@ angular.module('starter.controllers', [])
 	account.init();
 
 	$scope.login = function () {
-		account.login($scope.username, $scope.password, function (data, status, header) {
-			console.log(data);
-			console.log(status);
-			console.log(header());
-			$http.get('https://www.opal.com.au/registered/index').success(function (data, status) {
+		account.login($scope.username, $scope.password, function (error, data) {
+			if(error) {
+				console.log(error.message);
+			}
+			else{
 				console.log(data);
-				console.log(status);
-			});
+			}
 		});
 	};
 

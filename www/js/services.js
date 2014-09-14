@@ -54,8 +54,22 @@ angular.module('starter.services', [])
       '?h_username=' + username +
       '&h_password=' + password
     )
-      .success(function (data, status, header) {
-        cb(data, status, header);
+      .success(function (data) {
+        if(data.validationFailure) {
+          cb(new Error(data.errorMessage), null);
+        }
+        else {
+          $http.get('https://www.opal.com.au/registered/index').success(function (data) {
+            var parser = new DOMParser();
+            var doc = parser.parseFromString(data, 'text/html');
+            var info = {};
+            info.balance = doc.getElementById('dashboard-active-cards').getElementsByTagName('td')[1].innerHTML;
+            cb(null, info);
+          });
+        }
+      })
+      .error(function () {
+        cb(new Error('Please check your network or try again later'), null);
       });
   };
 
