@@ -7,9 +7,9 @@
  * # fingActsdaymonthyear
  */
 angular.module('fing.acts.directives')
-	.directive('fingActsDaymonthyear', function () {
+	.directive('fingActsDayweekmonth', function () {
 		return {
-			templateUrl: 'templates/button/fing-acts-daymonthyear.html',
+			templateUrl: 'templates/button/fing-acts-dayweekmonth.html',
 			restrict: 'E'
 		};
 	});
