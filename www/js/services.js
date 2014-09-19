@@ -103,7 +103,7 @@ angular.module('starter.services', [])
 })
 
 .factory('errorhandle', function () {
-  var errorhandle = function (title, message) {
+  var alert = function (title, message) {
     var alertPopup = $ionicPopup.alert({
       title: title,
       template: message
@@ -113,6 +113,6 @@ angular.module('starter.services', [])
     });
   };
   return {
-    errorhandle: errorhandle
+    alert: alert
   };
 });

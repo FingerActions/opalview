@@ -7,7 +7,7 @@ angular.module('starter.controllers', [])
 		account.login($scope.username, $scope.password, function (error, data) {
 			if (error) {
 				//console.log(error.message);
-				$scope.errorhandle('', error.message);
+				errorhandle.alert('', error.message);
 			} else {
 				console.log(data);
 			}
