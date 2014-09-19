@@ -8,7 +8,7 @@ angular.module('starter.services', [])
   // Might use a resource here that returns a JSON array
 
   // Some fake testing data
-  var cards = [{
+  /*var cards = [{
     id: 0,
     name: 'Haotian',
     cardNumber: 432898429423492
@@ -24,7 +24,9 @@ angular.module('starter.services', [])
     id: 3,
     name: 'Bill Gates',
     cardNumber: 152371638271638
-  }];
+  }];*/
+
+  var cards = [];
 
   // Public API
   return {
@@ -43,7 +45,7 @@ angular.module('starter.services', [])
   var init = function (cb) {
     $http.get(baseUrl)
       .success(function (data, status, header) {
-        if(cb){
+        if (cb) {
           cb(data, status, header);
         }
       });
@@ -55,10 +57,9 @@ angular.module('starter.services', [])
       '&h_password=' + password
     )
       .success(function (data) {
-        if(data.validationFailure) {
+        if (data.validationFailure) {
           cb(new Error(data.errorMessage), null);
-        }
-        else {
+        } else {
           $http.get('https://www.opal.com.au/registered/index').success(function (data) {
             var parser = new DOMParser();
             var doc = parser.parseFromString(data, 'text/html');
