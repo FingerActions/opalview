@@ -102,7 +102,7 @@ angular.module('starter.services', [])
   };
 })
 
-.factory('errorhandle', function () {
+.factory('errorhandle', function ($ionicPopup) {
   var alert = function (title, message) {
     var alertPopup = $ionicPopup.alert({
       title: title,
