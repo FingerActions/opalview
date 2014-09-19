@@ -109,8 +109,8 @@ angular.module('starter.services', [])
       title: title,
       template: message
     });
-    alertPopup.then(function (res) {
-      console.log("error detected!");
+    alertPopup.then(function () {
+      console.log('error detected!');
     });
   };
   return {
