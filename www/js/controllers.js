@@ -1,31 +1,56 @@
 'use strict';
 angular.module('starter.controllers', [])
 
-.controller('CardCtrl', function (account, $http) {
-	account.init(function () {
-		account.login('', '', function (data, status, header) {
-			console.log(data);
-			console.log(status);
-			console.log(header());
+.controller('CardCtrl', function (account, $http, $scope, $ionicModal) {
+	account.init();
 
-			$http.get('https://www.opal.com.au/registered/index').success(function (data, status) {
+	$scope.login = function () {
+		account.login($scope.username, $scope.password, function (error, data) {
+			if(error) {
+				console.log(error.message);
+			}
+			else{
 				console.log(data);
-				console.log(status);
-			});
+			}
 		});
+	};
+
+	$ionicModal.fromTemplateUrl('templates/account/fing-acts-login.html', {
+		scope: $scope,
+		animation: 'slide-in-up'
+	}).then(function (modal) {
+		$scope.modal = modal;
+	});
+	$scope.openModal = function () {
+		$scope.modal.show();
+	};
+	$scope.closeModal = function () {
+		$scope.modal.hide();
+	};
+	//Cleanup the modal when we're done with it!
+	$scope.$on('$destroy', function () {
+		$scope.modal.remove();
+	});
+	// Execute action on hide modal
+	$scope.$on('modal.hidden', function () {
+		// Execute action
+	});
+	// Execute action on remove modal
+	$scope.$on('modal.removed', function () {
+		// Execute action
 	});
 })
 
-.controller('HistoryCtrl', function ($scope, friends) {
-	$scope.friends = friends.all();
+.controller('HistoryCtrl', function ($scope, cards) {
+	$scope.cards = cards.all();
 })
 
-.controller('FriendDetailCtrl', function ($scope, $stateParams, friends) {
-	$scope.friend = friends.get($stateParams.friendId);
+.controller('CardDetailCtrl', function ($scope, $stateParams, cards) {
+	$scope.cards = cards.get($stateParams.cardId);
 })
 
 .controller('CalculatorCtrl', function () {})
 
 .controller('AboutCtrl', function () {})
 
-.controller('TodayCtrl', function () {})
+.controller('TodayCtrl', function () {});

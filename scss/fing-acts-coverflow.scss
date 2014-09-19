@@ -1,0 +1,25 @@
+$perspective: 500px !default;
+$perspective-origin: 50% 150px !default;
+$element-width: 200px !default;
+$element-height: auto !default;
+$width: 100% !default;
+$height: 330px !default;
+
+fing-acts-coverflow {
+    display: block;
+    overflow: hidden;
+    width: $width;
+    height: $height;
+    perspective: $perspective;
+    perspective-origin: $perspective-origin;
+    transform-style: preserve-3d;
+    > * {
+        width: $element-width;
+        height: $element-height;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(70%, transparent), to(rgba(255, 255, 255, 0.4)));
+    }
+}

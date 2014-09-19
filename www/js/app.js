@@ -6,7 +6,7 @@
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
 'use strict';
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'fing.acts.coverflow', 'fing.acts.directives'])
 
 .run(function ($ionicPlatform) {
   $ionicPlatform.ready(function () {
@@ -58,12 +58,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     }
   })
-    .state('tab.friend-detail', {
-      url: '/friend/:friendId',
+    .state('tab.card-detail', {
+      url: '/card/:cardId',
       views: {
-        'tab-friends': {
-          templateUrl: 'templates/friend-detail.html',
-          controller: 'FriendDetailCtrl'
+        'tab-history': {
+          templateUrl: 'templates/card-details.html',
+          controller: 'CardDetailCtrl'
         }
       }
     })

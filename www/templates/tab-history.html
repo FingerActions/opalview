@@ -4,12 +4,12 @@
 <ion-content>
   <h4>Select cards</h4>
   <ion-list>
-    <ion-div ng-repeat="friend in friends"  href="#/tab/History/{{friend.id}}">
-      <a class="item item-icon-left item-icon-right item-light" href="#">
+    <ion-div ng-repeat="card in cards">
+      <a class="item item-icon-left item-icon-right item-light" href="#/tab/card/{{card.id}}">
       	<i class="icon ion-card"></i>
-      	{{friend.name}}
-      	{{friend.cardNumber}}
-        <i class="icon ion-chevron-right"></i>
+      	{{card.name}}
+      	{{card.cardNumber}}
+        <i class="icon ion-ios7-arrow-right"></i>
       </a>
     </ion-div>
   </ion-list>
