@@ -1,20 +1,18 @@
 'use strict';
 angular.module('starter.controllers', [])
 
-.controller('CardCtrl', function (account, $http, $scope, $ionicModal) {
+.controller('CardCtrl', function (account, errorhandle, $http, $scope, $ionicModal) {
 	account.init();
-
 	$scope.login = function () {
 		account.login($scope.username, $scope.password, function (error, data) {
-			if(error) {
-				console.log(error.message);
-			}
-			else{
+			if (error) {
+				//console.log(error.message);
+				$scope.errorhandle('', error.message);
+			} else {
 				console.log(data);
 			}
 		});
 	};
-
 	$ionicModal.fromTemplateUrl('templates/account/fing-acts-login.html', {
 		scope: $scope,
 		animation: 'slide-in-up'

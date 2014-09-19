@@ -100,4 +100,19 @@ angular.module('starter.services', [])
     save: save,
     load: load
   };
+})
+
+.factory('errorhandle', function () {
+  var errorhandle = function (title, message) {
+    var alertPopup = $ionicPopup.alert({
+      title: title,
+      template: message
+    });
+    alertPopup.then(function (res) {
+      console.log("error detected!");
+    });
+  };
+  return {
+    errorhandle: errorhandle
+  };
 });
