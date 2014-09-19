@@ -1,4 +1,3 @@
-
 'use strict';
 
 var gulp = require('gulp');
@@ -10,6 +9,7 @@ var rename = require('gulp-rename');
 var sh = require('shelljs');
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
+var protractor = require('gulp-protractor').protractor;
 
 var paths = {
   sass: ['./scss/**/*.scss']
@@ -27,6 +27,17 @@ gulp.task('sass', function(done) {
     .pipe(rename({ extname: '.min.css' }))
     .pipe(gulp.dest('./www/css/'))
     .on('end', done);
+});
+
+gulp.task('test', function() {
+  gulp.src(['./test/e2e/main/**.js'])
+    .pipe(protractor({
+      configFile: './test/protractor.conf.js',
+      args: ['--baseUrl', 'http://127.0.0.1:3000']
+    }))
+    .on('error', function(e) {
+      throw e;
+    });
 });
 
 gulp.task('watch', function() {
