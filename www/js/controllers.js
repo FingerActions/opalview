@@ -1,18 +1,22 @@
 'use strict';
 angular.module('starter.controllers', [])
 
-.controller('CardCtrl', function (account, errorhandle, $http, $scope, $ionicModal) {
+.controller('CardCtrl', function (account, $ionicPopup, $http, $scope, $ionicModal) {
 	account.init();
+
 	$scope.login = function () {
 		account.login($scope.username, $scope.password, function (error, data) {
 			if (error) {
-				//console.log(error.message);
-				errorhandle.alert('Sorry', error.message);
+				$ionicPopup.alert({
+					title: 'Sorry',
+					template: error.message
+				});
 			} else {
 				console.log(data);
 			}
 		});
 	};
+
 	$ionicModal.fromTemplateUrl('templates/account/fing-acts-login.html', {
 		scope: $scope,
 		animation: 'slide-in-up'
