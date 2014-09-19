@@ -43,12 +43,12 @@ angular.module('starter.controllers', [])
 	});
 })
 
-.controller('HistoryCtrl', function ($scope, cards) {
-	$scope.cards = cards.all();
+.controller('HistoryCtrl', function ($scope, card) {
+	$scope.cards = card.all();
 })
 
-.controller('CardDetailCtrl', function ($scope, $stateParams, cards) {
-	$scope.cards = cards.get($stateParams.cardId);
+.controller('CardDetailCtrl', function ($scope, $stateParams, card) {
+	$scope.cards = card.get($stateParams.cardId);
 })
 
 .controller('CalculatorCtrl', function () {})
