@@ -3,6 +3,8 @@
 </ion-header-bar>
 <ion-content>
   <h4>Select cards</h4>
+  <fing-acts-dayweekmonth></fing-acts-dayweekmonth>
+  <fing-acts-day></fing-acts-day>
   <ion-list>
     <ion-div ng-repeat="card in cards">
       <a class="item item-icon-left item-icon-right item-light" href="#/tab/card/{{card.id}}">
@@ -13,4 +15,5 @@
       </a>
     </ion-div>
   </ion-list>
+  <fing-acts-week></fing-acts-week>
 </ion-content>
