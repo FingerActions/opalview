@@ -1,30 +1,33 @@
 'use strict';
-angular.module('starter.controllers')
+angular.module('starter.controllers', ['angularCharts'])
 	.controller('HistoryCtrl', function ($scope, card) {
 		$scope.cards = card.all();
+		$scope.chartType = 'bar'
 		$scope.config1 = {
 			labels: false,
-			title: "Products",
+			title: "Weekly",
 			legend: {
-				display: true,
+				display: false,
 				position: 'left'
 			},
 			innerRadius: 0
 		};
 		$scope.data1 = {
-			series: ['Sales', 'Income', '<i>Expense</i>', 'Laptops', 'Keyboards'],
+
 			data: [{
-				x: "Sales",
-				y: [100, 500, 0],
-				tooltip: "this is tooltip"
+				x: "M",
+				y: [100, 500, 0]
 			}, {
-				x: "Not Sales",
+				x: "T",
 				y: [300, 100, 100]
 			}, {
-				x: "Tax",
-				y: [351]
+				x: "W",
+				y: [300, 100, 100]
 			}, {
-				x: "Not Tax",
+				x: "T",
+				y: [30, 0, 879]
+			}, {
+				x: "F",
 				y: [54, 0, 879]
 			}]
 		};
