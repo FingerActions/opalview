@@ -23,3 +23,15 @@ fing-acts-coverflow {
         -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(70%, transparent), to(rgba(255, 255, 255, 0.4)));
     }
 }
+
+#chart {
+    height: 300px;
+    width: 100%;
+}
+
+[ac-chart] {
+            float:left;
+            width: 48%;
+            height: 400px;
+            margin: 0 1%;
+        }
