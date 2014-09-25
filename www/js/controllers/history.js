@@ -2,40 +2,30 @@
 angular.module('starter.controllers')
 	.controller('HistoryCtrl', function ($scope, card) {
 		$scope.cards = card.all();
-		$scope.config = {
-			title: '',
-			tooltips: true,
+		$scope.config1 = {
 			labels: false,
-			mouseover: function () {},
-			mouseout: function () {},
-			click: function () {},
+			title: "Products",
 			legend: {
 				display: true,
-				position: 'left',
-				htmlEnabled: false
+				position: 'left'
 			},
-			colors: [],
-			innerRadius: 0,
-			lineLegend: 'lineEnd',
-			lineCurveType: 'cardinal',
-			isAnimate: true,
-			yAxisTrickFormat: 's'
+			innerRadius: 0
 		};
-
-		$scope.data = {
-			"series": [
-				"Sales",
-				"Income",
-				"Expense"
-			],
-			"data": [{
-				"x": "Computers",
-				"y": [
-					54,
-					0,
-					879
-				],
-				"tooltip": "This is a tooltip"
+		$scope.data1 = {
+			series: ['Sales', 'Income', '<i>Expense</i>', 'Laptops', 'Keyboards'],
+			data: [{
+				x: "Sales",
+				y: [100, 500, 0],
+				tooltip: "this is tooltip"
+			}, {
+				x: "Not Sales",
+				y: [300, 100, 100]
+			}, {
+				x: "Tax",
+				y: [351]
+			}, {
+				x: "Not Tax",
+				y: [54, 0, 879]
 			}]
 		};
 	});
