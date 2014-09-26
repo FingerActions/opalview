@@ -1,5 +1,5 @@
 'use strict';
-angular.module('starter.controllers', ['angularCharts'])
+angular.module('starter.controllers')
 	.controller('CardCtrl', function (account, $ionicPopup, $http, $scope, $ionicModal) {
 		account.init();
 
