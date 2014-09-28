@@ -11,7 +11,19 @@ angular.module('starter.controllers')
 						template: error.message
 					});
 				} else {
+					//logged in
 					console.log(data);
+				}
+			});
+		};
+
+		$scope.logout = function () {
+			account.logout(function (error) {
+				if (error) {
+					$ionicPopup.alert({
+						title: 'Sorry',
+						template: error.message
+					});
 				}
 			});
 		};

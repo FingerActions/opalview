@@ -1,37 +1,42 @@
 'use strict';
 angular.module('starter.services')
-  .factory('account', function($http, Card) {
-    var baseUrl = 'https://www.opal.com.au/';
+  .factory('account', function($http, opalUrl) {
     var init = function(cb) {
-      $http.get(baseUrl)
-        .success(function(data, status, header) {
+      $http.get(opalUrl)
+        .success(function(data, status, headers, config) {
           if (cb) {
-            cb(data, status, header);
+            cb(null, data, status, headers, config);
           }
+        })
+        .error(function(data, status, headers, config) {
+          cb(new Error(data.errorMessage), data, status, headers, config);
         });
     };
 
     var login = function(username, password, cb) {
-      $http.post(baseUrl + 'login/registeredUserUsernameAndPasswordLogin' +
+      $http.post(opalUrl + 'login/registeredUserUsernameAndPasswordLogin' +
         '?h_username=' + username +
         '&h_password=' + password
       )
-        .success(function(data) {
+        .success(function(data, status, headers, config) {
           if (data.validationFailure) {
-            cb(new Error(data.errorMessage), null);
+            cb(new Error(data.errorMessage), data, status, headers, config);
           } else {
             cb(null, data, status, headers, config);
           }
         })
-        .error(function() {
-          cb(new Error('Please check your network or try again later'), null);
+        .error(function(data, status, headers, config) {
+          cb(new Error(data.errorMessage), data, status, headers, config);
         });
     };
 
     var logout = function(cb) {
-      $http.post('')
-        .success(function(data, status, header) {
-          cb(data, status, header);
+      $http.get(opalUrl + 'registered/logout')
+        .success(function(data, status, headers, config) {
+          cb(null, data, status, headers, config);
+        })
+        .error( function(data, status, headers, config) {
+          cb(new Error(data.errorMessage), data, status, headers, config);
         });
     };
 
