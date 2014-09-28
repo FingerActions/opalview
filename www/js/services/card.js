@@ -18,7 +18,7 @@ angular.module('starter.services')
     		month = -1;
     		year = -1;
     	}
-      
+
       $http.get(opalUrl + 'opal-card-activities-list?AMonth=' + month + '&AYear=' + year + '&cardIndex=' + cardId + '&pageIndex=' + pageIndex)
         .success(function (data, status, headers, config) {
           cb(null, data, status, headers, config);

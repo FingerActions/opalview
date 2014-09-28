@@ -1,10 +1,10 @@
 'use strict';
 angular.module('starter.controllers')
-	.controller('CardCtrl', function (account, $ionicPopup, $http, $scope, $ionicModal) {
+	.controller('CardCtrl', function (account, $ionicPopup, $http, $scope, $ionicModal, card) {
 		account.init();
 
 		$scope.login = function () {
-			account.login($scope.username, $scope.password, function (error, data) {
+			account.login($scope.username, $scope.password, function (error) {
 				if (error) {
 					$ionicPopup.alert({
 						title: 'Sorry',
@@ -12,7 +12,9 @@ angular.module('starter.controllers')
 					});
 				} else {
 					//logged in
-					console.log(data);
+					card.getJsonCardDetailsArray(function (error, data) {
+						console.log(data);
+					});
 				}
 			});
 		};
