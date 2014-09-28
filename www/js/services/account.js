@@ -1,6 +1,6 @@
 'use strict';
 angular.module('starter.services')
-  .factory('account', function($http) {
+  .factory('account', function($http, Card) {
     var baseUrl = 'https://www.opal.com.au/';
     var init = function(cb) {
       $http.get(baseUrl)
@@ -23,9 +23,16 @@ angular.module('starter.services')
             $http.get('https://www.opal.com.au/registered/index').success(function(data) {
               var parser = new DOMParser();
               var doc = parser.parseFromString(data, 'text/html');
-              var info = {};
-              info.balance = doc.getElementById('dashboard-active-cards').getElementsByTagName('td')[1].innerHTML;
-              cb(null, info);
+
+              var domCardDetails = doc.getElementById('card-details').getElementsByTagName('tbody')[0];
+              var balance = domCardDetails.getElementsByTagName('tr')[0].getElementsByTagName('strong')[1].innerHTML;
+              var name = domCardDetails.getElementsByTagName('tr')[1].getElementsByTagName('td')[1].innerHTML;
+              var accHolder = domCardDetails.getElementsByTagName('tr')[2].getElementsByTagName('td')[1].innerHTML;
+              var number = domCardDetails.getElementsByTagName('tr')[3].getElementsByTagName('td')[1].innerHTML;
+              var status = domCardDetails.getElementsByTagName('tr')[4].getElementsByTagName('td')[1].innerHTML;
+              var card = new Card(balance, name, accHolder, number, status);
+              // var card =
+              cb(null, card);
             });
           }
         })
