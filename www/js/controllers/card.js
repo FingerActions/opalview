@@ -14,6 +14,13 @@ angular.module('starter.controllers')
 					//logged in
 					card.getJsonCardDetailsArray(function (error, data) {
 						console.log(data);
+						$scope.modal.hide();
+						setTimeout(function(){
+							$ionicPopup.alert({
+								title: 'Congratulations!',
+								template: "You have added your opal cards."
+							},1500);
+						});
 					});
 				}
 			});
