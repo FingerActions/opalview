@@ -1,6 +1,7 @@
 'use strict';
 angular.module('starter.controllers')
 	.controller('HistoryCtrl', function ($scope, card) {
+		/* Example how to show charts 
 		$scope.cards = card.all();
 		$scope.chartType = 'bar'
 		$scope.config1 = {
@@ -30,5 +31,6 @@ angular.module('starter.controllers')
 				x: "F",
 				y: [5.5]
 			}]
-		};
+		};*/
+
 	});
