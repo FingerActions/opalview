@@ -18,7 +18,7 @@ angular.module('starter.controllers')
 						setTimeout(function(){
 							$ionicPopup.alert({
 								title: 'Congratulations!',
-								template: "You have added your opal cards."
+								template: 'You have added your opal cards.'
 							},1500);
 						});
 					});
