@@ -12,7 +12,8 @@ angular.module('starter.services')
         });
     };
 
-    var loadCardActivities = function(cb, month, year, cardId, pageIndex) {
+    var loadCardActivities = function(cb, cardId, pageIndex, month, year) {
+      // month is zero based, year is full year, they are optional
       if(!month || !year){
     		//make both them equals zero i.e. load the default page
     		month = -1;
