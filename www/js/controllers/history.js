@@ -2,10 +2,10 @@
 angular.module('starter.controllers')
 	.controller('HistoryCtrl', function ($scope, card) {
 		$scope.cards = card.all();
-		$scope.chartType = 'bar'
+		$scope.chartType = 'bar';
 		$scope.config1 = {
 			labels: false,
-			title: "Weekly",
+			title: 'Weekly',
 			legend: {
 				display: false,
 				position: 'left'
@@ -15,19 +15,19 @@ angular.module('starter.controllers')
 		$scope.data1 = {
 
 			data: [{
-				x: "M",
+				x: 'M',
 				y: [2.75]
 			}, {
-				x: "T",
+				x: 'T',
 				y: [3.5]
 			}, {
-				x: "W",
+				x: 'W',
 				y: [2.75]
 			}, {
-				x: "T",
+				x: 'T',
 				y: [6.8]
 			}, {
-				x: "F",
+				x: 'F',
 				y: [5.5]
 			}]
 		};
