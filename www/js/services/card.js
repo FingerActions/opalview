@@ -1,9 +1,9 @@
 'use strict';
 angular.module('starter.services')
-  .factory('card', function($http, opalUrl) {
+  .factory('card', function($http, url) {
 
     var getJsonCardDetailsArray = function(cb) {
-      $http.get(opalUrl + 'registered/getJsonCardDetailsArray')
+      $http.get(url.opal + 'registered/getJsonCardDetailsArray')
         .success(function (data, status, headers, config) {
           cb(null, data, status, headers, config);
         })
@@ -20,7 +20,7 @@ angular.module('starter.services')
     		year = -1;
     	}
 
-      $http.get(opalUrl + 'opal-card-activities-list?AMonth=' + month + '&AYear=' + year + '&cardIndex=' + cardId + '&pageIndex=' + pageIndex)
+      $http.get(url.opal + 'opal-card-activities-list?AMonth=' + month + '&AYear=' + year + '&cardIndex=' + cardId + '&pageIndex=' + pageIndex)
         .success(function (data, status, headers, config) {
           cb(null, data, status, headers, config);
         })

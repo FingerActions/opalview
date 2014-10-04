@@ -1,8 +1,8 @@
 'use strict';
 angular.module('starter.services')
-  .factory('account', function($http, opalUrl, $window) {
+  .factory('account', function($http, url, $window) {
     var init = function(cb) {
-      $http.get(opalUrl)
+      $http.get(url.opal)
         .success(function(data, status, headers, config) {
           if (cb) {
             cb(null, data, status, headers, config);
@@ -14,7 +14,7 @@ angular.module('starter.services')
     };
 
     var login = function(username, password, cb) {
-      $http.post(opalUrl + 'login/registeredUserUsernameAndPasswordLogin' +
+      $http.post(url.opal + 'login/registeredUserUsernameAndPasswordLogin' +
         '?h_username=' + username +
         '&h_password=' + password
       )
@@ -31,7 +31,7 @@ angular.module('starter.services')
     };
 
     var logout = function(cb) {
-      $http.get(opalUrl + 'registered/logout')
+      $http.get(url.opal + 'registered/logout')
         .success(function(data, status, headers, config) {
           cb(null, data, status, headers, config);
         })
