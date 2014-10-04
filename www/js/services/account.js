@@ -1,6 +1,6 @@
 'use strict';
 angular.module('starter.services')
-  .factory('account', function($http, opalUrl) {
+  .factory('account', function($http, opalUrl, $window) {
     var init = function(cb) {
       $http.get(opalUrl)
         .success(function(data, status, headers, config) {
@@ -41,11 +41,11 @@ angular.module('starter.services')
     };
 
     var save = function(username, password) {
-      window.localStorage.setItem('opal', username + ';' + password);
+      $window.localStorage.setItem('opal', username + ';' + password);
     };
 
     var load = function() {
-      var credential = window.localStorage.getItem('opal').split(';');
+      var credential = $window.localStorage.getItem('opal').split(';');
       return {
         username: credential[0],
         password: credential[1]
