@@ -9,37 +9,47 @@ angular.module('starter.services')
         '&hDeparture=' + hDeparture +
         '&hArrive=' + hArrive
       ).success(function(data) {
+        var parser = new DOMParser();
+        var doc = parser.parseFromString(data, 'text/html');
+        var fareDoc = doc.getElementsByClassName('fareOptions')[2].getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+        var singlePeakDoc = fareDoc[0].getElementsByTagName('td'),
+        singleOffPeakDoc = fareDoc[1].getElementsByTagName('td'),
+        dailyCapMonToSatDoc = fareDoc[2].getElementsByTagName('td'),
+        dailyCapSunDoc = fareDoc[3].getElementsByTagName('td'),
+        defaultFarePeakDoc = fareDoc[4].getElementsByTagName('td'),
+        defaultFareOffPeakDoc = fareDoc[5].getElementsByTagName('td');
+
         var adult = {},
           child = {},
           senior = {},
           concession = {};
-        adult.singlePeak = 4.1;
-        adult.singleOffPeak = 2.87;
-        adult.dailyCapMonToSat = 15;
-        adult.dailyCapSun = 2.5;
-        adult.defaultPeak = 8.1;
-        adult.defaultOffPeak = 5.67;
+        adult.singlePeak = singlePeakDoc[1].innerHTML;
+        adult.singleOffPeak = singleOffPeakDoc[1].innerHTML;
+        adult.dailyCapMonToSat = dailyCapMonToSatDoc[1].innerHTML;
+        adult.dailyCapSun = dailyCapSunDoc[1].innerHTML;
+        adult.defaultPeak = defaultFarePeakDoc[1].innerHTML;
+        adult.defaultOffPeak = defaultFareOffPeakDoc[1].innerHTML;
 
-        child.singlePeak = 4.1;
-        child.singleOffPeak = 2.87;
-        child.dailyCapMonToSat = 15;
-        child.dailyCapSun = 2.5;
-        child.defaultPeak = 8.1;
-        child.defaultOffPeak = 5.67;
+        child.singlePeak = singlePeakDoc[2].innerHTML;
+        child.singleOffPeak = singleOffPeakDoc[2].innerHTML;
+        child.dailyCapMonToSat = dailyCapMonToSatDoc[2].innerHTML;
+        child.dailyCapSun = dailyCapSunDoc[2].innerHTML;
+        child.defaultPeak = defaultFarePeakDoc[2].innerHTML;
+        child.defaultOffPeak = defaultFareOffPeakDoc[2].innerHTML;
 
-        senior.singlePeak = 4.1;
-        senior.singleOffPeak = 2.87;
-        senior.dailyCapMonToSat = 15;
-        senior.dailyCapSun = 2.5;
-        senior.defaultPeak = 8.1;
-        senior.defaultOffPeak = 5.67;
+        senior.singlePeak = singlePeakDoc[3].innerHTML;
+        senior.singleOffPeak = singleOffPeakDoc[3].innerHTML;
+        senior.dailyCapMonToSat = dailyCapMonToSatDoc[3].innerHTML;
+        senior.dailyCapSun = dailyCapSunDoc[3].innerHTML;
+        senior.defaultPeak = defaultFarePeakDoc[3].innerHTML;
+        senior.defaultOffPeak = defaultFareOffPeakDoc[3].innerHTML;
 
-        concession.singlePeak = 4.1;
-        concession.singleOffPeak = 2.87;
-        concession.dailyCapMonToSat = 15;
-        concession.dailyCapSun = 2.5;
-        concession.defaultPeak = 8.1;
-        concession.defaultOffPeak = 5.67;
+        concession.singlePeak = singlePeakDoc[4].innerHTML;
+        concession.singleOffPeak = singleOffPeakDoc[4].innerHTML;
+        concession.dailyCapMonToSat = dailyCapMonToSatDoc[4].innerHTML;
+        concession.dailyCapSun = dailyCapSunDoc[4].innerHTML;
+        concession.defaultPeak = defaultFarePeakDoc[4].innerHTML;
+        concession.defaultOffPeak = defaultFareOffPeakDoc[4].innerHTML;
 
         var fare = {
           adult: adult,
