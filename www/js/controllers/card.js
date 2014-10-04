@@ -59,4 +59,10 @@ angular.module('starter.controllers')
 		$scope.$on('modal.removed', function () {
 			// Execute action
 		});
+
+		//get card details array
+		card.getJsonCardDetailsArray(function (error, data) {
+			console.log(data);
+			$scope.cards = data;
+		});
 	});
