@@ -1,7 +1,7 @@
 'use strict';
 angular.module('starter.controllers')
 	.controller('CardCtrl', function (account, $ionicPopup, $http, $scope, $ionicModal, card) {
-		// account.init();
+		account.init();
 
 		$scope.login = function () {
 			account.login($scope.username, $scope.password, function (error) {
