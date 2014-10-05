@@ -70,12 +70,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       }
     }
   })
-    .state('tab.card-detail', {
-      url: '/card/:cardId',
+    .state('tab.card-details', {
+      url: '/card/:cardNumber',
       views: {
         'tab-history': {
           templateUrl: 'templates/card-details.html',
-          controller: 'CardDetailCtrl'
+          controller: 'CardDetailsCtrl'
         }
       }
     })
