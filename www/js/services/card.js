@@ -34,42 +34,35 @@ angular.module('starter.services')
         });
     };
 
-    var get = function (cardNumber, cb) {
-      var length = cards.length;
-      if (length !== 0) {
-        while (length-- > 0) {
-          var card = cards[length];
-          if (card.cardNumber === cardNumber) {
-            cb(card);
-          }
-        }
-      } else {
-        getJsonCardDetailsArray(function () {
-          var length = cards.length;
-          while (length-- > 0) {
-            var card = cards[length];
-            if (card.cardNumber === cardNumber) {
-              cb(card);
-            }
-          }
-        });
-      }
-    };
-
     var getAll = function (cb) {
       var length = cards.length;
       if (length !== 0) {
-        cb(cards);
+        cb(null, cards);
       }
       else {
         getJsonCardDetailsArray(cb);
       }
     };
 
+    var get = function (cardNumber, cb) {
+      getAll(function (){
+        var length = cards.length;
+        if (length !== 0) {
+          while (length-- > 0) {
+            var card = cards[length];
+            if (card.cardNumber === cardNumber) {
+              cb(null, card);
+              break;
+            }
+          }
+        }
+      });
+    };
+
     return {
       getJsonCardDetailsArray: getJsonCardDetailsArray,
       loadCardActivities: loadCardActivities,
-      get: get,
-      getAll: getAll
+      getAll: getAll,
+      get: get
     };
   });

@@ -1,8 +1,7 @@
 'use strict';
 angular.module('starter.controllers')
 	.controller('HistoryCtrl', function ($scope, card) {
-		card.getJsonCardDetailsArray(function (error, data) {
-			console.log(data);
+		card.getAll(function (error, data) {
 			$scope.cards = data;
 		});
 	});

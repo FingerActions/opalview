@@ -17,6 +17,9 @@ angular.module('starter.controllers')
 				});
 			} else {
 				//logged in
+				card.getAll(function(error, data) {
+					$scope.cards = data;
+				});
 
 				$scope.modal.hide();
 				$ionicPopup.alert({
