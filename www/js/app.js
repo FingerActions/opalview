@@ -8,7 +8,19 @@
 'use strict';
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'fing.acts.coverflow', 'fing.acts.directives', 'angularCharts'])
 
-.run(function ($ionicPlatform) {
+.run(function ($ionicPlatform, account) {
+  account.init(function (error){
+    if (error) {
+      $ionicPopup.alert({
+        title: 'Sorry',
+        template: error.message
+      });
+    } else {
+      //logged in
+
+    }
+  });
+
   $ionicPlatform.ready(function () {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)

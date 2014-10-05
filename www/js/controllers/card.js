@@ -1,7 +1,8 @@
 'use strict';
 angular.module('starter.controllers')
 	.controller('CardCtrl', function (account, $ionicPopup, $http, $scope, $ionicModal) {
-		function onLogin(error) {
+		$scope.login = function () {
+			account.login($scope.username, $scope.password, function (error) {
 			if (error) {
 				$ionicPopup.alert({
 					title: 'Sorry',
@@ -16,12 +17,7 @@ angular.module('starter.controllers')
 					template: 'You have added your opal cards.'
 				});
 			}
-		}
-
-		account.init(onLogin);
-
-		$scope.login = function () {
-			account.login($scope.username, $scope.password, onLogin);
+		});
 		};
 
 		$scope.logout = function () {
