@@ -1,8 +1,12 @@
 'use strict';
 angular.module('starter.controllers')
-	.controller('CardCtrl', function (account, $ionicPopup, $http, $scope, $ionicModal) {
+	.controller('CardCtrl', function (account, $ionicPopup, $http, $scope, $ionicModal,$ionicLoading) {
 		$scope.login = function () {
+    	$ionicLoading.show({
+      	template: 'Loading...'
+    	});
 			account.login($scope.username, $scope.password, function (error) {
+    	$ionicLoading.hide();
 			if (error) {
 				$ionicPopup.alert({
 					title: 'Sorry',
