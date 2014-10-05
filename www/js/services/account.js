@@ -3,9 +3,10 @@ angular.module('starter.services')
   .factory('account', function($http, url, $window) {
     var init = function(cb) {
       $http.get(url.opal)
-        .success(function(data, status, headers, config) {
-          if (cb) {
-            cb(null, data, status, headers, config);
+        .success(function() {
+          var credential = load();
+          if(credential) {
+            login(credential.username, credential.password, cb);
           }
         })
         .error(function(data, status, headers, config) {
@@ -22,6 +23,7 @@ angular.module('starter.services')
           if (data.validationFailure) {
             cb(new Error(data.errorMessage), data, status, headers, config);
           } else {
+            save(username, password);
             cb(null, data, status, headers, config);
           }
         })
@@ -45,19 +47,23 @@ angular.module('starter.services')
     };
 
     var load = function() {
-      var credential = $window.localStorage.getItem('opal').split(';');
-      return {
-        username: credential[0],
-        password: credential[1]
-      };
+      var localOpalCredential = $window.localStorage.getItem('opal');
+      if (localOpalCredential){
+        var credential = localOpalCredential.split(';');
+        return {
+          username: credential[0],
+          password: credential[1]
+        };
+      }
+      else {
+        return null;
+      }
     };
 
     // Public API
     return {
       init: init,
       login: login,
-      logout: logout,
-      save: save,
-      load: load
+      logout: logout
     };
   });
