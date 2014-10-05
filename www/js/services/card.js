@@ -34,13 +34,13 @@ angular.module('starter.services')
         });
     };
 
-    var get = function (cardNumber) {
+    var get = function (cardNumber, cb) {
       var length = cards.length;
       if (length !== 0) {
         while (length-- > 0) {
           var card = cards[length];
           if (card.cardNumber === cardNumber) {
-            return card;
+            cb(card);
           }
         }
       } else {
@@ -49,7 +49,7 @@ angular.module('starter.services')
           while (length-- > 0) {
             var card = cards[length];
             if (card.cardNumber === cardNumber) {
-              return card;
+              cb(card);
             }
           }
         });
