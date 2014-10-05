@@ -56,9 +56,20 @@ angular.module('starter.services')
       }
     };
 
+    var getAll = function (cb) {
+      var length = cards.length;
+      if (length !== 0) {
+        cb(cards);
+      }
+      else {
+        getJsonCardDetailsArray(cb);
+      }
+    };
+
     return {
       getJsonCardDetailsArray: getJsonCardDetailsArray,
       loadCardActivities: loadCardActivities,
-      get: get
+      get: get,
+      getAll: getAll
     };
   });

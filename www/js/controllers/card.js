@@ -1,6 +1,9 @@
 'use strict';
 angular.module('starter.controllers')
-	.controller('CardCtrl', function (account, $ionicPopup, $http, $scope, $ionicModal,$ionicLoading) {
+	.controller('CardCtrl', function (account, $ionicPopup, $http, $scope, $ionicModal, card, $ionicLoading) {
+		card.getAll(function(error, data) {
+			$scope.cards = data;
+		});
 		$scope.login = function () {
     	$ionicLoading.show({
       	template: 'Loading...'
