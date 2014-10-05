@@ -1,6 +1,10 @@
 'use strict';
 angular.module('starter.controllers')
-	.controller('CardCtrl', function (account, $ionicPopup, $http, $scope, $ionicModal) {
+	.controller('CardCtrl', function (account, $ionicPopup, $http, $scope, $ionicModal, card) {
+		card.getAll(function(error, data) {
+			$scope.cards = data;
+		});
+
 		$scope.login = function () {
 			account.login($scope.username, $scope.password, function (error) {
 			if (error) {

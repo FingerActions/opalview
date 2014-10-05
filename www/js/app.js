@@ -8,7 +8,7 @@
 'use strict';
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'fing.acts.coverflow', 'fing.acts.directives', 'angularCharts'])
 
-.run(function ($ionicPlatform, account) {
+.run(function ($ionicPlatform, $ionicPopup, account) {
   account.init(function (error){
     if (error) {
       $ionicPopup.alert({
