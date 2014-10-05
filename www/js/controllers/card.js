@@ -17,10 +17,15 @@ angular.module('starter.controllers')
 				});
 			} else {
 				//logged in
+				var cards = [];
 				card.getAll(function(error, data) {
-					$scope.cards = data;
+					cards = data;
 				});
-
+				var length = cards.length;
+				while(length-- > 0) {
+				   card.loadCardActivities(cards[length].activities,cards[length].cardNumber,0,8,2014);
+				}
+				$scope.cards = cards;
 				$scope.modal.hide();
 				$ionicPopup.alert({
 					title: 'Congratulations!',
