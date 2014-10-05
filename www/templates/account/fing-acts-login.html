@@ -3,23 +3,23 @@
     <button class="button icon-left ion-ios7-arrow-left button-clear " ng-click="closeLoginModal()">Back</button>
     <h1 class="title">Add Account</h1>
   </ion-header-bar>
-  <ion-content>
+  <ion-content id="login">
     <div class="row responsive-sm">
-      <div>
-        To add your account, please use login details registered from oPal offical website.
+      <div class="title">
+        To add your account, please use login details from oPal offical website.
       </div>
     </div>
     <form name="loginForm">
-      <div class="list">
+      <div class="list loginform">
         <label class="item item-input">
-          <i class="icon ion-person placeholder-icon"></i>
-          <input type="text" placeholder="Username" ng-model="$root.username" name="username" required>
-          <span class="error" ng-show="loginForm.username.$error.required && loginForm.$dirty">Required!</span><br>
+          <i class="icon ion-android-mail placeholder-icon"></i>
+          <input type="text" placeholder="Email" ng-model="$root.username" name="username" required>
+          <!--<span class="error" ng-show="loginForm.username.$error.required && loginForm.$dirty">Required!</span><br>-->
         </label>
         <label class="item item-input">
           <i class="icon ion-locked placeholder-icon"></i>
           <input type="password" placeholder="Password" ng-model="$root.password" name="password" required>
-          <span class="error" ng-show="loginForm.password.$error.required && loginForm.$dirty">Required!</span><br>
+          <!--<span class="error" ng-show="loginForm.password.$error.required && loginForm.$dirty">Required!</span><br>-->
         </label>
       </div>
       <div class="row responsive-sm">
@@ -28,7 +28,7 @@
         </button>
       </div>
       <div class="row responsive-sm">
-        <div class="item item-text-wrap">
+        <div class="title">
           *This app does not transimit your details. All credentials stores locally on your phone.
         </div>
       </div>

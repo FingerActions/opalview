@@ -1,0 +1,28 @@
+/*!
+* Opal login.scss - SCSS Style
+* -----------------------------------
+*/
+
+#login{
+	.title{
+		margin:20px;
+	}
+	.loginform{
+		width:90%;
+		margin:0 auto;
+	}
+	.error{
+		color: red;
+
+	}
+	button {
+		width:90%;
+		margin-top:20px;
+		left:50%;
+		-webkit-transform: translate(-50%,0%);
+	}
+	.disclaimer{
+		margin:20px 0 0 0;
+	}
+
+}
