@@ -1,5 +1,6 @@
 'use strict';
 angular.module('starter.controllers')
-	.controller('CardDetailCtrl', function ($scope, $stateParams, card) {
-		$scope.cards = card.get($stateParams.cardId);
+	.controller('CardDetailsCtrl', function ($scope, $stateParams, card) {
+		$scope.card = card.get($stateParams.cardNumber);
+		console.log($scope.card);
 	});
