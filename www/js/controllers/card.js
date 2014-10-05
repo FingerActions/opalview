@@ -1,27 +1,27 @@
 'use strict';
 angular.module('starter.controllers')
-	.controller('CardCtrl', function (account, $ionicPopup, $http, $scope, $ionicModal, card) {
-		account.init();
+	.controller('CardCtrl', function (account, $ionicPopup, $http, $scope, $ionicModal) {
+		function onLogin(error) {
+			if (error) {
+				$ionicPopup.alert({
+					title: 'Sorry',
+					template: error.message
+				});
+			} else {
+				//logged in
+
+				$scope.modal.hide();
+				$ionicPopup.alert({
+					title: 'Congratulations!',
+					template: 'You have added your opal cards.'
+				});
+			}
+		}
+
+		account.init(onLogin);
 
 		$scope.login = function () {
-			account.login($scope.username, $scope.password, function (error) {
-				if (error) {
-					$ionicPopup.alert({
-						title: 'Sorry',
-						template: error.message
-					});
-				} else {
-					//logged in
-					card.getJsonCardDetailsArray(function (error, data) {
-						console.log(data);
-						$scope.modal.hide();
-						$ionicPopup.alert({
-							title: 'Congratulations!',
-							template: 'You have added your opal cards.'
-						});
-					});
-				}
-			});
+			account.login($scope.username, $scope.password, onLogin);
 		};
 
 		$scope.logout = function () {
@@ -58,11 +58,5 @@ angular.module('starter.controllers')
 		// Execute action on remove modal
 		$scope.$on('modal.removed', function () {
 			// Execute action
-		});
-
-		//get card details array
-		card.getJsonCardDetailsArray(function (error, data) {
-			console.log(data);
-			$scope.cards = data;
 		});
 	});
