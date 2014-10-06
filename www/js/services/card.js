@@ -25,9 +25,30 @@ angular.module('starter.services')
         year = -1;
       }
 
-      $http.get(url.opal + 'opal-card-activities-list?AMonth=' + month + '&AYear=' + year + '&cardIndex=' + cardId + '&pageIndex=' + pageIndex)
+      $http.get(url.opal + 'registered/opal-card-activities-list?AMonth=' + month + '&AYear=' + year + '&cardIndex=' + cardId + '&pageIndex=' + pageIndex)
         .success(function (data, status, headers, config) {
-          cb(null, data, status, headers, config);
+          var parser = new DOMParser();
+          var doc = parser.parseFromString(data, 'text/html');
+          var activitiesDoc = doc.getElementById('transaction-data').getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+          var length = activitiesDoc.length;
+          var activities = [];
+          var reBr = /<br>/g;
+          while (length-- > 0) {
+            var activityRowDoc = activitiesDoc[length].getElementsByTagName('td');
+            var activity = {
+              transactionNumber: activityRowDoc[0].innerHTML,
+              dateTime: activityRowDoc[1].innerHTML.replace(reBr, ' '),
+              mode: activityRowDoc[2].innerHTML,
+              details: activityRowDoc[3].innerHTML,
+              journeyNumber: activityRowDoc[4].innerHTML,
+              fareApplied: activityRowDoc[5].innerHTML,
+              fare: activityRowDoc[6].innerHTML,
+              discount: activityRowDoc[7].innerHTML,
+              amount: activityRowDoc[8].innerHTML
+            };
+            activities.push(activity);
+          }
+          cb(null, activities, status, headers, config);
         })
         .error(function (data, status, headers, config) {
           cb(new Error(data.errorMessage), data, status, headers, config);

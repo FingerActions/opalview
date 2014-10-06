@@ -1,9 +1,22 @@
 'use strict';
 angular.module('starter.controllers')
 	.controller('CardCtrl', function (account, $ionicPopup, $http, $scope, $ionicModal, card, $ionicLoading) {
+		var cards = [];
+		function getCardDetails(data) {
+			cards = data;
+			var length = cards.length;
+			console.log(length);
+			while(length-- > 0) {
+				card.loadCardActivities(function(error, data) {
+					console.log(data);
+				}, length, 1);
+			}
+			$scope.cards = cards;
+		}
 		card.getAll(function(error, data) {
-			$scope.cards = data;
+			getCardDetails(data);
 		});
+
 		$scope.login = function () {
     	$ionicLoading.show({
       	template: 'Loading...'
@@ -17,14 +30,9 @@ angular.module('starter.controllers')
 				});
 			} else {
 				//logged in
-				var cards = [];
 				card.getAll(function(error, data) {
-					cards = data;
+					getCardDetails(data);
 				});
-				var length = cards.length;
-				while(length-- > 0) {
-				   card.loadCardActivities(cards[length].activities,cards[length].cardNumber,0,8,2014);
-				}
 				$scope.cards = cards;
 				$scope.modal.hide();
 				$ionicPopup.alert({
