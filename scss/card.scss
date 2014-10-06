@@ -3,11 +3,17 @@
 * -----------------------------------
 */
 
-#card{
+#card {
 	.info{
 		margin: 8px;
 	}
 	.journeyNumber{
 		float:right;
 	}
+}
+
+.activity-mode {
+	position: absolute;
+	top: 16px;
+	left: 16px;
 }
