@@ -47,6 +47,7 @@ angular.module('starter.services')
               amount: activityRowDoc[8].innerHTML
             };
             activities.push(activity);
+            activities.reverse();
           }
           cb(null, activities, status, headers, config);
         })
