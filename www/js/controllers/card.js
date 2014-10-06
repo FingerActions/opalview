@@ -3,10 +3,11 @@ angular.module('starter.controllers')
   .controller('CardCtrl', function(account, $ionicPopup, $http, $scope, $ionicModal, card, $ionicLoading) {
 		function loadCardsActivities(data) {
 			var cards = data;
-			var length = cards.length;
+			var index = length = cards.length;
 			while(length-- > 0) {
 				card.loadCardActivities(function(error, data) {
-					console.log(data);
+					--index;
+					$scope.cards[index].activities = data;
 				}, length, 1);
 			}
 			$scope.cards = cards;
