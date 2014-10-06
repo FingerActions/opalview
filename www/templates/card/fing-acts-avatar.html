@@ -1,4 +1,4 @@
 <img src="img/train.png">
-<h4><span class="from">Central</span><span>  to  </span><span class="to">Hurstville</span><span class="tripNum">Trip:#6</span></h4>
-<h4><span class="spent">$2.87</span><span class="fareApplied">(off-peak)</span></h4>
-<p>Fri 08:35AM</p>
+<h4><span class="details">{{activity.details}}</span><span class="journeyNumber">{{activity.journeyNumber}}</span></h4>
+<h4><span class="amount">{{activity.amount}}</span>&nbsp<span class="fareApplied">{{activity.fareApplied?'(':''}}{{activity.fareApplied}}{{activity.fareApplied?')':''}}</span></h4>
+<p>{{activity.dateTime}}</p>

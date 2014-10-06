@@ -5,7 +5,7 @@
         <span>{{card.cardNickName}}</span><span style="float:right">{{card.cardBalanceInDollars}}</span>
       </div>
       <p class="info">Most Recent Trip:</p>
-      <fing-acts-avatar class="item item-avatar" activity="card.activities"></fing-acts-avatar>
+      <fing-acts-avatar class="item item-avatar" ng-repeat="activity in card.activities"></fing-acts-avatar>
     </div>
   </div>
 </div>
