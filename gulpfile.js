@@ -9,10 +9,6 @@ var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 var protractor = require('gulp-protractor').protractor;
 
-var paths = {
-  sass: ['./scss/**/*.scss']
-};
-
 gulp.task('default', ['sass']);
 
 gulp.task('sass', function(done) {
