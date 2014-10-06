@@ -6,20 +6,7 @@ angular.module('starter.controllers')
 			var index = length = cards.length;
 			while(length-- > 0) {
 				card.loadCardActivities(function(error, data) {
-					--index;
-          var lastActivities = [];
-          var dataSize = data.length;
-          var latestIndex = 5;
-          while(--dataSize >0 && latestIndex-- >0)
-          {
-            lastActivities.push(data[dataSize]);
-          }
-					$scope.cards[index].activities = lastActivities;
-
-          $scope.showRecentActivity = function(){
-              return lastActivities.length>0 ? true : false;
-          };
-
+					$scope.cards[--index].activities = data;
 				}, length, 1);
 			}
 			$scope.cards = cards;
