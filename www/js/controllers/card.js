@@ -5,14 +5,27 @@ angular.module('starter.controllers')
 			var cards = data;
 			var index = length = cards.length;
 			while(length-- > 0) {
+        cards[length].activities = [];
 				card.loadCardActivities(function(error, data) {
-					$scope.cards[--index].activities = data;
+          if (error || !data) {
+            $scope.cards[--index].activities = null;
+          } else {
+            $scope.cards[--index].activities = data;
+          }
 				}, length, 1);
 			}
 			$scope.cards = cards;
 		}
 		card.getAll(function(error, data) {
-			loadCardsActivities(data);
+      if (error) {
+        $ionicLoading.hide();
+        $ionicPopup.alert({
+          title: 'Sorry',
+          template: error.message
+        });
+      } else {
+        loadCardsActivities(data);
+      }
     });
     $scope.login = function() {
       $ionicLoading.show({
