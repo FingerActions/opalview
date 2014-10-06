@@ -10,12 +10,16 @@ angular.module('starter.controllers')
           var lastActivities = [];
           var dataSize = data.length;
           var latestIndex = 2;
-          console.log(dataSize);
           while(--dataSize >0 && latestIndex-- >0)
           {
             lastActivities.push(data[dataSize]);
           }
 					$scope.cards[index].activities = lastActivities;
+
+          $scope.showRecentActivity = function(){
+              return lastActivities.length>0 ? true : false;
+          };
+
 				}, length, 1);
 			}
 			$scope.cards = cards;

@@ -4,8 +4,13 @@
       <div class="item item-divider item-energized">
         <span>{{card.cardNickName}}</span><span style="float:right">{{card.cardBalanceInDollars}}</span>
       </div>
-      <p class="info">Most Recent Trip:</p>
-      <fing-acts-avatar class="item item-avatar" ng-repeat="activity in card.activities"></fing-acts-avatar>
+      <div ng-show="!showRecentActivity()">
+        <p class="info">Most Recent Trip:</p>
+        <fing-acts-avatar class="item item-avatar" ng-repeat="activity in card.activities"></fing-acts-avatar>
+      </div>
+      <div ng-show="showRecentActivity()">
+        <p class="sorryInfo">No activity found for this card</p>
+      </div>
     </div>
   </div>
 </div>
