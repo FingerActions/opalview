@@ -9,7 +9,7 @@ angular.module('starter.controllers')
 					--index;
           var lastActivities = [];
           var dataSize = data.length;
-          var latestIndex = 2;
+          var latestIndex = 5;
           while(--dataSize >0 && latestIndex-- >0)
           {
             lastActivities.push(data[dataSize]);
