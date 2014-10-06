@@ -60,7 +60,7 @@ angular.module('starter.services')
             };
             activities.push(activity);
           }
-          activities.reverse();
+          //activities.reverse();
           cb(null, activities, status, headers, config);
         })
         .error(function (data, status, headers, config) {
