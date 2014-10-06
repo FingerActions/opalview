@@ -1,0 +1,20 @@
+<ion-modal-view>
+  <ion-header-bar align-title="center" class="bar-dark">
+    <button class="button icon-left ion-ios7-arrow-left button-clear " ng-click="closeLoginModal()">Back</button>
+    <h1 class="title">Logout</h1>
+  </ion-header-bar>
+  <ion-content id="login">
+    <div class="row responsive-sm">
+      <div class="title">
+        Are you sure to logout?
+      </div>
+    </div>
+    <form name="logoutForm">
+      <div class="row responsive-sm">
+        <button class="button button-full button-block button-positive" ng-click="logout()">
+          Logout
+        </button>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

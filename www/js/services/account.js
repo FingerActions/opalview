@@ -33,6 +33,7 @@ angular.module('starter.services')
     };
 
     var logout = function(cb) {
+      remove();
       $http.get(url.opal + 'registered/logout')
         .success(function(data, status, headers, config) {
           cb(null, data, status, headers, config);
@@ -58,6 +59,10 @@ angular.module('starter.services')
       else {
         return null;
       }
+    };
+
+    var remove = function() {
+      $window.localStorage.removeItem('opal');
     };
 
     // Public API
