@@ -3,14 +3,27 @@ angular.module('starter.controllers')
   .controller('CardCtrl', function(account, $ionicPopup, $http, $scope, $ionicModal, card, $ionicLoading) {
 		function loadCardsActivities(data) {
 			var cards = data;
-			var index = length = cards.length;
+			var length = cards.length;
 			while(length-- > 0) {
         cards[length].activities = [];
-				card.loadCardActivities(function(error, data) {
+				card.loadCardActivities(function(error, data, status, headers, config) {
+          console.log(config);
+          var cardIndexIndex = config.url.indexOf('cardIndex');
+          var index = cardIndexIndex + 10;
+          var url = config.url;
+          var cardIndex = url[index];
+          var urlLength = url.length;
+          var nextChar = url[++index];
+          while (nextChar!== '&' && ++index < urlLength) {
+            cardIndex += nextChar;
+            nextChar = url[index];
+          }
+
+          console.log(cardIndex);
           if (error || !data) {
-            $scope.cards[--index].activities = null;
+            $scope.cards[cardIndex].activities = null;
           } else {
-            $scope.cards[--index].activities = data;
+            $scope.cards[cardIndex].activities = data;
           }
 				}, length, 1);
 			}
