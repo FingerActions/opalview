@@ -8,12 +8,12 @@ angular.module('starter.controllers')
         cards[length].activities = [];
 				card.loadCardActivities(function(error, data, status, headers, config) {
           var cardIndexIndex = config.url.indexOf('cardIndex');
-          var index = cardIndexIndex + 9;
+          var index = cardIndexIndex + 10;
           var url = config.url;
           var cardIndex = '';
           var urlLength = url.length;
 
-          var nextChar = url[++index];
+          var nextChar = url[index];
           while (nextChar!== '&' && ++index < urlLength) {
             cardIndex += nextChar;
             nextChar = url[index];
