@@ -6,7 +6,7 @@ angular.module('starter.services')
       $http.get(url.opal + 'registered/getJsonCardDetailsArray')
         .success(function (data, status, headers, config) {
           if (data.indexOf('<!DOCTYPE') === 0) {
-            account.init(function(error, data, status, headers, config) {
+            account.login(function(error, data, status, headers, config) {
               if(error) {
                 cb(error, data, status, headers, config);
               }

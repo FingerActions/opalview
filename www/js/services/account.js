@@ -1,18 +1,12 @@
 'use strict';
 angular.module('starter.services')
   .factory('account', function($http, url, $window) {
-    var init = function(cb) {
-      $http.get(url.opal)
-        .success(function() {
-          var credential = load();
-          login(credential.username, credential.password, cb);
-        })
-        .error(function(data, status, headers, config) {
-          cb(new Error(data.errorMessage), data, status, headers, config);
-        });
-    };
-
-    var login = function(username, password, cb) {
+    var login = function(cb, username, password) {
+      if (!username) {
+        var credential = load();
+        username = credential.username;
+        password = credential.password;
+      }
       $http.post(url.opal + 'login/registeredUserUsernameAndPasswordLogin' +
         '?h_username=' + username +
         '&h_password=' + password
@@ -63,7 +57,6 @@ angular.module('starter.services')
 
     // Public API
     return {
-      init: init,
       login: login,
       logout: logout,
       isLoggedin: function(){

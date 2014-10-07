@@ -50,7 +50,7 @@ angular.module('starter.controllers')
       $ionicLoading.show({
         template: 'Loading...'
       });
-      account.login($scope.username, $scope.password, function(error) {
+      account.login(function(error) {
         if (error) {
 					$ionicLoading.hide();
           $ionicPopup.alert({
@@ -70,7 +70,7 @@ angular.module('starter.controllers')
 						});
           });
         }
-      });
+      }, $scope.username, $scope.password);
     };
 
     $scope.logout = function() {
