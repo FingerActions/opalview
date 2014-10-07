@@ -7,19 +7,18 @@ angular.module('starter.controllers')
 			while(length-- > 0) {
         cards[length].activities = [];
 				card.loadCardActivities(function(error, data, status, headers, config) {
-          console.log(config);
           var cardIndexIndex = config.url.indexOf('cardIndex');
-          var index = cardIndexIndex + 10;
+          var index = cardIndexIndex + 9;
           var url = config.url;
-          var cardIndex = url[index];
+          var cardIndex = '';
           var urlLength = url.length;
+
           var nextChar = url[++index];
           while (nextChar!== '&' && ++index < urlLength) {
             cardIndex += nextChar;
             nextChar = url[index];
           }
 
-          console.log(cardIndex);
           if (error || !data) {
             $scope.cards[cardIndex].activities = null;
           } else {
