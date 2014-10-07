@@ -1,9 +1,12 @@
 'use strict';
 angular.module('starter.controllers')
   .controller('CardCtrl', function(account, $ionicPopup, $http, $scope, $ionicModal, card, $ionicLoading) {
-		function loadCardsActivities(data) {
+		var isLoggedin = $scope.isLoggedin = !!account.isLoggedin();
+
+    function loadCardsActivities(data) {
 			var cards = data;
 			var length = cards.length;
+
 			while(length-- > 0) {
         cards[length].activities = [];
 				card.loadCardActivities(function(error, data, status, headers, config) {
@@ -28,17 +31,21 @@ angular.module('starter.controllers')
 			}
 			$scope.cards = cards;
 		}
-		card.getAll(function(error, data) {
-      if (error) {
-        $ionicLoading.hide();
-        $ionicPopup.alert({
-          title: 'Sorry',
-          template: error.message
-        });
-      } else {
-        loadCardsActivities(data);
-      }
-    });
+
+    if (isLoggedin) {
+      card.getAll(function(error, data) {
+        if (error) {
+          $ionicLoading.hide();
+          $ionicPopup.alert({
+            title: 'Sorry',
+            template: error.message
+          });
+        } else {
+          loadCardsActivities(data);
+        }
+      });
+    }
+
     $scope.login = function() {
       $ionicLoading.show({
         template: 'Loading...'
@@ -52,6 +59,7 @@ angular.module('starter.controllers')
           });
         } else {
           //logged in
+          isLoggedin = $scope.isLoggedin = true;
           card.getAll(function(error, data) {
 						loadCardsActivities(data);
 						$ionicLoading.hide();
@@ -76,6 +84,7 @@ angular.module('starter.controllers')
             template: error.message
           });
         } else {
+          isLoggedin = $scope.isLoggedin = false;
 					$ionicLoading.hide();
 					$scope.logoutModal.hide();
 					$scope.cards = [];

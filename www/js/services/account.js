@@ -5,9 +5,7 @@ angular.module('starter.services')
       $http.get(url.opal)
         .success(function() {
           var credential = load();
-          if(credential) {
-            login(credential.username, credential.password, cb);
-          }
+          login(credential.username, credential.password, cb);
         })
         .error(function(data, status, headers, config) {
           cb(new Error(data.errorMessage), data, status, headers, config);
@@ -56,9 +54,7 @@ angular.module('starter.services')
           password: credential[1]
         };
       }
-      else {
-        return null;
-      }
+      return null;
     };
 
     var remove = function() {
@@ -69,6 +65,9 @@ angular.module('starter.services')
     return {
       init: init,
       login: login,
-      logout: logout
+      logout: logout,
+      isLoggedin: function(){
+        return !!load();
+      }
     };
   });
