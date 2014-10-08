@@ -4,7 +4,6 @@
 <ion-content>
   <fing-acts-needlogin ng-show="!isLoggedin"></fing-acts-needlogin>
   <ion-div ng-show="isLoggedin">
-    <h4>Select cards</h4>
     <ion-list>
       <ion-div ng-repeat="card in cards">
         <a class="item item-icon-left item-icon-right item-light" ng-href="#/tab/card/{{card.cardNumber}}">
