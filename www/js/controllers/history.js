@@ -1,6 +1,7 @@
 'use strict';
 angular.module('starter.controllers')
-	.controller('HistoryCtrl', function ($scope, card) {
+	.controller('HistoryCtrl', function (account,$scope, card) {
+		var isLoggedin = $scope.isLoggedin = !!account.isLoggedin();
 		card.getAll(function (error, data) {
 			$scope.cards = data;
 		});
