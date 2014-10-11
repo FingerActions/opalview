@@ -42,6 +42,10 @@ angular.module('starter.services')
           var reBr = /<br>/g;
           while (length-- > 0) {
             var activityRowDoc = activitiesDoc[length].getElementsByTagName('td');
+            if (activityRowDoc.length === 1) {
+              cb(null, null, status, headers, config);
+              return;
+            }
             var modeDoc = activityRowDoc[2].children[0];
             if(modeDoc) {
               var imgSrc = url.opal + modeDoc.getAttribute('src');
