@@ -1,7 +1,7 @@
 'use strict';
 angular.module('starter.controllers')
   .controller('CardCtrl', function(account, $ionicPopup, $http, $scope, $ionicModal, card, $ionicLoading) {
-    var isLoggedin = $scope.isLoggedin = !!account.isLoggedin();
+    var isLoggedin = $scope.isLoggedin = account.isLoggedin();
     $scope.doRefresh = function() {
       card.getAll(function(error, data) {
         if (error) {

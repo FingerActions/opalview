@@ -83,7 +83,7 @@ angular.module('starter.services')
     };
 
     var get = function (cardNumber, cb) {
-      getAll(function (){
+      getAll(function () {
         var length = cards.length;
         if (length !== 0) {
           while (length-- > 0) {
