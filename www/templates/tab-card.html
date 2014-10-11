@@ -9,7 +9,8 @@
     </button>
   </div>
 </ion-header-bar>
-<ion-content>
+
+<ion-view title="Home">
   <div ng-show="isLoggedin">
     <ion-refresher
       pulling-text="Pull to refresh..."
@@ -18,4 +19,4 @@
   </div>
   <fing-acts-welcome ng-show="!isLoggedin"></fing-acts-welcome>
   <fing-acts-card ng-repeat="card in cards"></fing-acts-card>
-</ion-content>
+</ion-view>

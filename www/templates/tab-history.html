@@ -1,18 +1,17 @@
-<ion-header-bar align-title="center" class="bar-dark">
-  <h1 class="title">History</h1>
-</ion-header-bar>
-<ion-content>
-  <fing-acts-needlogin ng-show="!isLoggedin"></fing-acts-needlogin>
-  <ion-div ng-show="isLoggedin">
-    <ion-list>
-      <ion-div ng-repeat="card in cards">
-        <a class="item item-icon-left item-icon-right item-light" ng-href="#/tab/history/{{card.cardNumber}}">
-          <i class="icon ion-card"></i>
-          {{card.cardNickName}}
-          {{card.cardNumber}}
-          <i class="icon ion-ios7-arrow-right"></i>
-        </a>
-      </ion-div>
-    </ion-list>
-  </ion-div>
-</ion-content>
+<ion-view title="History">
+  <ion-content>
+    <fing-acts-needlogin ng-show="!isLoggedin"></fing-acts-needlogin>
+    <ion-div ng-show="isLoggedin">
+      <ion-list>
+        <ion-div ng-repeat="card in cards">
+          <a class="item item-icon-left item-icon-right item-light" ng-href="#/tab/history/{{card.cardNumber}}">
+            <i class="icon ion-card"></i>
+            {{card.cardNickName}}
+            {{card.cardNumber}}
+            <i class="icon ion-ios7-arrow-right"></i>
+          </a>
+        </ion-div>
+      </ion-list>
+    </ion-div>
+  </ion-content>
+</ion-view>
