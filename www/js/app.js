@@ -59,7 +59,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     }
   })
     .state('tab.card-details', {
-      url: '/card/:cardNumber',
+      url: '/history/:cardNumber',
       views: {
         'tab-history': {
           templateUrl: 'templates/card-details.html',
