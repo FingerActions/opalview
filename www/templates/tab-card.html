@@ -9,11 +9,13 @@
     </button>
   </div>
 </ion-header-bar>
-<ion-content ng-show"isLoggedin">
-  <ion-refresher
-    pulling-text="Pull to refresh..."
-    on-refresh="doRefresh()">
-  </ion-refresher>
+<ion-content>
+  <div ng-show="isLoggedin">
+    <ion-refresher
+      pulling-text="Pull to refresh..."
+      on-refresh="doRefresh()">
+    </ion-refresher>
+  </div>
   <fing-acts-welcome ng-show="!isLoggedin"></fing-acts-welcome>
   <fing-acts-card ng-repeat="card in cards"></fing-acts-card>
 </ion-content>
