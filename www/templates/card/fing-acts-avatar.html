@@ -1,4 +1,4 @@
 <span ng-bind-html="activity.mode" class="activity-mode"></span>
-<h4><span class="details">{{activity.details}}</span><span class="journeyNumber">#{{activity.journeyNumber}}</span></h4>
+<h4><span class="details">{{activity.details}}</span><span class="journeyNumber">{{activity.journeyNumber?'#':''}}{{activity.journeyNumber}}</span></h4>
 <h4><span class="amount">{{activity.amount}}</span>&nbsp<span class="fareApplied">{{activity.fareApplied?'(':''}}{{activity.fareApplied}}{{activity.fareApplied?')':''}}</span></h4>
 <p>{{activity.dateTime}}</p>
