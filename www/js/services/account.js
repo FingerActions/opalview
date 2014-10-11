@@ -10,18 +10,16 @@ angular.module('starter.services')
       $http.post(url.opal + 'login/registeredUserUsernameAndPasswordLogin' +
         '?h_username=' + username +
         '&h_password=' + password
-      )
-        .success(function(data, status, headers, config) {
-          if (data.validationFailure) {
-            cb(new Error(data.errorMessage), data, status, headers, config);
-          } else {
-            save(username, password);
-            cb(null, data, status, headers, config);
-          }
-        })
-        .error(function(data, status, headers, config) {
+      ).success(function(data, status, headers, config) {
+        if (data.validationFailure) {
           cb(new Error(data.errorMessage), data, status, headers, config);
-        });
+        } else {
+          save(username, password);
+          cb(null, data, status, headers, config);
+        }
+      }).error(function(data, status, headers, config) {
+        cb(new Error(data.errorMessage), data, status, headers, config);
+      });
     };
 
     var logout = function(cb) {
@@ -59,7 +57,7 @@ angular.module('starter.services')
     return {
       login: login,
       logout: logout,
-      isLoggedin: function(){
+      isLoggedin: function() {
         return !!load();
       }
     };
