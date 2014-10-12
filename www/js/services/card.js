@@ -2,7 +2,7 @@
 angular.module('starter.services')
   .factory('card', function($http, account, url) {
     var cards = [];
-    var getJsonCardDetailsArray = function (cb) {
+    var getCards = function (cb) {
       $http.get(url.opal + 'registered/getJsonCardDetailsArray')
         .success(function (data, status, headers, config) {
           if (data.indexOf('<!DOCTYPE') === 0) {
@@ -11,7 +11,7 @@ angular.module('starter.services')
                 cb(error, data, status, headers, config);
               }
               else{
-                getJsonCardDetailsArray(cb);
+                getCards(cb);
               }
             });
           } else {
@@ -72,35 +72,33 @@ angular.module('starter.services')
         });
     };
 
-    var getAll = function (cb) {
+    var getCachedCards = function (cb) {
       var length = cards.length;
       if (length !== 0) {
         cb(null, cards);
       }
       else {
-        getJsonCardDetailsArray(cb);
+        getCards(cb);
       }
     };
 
-    var get = function (cardNumber, cb) {
-      getAll(function () {
+    var getCard = function (cardNumber, cb) {
+      getCachedCards(function () {
         var length = cards.length;
-        if (length !== 0) {
-          while (length-- > 0) {
-            var card = cards[length];
-            if (card.cardNumber === cardNumber) {
-              cb(null, card);
-              break;
-            }
+        while (length-- > 0) {
+          var card = cards[length];
+          if (card.cardNumber === cardNumber) {
+            cb(null, card);
+            return;
           }
         }
       });
     };
 
     return {
-      getJsonCardDetailsArray: getJsonCardDetailsArray,
+      getCards: getCards,
       loadCardActivities: loadCardActivities,
-      getAll: getAll,
-      get: get
+      getCachedCards: getCachedCards,
+      getCard: getCard
     };
   });

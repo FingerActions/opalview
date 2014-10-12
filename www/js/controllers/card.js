@@ -3,7 +3,7 @@ angular.module('starter.controllers')
   .controller('CardCtrl', function(account, $ionicPopup, $http, $scope, $ionicModal, card, $ionicLoading) {
     var isLoggedin = $scope.isLoggedin = account.isLoggedin();
     $scope.doRefresh = function() {
-      card.getAll(function(error, data) {
+      card.getCards(function(error, data) {
         if (error) {
           $ionicLoading.hide();
           $ionicPopup.alert({
@@ -49,7 +49,7 @@ angular.module('starter.controllers')
     }
 
     if (isLoggedin) {
-      card.getAll(function(error, data) {
+      card.getCachedCards(function(error, data) {
         if (error) {
           $ionicLoading.hide();
           $ionicPopup.alert({
@@ -76,7 +76,7 @@ angular.module('starter.controllers')
         } else {
           //logged in
           isLoggedin = $scope.isLoggedin = true;
-          card.getAll(function(error, data) {
+          card.getCachedCards(function(error, data) {
             loadCardsActivities(data, false);
             $ionicLoading.hide();
             $scope.loginModal.hide();
