@@ -9,7 +9,7 @@
 angular.module('fing.acts.directives')
   .directive('fingActsHistoryDay', function () {
     return {
-      templateUrl: 'templates/card/fing-acts-history-day.html',
+      templateUrl: 'templates/history/fing-acts-history-day.html',
       restrict: 'E'
     };
   });
