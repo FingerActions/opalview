@@ -1,8 +1,11 @@
-<div class="buttons" side="left" ng-show="isLoggedin">
-  <button class="button button-clear" ng-click="openLogoutModal()"><i class="ion-android-remove"></i>
-  </button>
-</div>
-<div class="buttons" side="right" ng-show="!isLoggedin ">
-  <button class="button button-clear" ng-click="openLoginModal()"><i class="ion-android-add"></i>
-  </button>
-</div>
+<ion-header-bar align-title="center" class="bar-dark">
+  <h1 class="title">Card</h1>
+  <div class="buttons" ng-show="!isLoggedin">
+    <button class="button button-clear" ng-click="openLoginModal()"><i class="ion-android-add"></i>
+    </button>
+  </div>
+  <div class="buttons" ng-show="isLoggedin">
+    <button class="button button-clear" ng-click="openLogoutModal()"><i class="ion-android-remove"></i>
+    </button>
+  </div>
+</ion-header-bar>
