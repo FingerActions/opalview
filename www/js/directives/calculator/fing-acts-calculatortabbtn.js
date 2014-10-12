@@ -7,7 +7,7 @@
  * # fingActsdaymonthyear
  */
 angular.module('fing.acts.directives')
-  .directive('fingActsCalculatorfooter', function () {
+  .directive('fingActsCalculatortabbtn', function () {
     return {
       templateUrl: 'templates/button/fing-acts-calculatortabbtn.html',
       restrict: 'E'
