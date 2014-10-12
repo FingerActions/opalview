@@ -1,21 +1,13 @@
-<ion-header-bar align-title="center" class="bar-dark">
-  <h1 class="title">Card</h1>
-  <div class="buttons" ng-show="!isLoggedin">
-    <button class="button button-clear" ng-click="openLoginModal()"><i class="ion-android-add"></i>
-    </button>
-  </div>
-  <div class="buttons" ng-show="isLoggedin">
-    <button class="button button-clear" ng-click="openLogoutModal()"><i class="ion-android-remove"></i>
-    </button>
-  </div>
-</ion-header-bar>
-<ion-content>
-  <div ng-show="isLoggedin">
-    <ion-refresher
-      pulling-text="Pull to refresh..."
-      on-refresh="doRefresh()">
-    </ion-refresher>
-  </div>
-  <fing-acts-welcome ng-show="!isLoggedin"></fing-acts-welcome>
-  <fing-acts-card ng-repeat="card in cards"></fing-acts-card>
-</ion-content>
+<fing-acts-btnloginout></fing-acts-btnloginout>
+<ion-view title="Home" hide-nav-bar="true">
+  <ion-content>
+    <div ng-show="isLoggedin">
+      <ion-refresher
+        pulling-text="Pull to refresh..."
+        on-refresh="doRefresh()">
+      </ion-refresher>
+    </div>
+    <fing-acts-welcome ng-show="!isLoggedin"></fing-acts-welcome>
+    <fing-acts-card ng-repeat="card in cards"></fing-acts-card>
+  </ion-content>
+</ion-view>
