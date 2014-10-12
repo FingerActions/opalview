@@ -1,6 +1,6 @@
 <ion-view title="History">
   <ion-content>
-    <fing-acts-needlogin ng-show="!isLoggedin"></fing-acts-needlogin>
+    <fing-acts-unauthenticated ng-show="!isLoggedin"></fing-acts-unauthenticated>
     <ion-div ng-show="isLoggedin">
       <ion-list>
         <ion-div ng-repeat="card in cards">
