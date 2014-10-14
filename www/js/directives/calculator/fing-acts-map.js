@@ -9,7 +9,7 @@
 angular.module('fing.acts.directives')
   .directive('fingActsMap', function () {
     return {
-      templateUrl: 'templates/button/fing-acts-map.html',
+      templateUrl: 'templates/calculator/fing-acts-map.html',
       restrict: 'E'
     };
   });
