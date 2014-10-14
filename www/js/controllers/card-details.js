@@ -4,9 +4,7 @@ angular.module('starter.controllers')
 		card.getCard($stateParams.cardNumber, function(error, data) {
 			$scope.card = data;
 		});
-
-		$scope.type = 'Day';
-
+		$scope.type = 'day';
 		$scope.setType = function(type) {
 			$scope.type = type;
 		};
