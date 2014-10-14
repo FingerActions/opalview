@@ -5,9 +5,9 @@ angular.module('starter.controllers')
 			console.log(data);
 		});
 
-		$scope.type = 'By Map';
-		$scope.setType = function(event) {
-			$scope.type = angular.element(event.target).text();
-			console.log($scope.type);
+		$scope.type = 'map';
+		$scope.setType = function(type) {
+			$scope.type = type;
 		};
+
 	});
