@@ -6,7 +6,7 @@
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
 'use strict';
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'fing.acts.coverflow', 'fing.acts.directives', 'angularCharts'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'fing.acts.directives', 'angularCharts'])
 
 .run(function ($ionicPlatform, $ionicPopup, $window) {
   $ionicPlatform.ready(function () {
