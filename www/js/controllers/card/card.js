@@ -1,6 +1,6 @@
 'use strict';
 angular.module('starter.controllers')
-  .controller('CardCtrl', function(account, $ionicPopup, $http, $scope, $ionicModal, card, $ionicLoading) {
+  .controller('CardCtrl', function(account, $ionicPopup, url,$http, $scope, $ionicModal, card, $ionicLoading) {
     var isLoggedin = $scope.isLoggedin = account.isLoggedin();
     $scope.doRefresh = function() {
       card.getCards(function(error, data) {
@@ -107,6 +107,9 @@ angular.module('starter.controllers')
         }
       });
     };
+
+    $scope.activateURL = url.activateOpal;
+    $scope.instructionURL = url.instructions;
 
     $ionicModal.fromTemplateUrl('templates/account/fing-acts-login.html', {
       scope: $scope,
