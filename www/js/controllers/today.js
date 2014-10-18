@@ -18,4 +18,18 @@ angular.module('fgts.controllers')
         }
       });
     };
+
+		today.travelInfo(function(error, data) {
+			if (error) {
+				$ionicLoading.hide();
+				$ionicPopup.alert({
+					title: 'Sorry',
+					template: error.message
+				});
+			} else {
+				$scope.serviceInfo = data;
+				console.log($scope.serviceInfo);
+			}
+		});
+
   });

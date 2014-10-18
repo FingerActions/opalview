@@ -1,4 +1,4 @@
-<ion-view title="Today">
+<ion-view title="Live travel news">
   <ion-content>
 		<div>
 			<ion-refresher
@@ -6,6 +6,8 @@
 				on-refresh="doRefresh()">
 			</ion-refresher>
 		</div>
+
+		<div class="title"> </div>
 
     <div ng-repeat="info in serviceInfo">
       <div class="card">
