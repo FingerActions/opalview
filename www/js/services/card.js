@@ -11,7 +11,13 @@ angular.module('fgts.services')
                 cb(error, data, status, headers, config);
               }
               else{
-                regetCardsDetails(cb);
+                $http.get(url.opal + 'registered/getJsonCardDetailsArray')
+                  .success(function (data, status, headers, config) {
+                    cb(null, data, status, headers, config);
+                  })
+                  .error(function (data, status, headers, config) {
+                    cb(new Error(data.errorMessage), data, status, headers, config);
+                  });
               }
             });
           } else {
