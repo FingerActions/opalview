@@ -78,6 +78,16 @@ angular.module('fgts', ['ionic', 'fgts.controllers', 'fgts.services', 'fgts.dire
     }
   })
 
+  .state('tab.calculator-train', {
+    url: '/calculator/bus',
+    views: {
+      'tab-calculator': {
+        templateUrl: 'templates/calculator/fgts-calc-train.html',
+        controller: 'CalculatorCtrl'
+      }
+    }
+  })
+
   .state('tab.calculator-bus', {
     url: '/calculator/bus',
     views: {
@@ -119,5 +129,4 @@ angular.module('fgts', ['ionic', 'fgts.controllers', 'fgts.services', 'fgts.dire
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/recent');
-
 });
