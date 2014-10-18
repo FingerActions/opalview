@@ -1,7 +1,17 @@
 .chart {
   width: 100%;
-  height: 60vh;
-  margin-left: 25px;
+  height:500px;
+  margin: 0 auto;
+}
+
+.angular-charts-template .ac-chart{
+  width:100% !important;
+}
+
+svg{
+
+  width:100%;
+
 }
 
 .toggle-view-type {
