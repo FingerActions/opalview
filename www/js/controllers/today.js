@@ -1,3 +1,7 @@
 'use strict';
 angular.module('fgts.controllers')
-	.controller('TodayCtrl', function () {});
+	.controller('TodayCtrl', function ($scope, today) {
+	today.travelInfo(function(error, data){
+		$scope.serviceInfo = data;
+	});
+});
