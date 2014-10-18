@@ -20,6 +20,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 // Import all partials
 @import "www/lib/ionic/scss/ionic";
-@import "account";
 @import "recent";
+@import "account";
+@import "history";
 @import "calculator";
