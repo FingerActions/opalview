@@ -17,11 +17,11 @@ angular.module('fgts.controllers')
     };
 
     function getCardsRecent(data, refresh) {
-      var cards = data;
-      var length = cards.length;
+      var opals = data;
+      var length = opals.length;
 
       while (length-- > 0) {
-        cards[length].activities = [];
+        opals[length].activities = [];
         card.getCardActivities(function(error, data, status, headers, config) {
           var cardIndexIndex = config.url.indexOf('cardIndex');
           var index = cardIndexIndex + 10;
@@ -36,13 +36,13 @@ angular.module('fgts.controllers')
           }
 
           if (error || !data) {
-            $scope.cards[cardIndex].activities = null;
+            $scope.opals[cardIndex].activities = null;
           } else {
-            $scope.cards[cardIndex].activities = data;
+            $scope.opals[cardIndex].activities = data;
           }
         }, length, 1);
       }
-      $scope.cards = cards;
+      $scope.opals = opals;
       if (refresh) {
         $scope.$broadcast('scroll.refreshComplete');
       }
@@ -103,7 +103,7 @@ angular.module('fgts.controllers')
           isLoggedin = $scope.isLoggedin = false;
           $ionicLoading.hide();
           $scope.logoutModal.hide();
-          $scope.cards = [];
+          $scope.opals = [];
         }
       });
     };

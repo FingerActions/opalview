@@ -4,7 +4,7 @@ angular.module('fgts.controllers')
     var isLoggedin = $scope.isLoggedin = account.isLoggedin();
     if (isLoggedin) {
       card.getCardsDetails(function(error, data) {
-        $scope.cards = data;
+        $scope.opals = data;
       });
     }
   });
