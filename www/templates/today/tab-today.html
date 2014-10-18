@@ -1,23 +1,19 @@
 <ion-view title="Live travel news">
-  <ion-content>
-		<div>
-			<ion-refresher
-				pulling-text="Pull to refresh..."
-				on-refresh="doRefresh()">
-			</ion-refresher>
+  <ion-content class="today">
+    <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()">
+    </ion-refresher>
+		<div class="item item-divider">
+			<span>{{date | date:'medium'}}</span>
 		</div>
-
-		<div class="title"> </div>
-
-    <div ng-repeat="info in serviceInfo">
-      <div class="card">
+    <div class="card" ng-repeat="info in serviceInfo">
+      <div>
         <div class="item item-divider {{info.className}}">
           <span>{{info.lineName}}</span>
         </div>
-				<div class="item item-text-wrap">
-					<span ng-if="info.serviceStatus === 'Good service'">{{info.serviceStatus}}</span>
-					<span ng-if="info.serviceStatus !== 'Good service'">{{info.serviceLink}}</span>
+        <div class="item item-text-wrap">
+          <span ng-if="info.serviceStatus === 'Good service'">{{info.serviceStatus}}</span>
+          <span ng-if="info.serviceStatus !== 'Good service'">{{info.serviceLink}}</span>
+        </div>
       </div>
-    </div>
   </ion-content>
 </ion-view>

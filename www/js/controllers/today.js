@@ -6,7 +6,6 @@ angular.module('fgts.controllers')
 
       today.travelInfo(function(error, data) {
         if (error) {
-          $ionicLoading.hide();
           $ionicPopup.alert({
             title: 'Sorry',
             template: error.message
@@ -14,6 +13,7 @@ angular.module('fgts.controllers')
         } else {
           $scope.serviceInfo = data;
           console.log($scope.serviceInfo);
+					$scope.date = new Date();
 					$scope.$broadcast('scroll.refreshComplete');
         }
       });
@@ -31,5 +31,14 @@ angular.module('fgts.controllers')
 				console.log($scope.serviceInfo);
 			}
 		});
+
+		var updateClock = function(){
+			$scope.date = new Date();
+		}
+		setInterval(function(){
+			$scope.$apply(updateClock);
+
+		},1000);
+		updateClock();
 
   });
