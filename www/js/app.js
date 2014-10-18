@@ -97,6 +97,6 @@ angular.module('fgts', ['ionic', 'fgts.controllers', 'fgts.services', 'fgts.dire
   });
 
   // if none of the above states are matched, use this as the fallback
-  // $urlRouterProvider.otherwise('/tab/recent');
+  $urlRouterProvider.otherwise('/tab/recent');
 
 });
