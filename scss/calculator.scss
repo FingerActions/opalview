@@ -2,10 +2,36 @@
 * Opal calculator.scss - SCSS Style
 * -----------------------------------
 */
-#calculator
-{
-  .title{
-    margin:10px;
-  }
+#calculator {
+  .title {
+    margin: 10px;
 
+  }
+  .train {
+    background-image: url("../img/train.png");
+    height: 36px;
+    width: 35px;
+    background-repeat: no-repeat;
+    float: left;
+    margin-left: -45px;
+    background-repeat: no-repeat;
+  }
+  .bus {
+    background-image: url("../img/bus.png");
+    height: 36px;
+    width: 35px;
+    background-repeat: no-repeat;
+    float: left;
+    margin-left: -45px;
+    background-repeat: no-repeat;
+  }
+  .ferry {
+    background-image: url("../img/ferry.png");
+    height: 36px;
+    width: 35px;
+    background-repeat: no-repeat;
+    float: left;
+    margin-left: -45px;
+    background-repeat: no-repeat;
+  }
 }
