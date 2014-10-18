@@ -1,3 +1,3 @@
 'use strict';
-angular.module('starter.controllers')
+angular.module('fgts.controllers')
 	.controller('AboutCtrl', function () {});

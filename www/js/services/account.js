@@ -1,5 +1,5 @@
 'use strict';
-angular.module('starter.services')
+angular.module('fgts.services')
   .factory('account', function($http, url, $window) {
     var login = function(cb, username, password) {
       if (!username) {

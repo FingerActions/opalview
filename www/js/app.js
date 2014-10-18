@@ -1,12 +1,12 @@
 // Ionic Starter App
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
+// 'fgts' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-// 'starter.services' is found in services.js
-// 'starter.controllers' is found in controllers.js
+// 'fgts.services' is found in services.js
+// 'fgts.controllers' is found in controllers.js
 'use strict';
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'fing.acts.directives', 'angularCharts'])
+angular.module('fgts', ['ionic', 'fgts.controllers', 'fgts.services', 'fgts.directives'])
 
 .run(function ($ionicPlatform, $ionicPopup, $window) {
   $ionicPlatform.ready(function () {
@@ -38,13 +38,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   })
 
   // Each tab has its own nav history stack:
-
-  .state('tab.card', {
-    url: '/card',
+  .state('tab.recent', {
+    url: '/recent',
     views: {
-      'tab-card': {
-        templateUrl: 'templates/tab-card.html',
-        controller: 'CardCtrl'
+      'tab-recent': {
+        templateUrl: 'templates/recent/tab-recent.html',
+        controller: 'RecentCtrl'
       }
     }
   })
@@ -53,26 +52,25 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     url: '/history',
     views: {
       'tab-history': {
-        templateUrl: 'templates/tab-history.html',
+        templateUrl: 'templates/history/tab-history.html',
         controller: 'HistoryCtrl'
       }
     }
   })
-    .state('tab.card-details', {
-      url: '/history/:cardNumber',
-      views: {
-        'tab-history': {
-          templateUrl: 'templates/card-details.html',
-          controller: 'CardDetailsCtrl'
-        }
+  .state('tab.history.card', {
+    url: '/history/:cardNumber',
+    views: {
+      'fgts-history-card': {
+        templateUrl: 'templates/history/fgts-hist-card.html'
       }
-    })
+    }
+  })
 
   .state('tab.calculator', {
     url: '/calculator',
     views: {
       'tab-calculator': {
-        templateUrl: 'templates/tab-calculator.html',
+        templateUrl: 'templates/calculator/tab-calculator.html',
         controller: 'CalculatorCtrl'
       }
     }
@@ -82,7 +80,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     url: '/today',
     views: {
       'tab-today': {
-        templateUrl: 'templates/tab-today.html',
+        templateUrl: 'templates/today/tab-today.html',
         controller: 'TodayCtrl'
       }
     }
@@ -92,13 +90,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     url: '/about',
     views: {
       'tab-about': {
-        templateUrl: 'templates/tab-about.html',
+        templateUrl: 'templates/about/tab-about.html',
         controller: 'AboutCtrl'
       }
     }
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/card');
+  // $urlRouterProvider.otherwise('/tab/recent');
 
 });

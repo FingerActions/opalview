@@ -1,0 +1,60 @@
+<fgts-recent-acc></fgts-recent-acc>
+<ion-view title="Recent" hide-nav-bar="true">
+  <ion-content>
+
+    <div ng-show="isLoggedin">
+      <ion-refresher
+        pulling-text="Pull to refresh..."
+        on-refresh="doRefresh()">
+      </ion-refresher>
+    </div>
+
+    <fgts-recent-welcome></fgts-recent-welcome>
+
+    <div class="row responsive-sm" ng-repeat="card in cards">
+      <div class="col col-80 col-offset-10">
+        <div class="card">
+
+          <div class="item item-divider item-energized">
+            <span>{{card.cardNickName}}</span>
+            <span style="float:right">{{card.cardBalanceInDollars}}</span>
+          </div>
+
+          <div ng-show="card.activities.length==0">
+            <p class="info">Loading...</p>
+          </div>
+
+          <div ng-show="card.activities">
+            <p class="info">Most Recent Trip:</p>
+            <div class="item item-avatar" ng-repeat="activity in card.activities | limitTo: 5">
+              <span ng-bind-html="activity.mode" class="activity-mode"></span>
+              <h4>
+                <span class="details">{{activity.details}}</span>
+                <span class="journeyNumber">
+                  {{activity.journeyNumber?'#':'$'}}
+                  {{activity.journeyNumber}}
+                </span>
+              </h4>
+              <h4>
+                <span class="amount">{{activity.amount}}</span>&nbsp;
+                <span class="fareApplied">
+                  {{activity.fareApplied?'(':''}}
+                  {{activity.fareApplied}}
+                  {{activity.fareApplied?')':''}}
+                </span>
+              </h4>
+              <span class="ribbon"></span>
+              <p>{{activity.dateTime}}</p>
+            </div>
+          </div>
+
+          <div ng-show="!card.activities">
+            <p class="info">No activities found for this card</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>

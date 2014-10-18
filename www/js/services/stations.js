@@ -1,5 +1,5 @@
 'use strict';
-angular.module('starter.services')
+angular.module('fgts.services')
   .service('stations', function() {
     var stations = {};
 

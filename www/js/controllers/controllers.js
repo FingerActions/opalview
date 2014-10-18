@@ -1,2 +1,2 @@
 'use strict';
-angular.module('starter.controllers', ['angularCharts']);
+angular.module('fgts.controllers', ['angularCharts']);

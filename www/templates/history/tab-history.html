@@ -1,0 +1,17 @@
+<ion-view title="History">
+  <ion-content>
+    <fgts-unauth ng-show="!isLoggedin"></fgts-unauth>
+    <ion-div ng-show="isLoggedin">
+      <ion-list>
+        <ion-div ng-repeat="card in cards">
+          <a class="item item-icon-left item-icon-right item-light" ng-href="#/tab/history/{{card.cardNumber}}">
+            <i class="icon ion-card"></i>
+            {{card.cardNickName}}
+            {{card.cardNumber}}
+            <i class="icon ion-ios7-arrow-right"></i>
+          </a>
+        </ion-div>
+      </ion-list>
+    </ion-div>
+  </ion-content>
+</ion-view>

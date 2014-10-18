@@ -1,8 +1,8 @@
 'use strict';
-angular.module('starter.services')
+angular.module('fgts.services')
   .factory('card', function($http, account, url) {
     var cards = [];
-    var getCards = function (cb) {
+    var regetCardsDetails = function (cb) {
       $http.get(url.opal + 'registered/getJsonCardDetailsArray')
         .success(function (data, status, headers, config) {
           if (data.indexOf('<!DOCTYPE') === 0) {
@@ -11,7 +11,7 @@ angular.module('starter.services')
                 cb(error, data, status, headers, config);
               }
               else{
-                getCards(cb);
+                regetCardsDetails(cb);
               }
             });
           } else {
@@ -24,7 +24,17 @@ angular.module('starter.services')
         });
     };
 
-    var loadCardActivities = function (cb, cardId, pageIndex, month, year) {
+    var getCardsDetails = function (cb) {
+      var length = cards.length;
+      if (length !== 0) {
+        cb(null, cards);
+      }
+      else {
+        regetCardsDetails(cb);
+      }
+    };
+
+    var getCardActivities = function (cb, cardId, pageIndex, month, year) {
       // month is zero based, year is full year, they are optional
       if (!month || !year) {
         //make both them equals zero i.e. load the default page
@@ -32,11 +42,13 @@ angular.module('starter.services')
         year = -1;
       }
 
-      $http.get(url.opal + 'registered/opal-card-activities-list?AMonth=' + month + '&AYear=' + year + '&cardIndex=' + cardId + '&pageIndex=' + pageIndex)
+      $http.get(url.opal + 'registered/opal-card-activities-list?AMonth=' +
+        month + '&AYear=' + year + '&cardIndex=' + cardId + '&pageIndex=' + pageIndex)
         .success(function (data, status, headers, config) {
           var parser = new DOMParser();
           var doc = parser.parseFromString(data, 'text/html');
-          var activitiesDoc = doc.getElementById('transaction-data').getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+          var activitiesDoc = doc.getElementById('transaction-data').
+            getElementsByTagName('tbody')[0].getElementsByTagName('tr');
           var length = activitiesDoc.length;
           var activities = [];
           var reBr = /<br>/g;
@@ -72,18 +84,8 @@ angular.module('starter.services')
         });
     };
 
-    var getCachedCards = function (cb) {
-      var length = cards.length;
-      if (length !== 0) {
-        cb(null, cards);
-      }
-      else {
-        getCards(cb);
-      }
-    };
-
-    var getCard = function (cardNumber, cb) {
-      getCachedCards(function () {
+    var getCardDetails = function (cardNumber, cb) {
+      getCardsDetails(function () {
         var length = cards.length;
         while (length-- > 0) {
           var card = cards[length];
@@ -96,9 +98,9 @@ angular.module('starter.services')
     };
 
     return {
-      getCards: getCards,
-      loadCardActivities: loadCardActivities,
-      getCachedCards: getCachedCards,
-      getCard: getCard
+      getCardsDetails: getCardsDetails,
+      regetCardsDetails: regetCardsDetails,
+      getCardDetails: getCardDetails,
+      getCardActivities: getCardActivities
     };
   });

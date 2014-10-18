@@ -1,7 +1,7 @@
 'use strict';
-angular.module('starter.services')
+angular.module('fgts.services')
   .service('calculator', function($http, url, stations) {
-    this.calculate = function(departure, arrive, cb) {
+    this.train = function(departure, arrive, cb) {
       var hDeparture = stations.findId(stations.fareCalcFrom, departure),
       hArrive = stations.findId(stations.fareCalcTo, arrive);
 
@@ -11,7 +11,8 @@ angular.module('starter.services')
       ).success(function(data) {
         var parser = new DOMParser();
         var doc = parser.parseFromString(data, 'text/html');
-        var fareDoc = doc.getElementsByClassName('fareOptions')[2].getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+        var fareDoc = doc.getElementsByClassName('fareOptions')[2].
+          getElementsByTagName('tbody')[0].getElementsByTagName('tr');
         var singlePeakDoc = fareDoc[0].getElementsByTagName('td'),
         singleOffPeakDoc = fareDoc[1].getElementsByTagName('td'),
         dailyCapMonToSatDoc = fareDoc[2].getElementsByTagName('td'),
