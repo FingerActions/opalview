@@ -6,9 +6,13 @@
       <fgts-hist-chart ng-switch-default></fgts-hist-chart>
       <fgts-hist-text ng-switch-when="text"></fgts-hist-text>
     </div>
+  </ion-content>
 
+  <div class="bottom-buttons">
+    <a href="#" ng-click="prev()" class="nav prev"><i class="icon ion-ios7-arrow-left"></i></a>
     <a ng-click="toggleViewType()" class="toggle-view-type">
       <img ng-src="{{toggleButtonImage}}" alt="" />
     </a>
-  </ion-content>
+    <a href="#" ng-click="next()" class="nav next"><i class="icon ion-ios7-arrow-right"></i></a>
+  </div>
 </ion-view>
