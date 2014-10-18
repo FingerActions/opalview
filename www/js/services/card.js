@@ -59,14 +59,14 @@ angular.module('fgts.services')
               return;
             }
             var modeDoc = activityRowDoc[2].children[0];
+            var mode = '';
             if(modeDoc) {
-              var imgSrc = url.opal + modeDoc.getAttribute('src');
-              modeDoc.setAttribute('src', imgSrc);
+              mode = modeDoc.getAttribute('src').replace(/^\/images\/icons\/mode-(.*).png$/, '$1');
             }
             var activity = {
               transactionNumber: activityRowDoc[0].innerHTML,
               dateTime: activityRowDoc[1].innerHTML.replace(reBr, ' '),
-              mode: activityRowDoc[2].innerHTML,
+              mode: mode,
               details: activityRowDoc[3].innerHTML,
               journeyNumber: activityRowDoc[4].innerHTML,
               fareApplied: activityRowDoc[5].innerHTML,
