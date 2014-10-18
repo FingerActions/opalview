@@ -6,6 +6,7 @@
   "devDependencies": {
     "browser-sync": "^1.5.2",
     "gulp": "^3.8.8",
+    "gulp-autoprefixer": "^1.0.1",
     "gulp-concat": "^2.2.0",
     "gulp-protractor": "0.0.11",
     "gulp-sass": "^0.7.1",

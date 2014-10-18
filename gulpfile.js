@@ -2,6 +2,7 @@
 
 var gulp = require('gulp');
 var sass = require('gulp-sass');
+var autoprefixer = require('gulp-autoprefixer');
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 var protractor = require('gulp-protractor').protractor;
@@ -11,6 +12,10 @@ gulp.task('default', ['test', 'sass']);
 gulp.task('sass', function(done) {
   gulp.src('./scss/ionic.app.scss')
     .pipe(sass())
+    .pipe(autoprefixer({
+      browsers: ['last 2 versions'],
+      cascade: false
+    }))
     .pipe(gulp.dest('./www/css/'))
     .on('end', done);
 });
