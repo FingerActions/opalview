@@ -7,9 +7,9 @@ angular.module('fgts.controllers')
 
     $scope.acConfig = {
       labels: true,
-      legend:{
-        display:false,
-        position:'left'
+      legend: {
+        display: false,
+        position: 'left'
       }
     };
 
@@ -28,31 +28,6 @@ angular.module('fgts.controllers')
       }
     };
 
-    $scope.acData = {
-      data: [{
- 				x: "M",
-				y: [2.75]
- 			}, {
- 				x: "T",
-				y: [3.5]
- 			}, {
- 				x: "W",
-			  y: [2.75]
- 			}, {
- 				x: "TS",
-				y: [6.8]
- 			}, {
- 				x: "F",
-			  y: [5.5]
-      }, {
-        x: "SA",
-        y: [6.8]
-      }, {
-        x: "SU",
-        y: [6.8]
-      }]
-    };
-
     card.getCardDetails($stateParams.cardNumber, function(error, data) {
       var opal = data;
       $scope.title = opal.cardNickName;
@@ -63,7 +38,30 @@ angular.module('fgts.controllers')
         $scope.viewBy = view;
       };
 
-
+      $scope.acData = {
+        data: [{
+           x: 'M',
+          y: [2.75]
+         }, {
+           x: 'T',
+          y: [3.5]
+         }, {
+           x: 'W',
+          y: [2.75]
+         }, {
+           x: 'TS',
+          y: [6.8]
+         }, {
+           x: 'F',
+          y: [5.5]
+        }, {
+          x: 'SA',
+          y: [6.8]
+        }, {
+          x: 'SU',
+          y: [6.8]
+        }]
+      };
 
     });
   });
