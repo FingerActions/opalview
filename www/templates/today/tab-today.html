@@ -1,4 +1,14 @@
 <ion-view title="Today">
-	<ion-content>
-	</ion-content>
+  <ion-content>
+    <div ng-repeat="info in serviceInfo">
+      <div class="card">
+        <div class="item item-divider {{info.className}}">
+          <span>{{info.lineName}}</span>
+        </div>
+				<div class="item item-text-wrap">
+					<span ng-if="info.serviceStatus === 'Good service'">{{info.serviceStatus}}</span>
+					<span ng-if="info.serviceStatus !== 'Good service'">{{info.serviceLink}}</span>
+      </div>
+    </div>
+  </ion-content>
 </ion-view>
