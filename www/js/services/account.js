@@ -12,12 +12,14 @@ angular.module('fgts.services')
         '&h_password=' + password
       ).success(function(data, status, headers, config) {
         if (data.validationFailure) {
+          remove();
           cb(new Error(data.errorMessage), data, status, headers, config);
         } else {
           save(username, password);
           cb(null, data, status, headers, config);
         }
       }).error(function(data, status, headers, config) {
+        remove();
         cb(new Error(data.errorMessage), data, status, headers, config);
       });
     };
