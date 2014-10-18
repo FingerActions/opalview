@@ -11,26 +11,26 @@
 
     <fgts-recent-welcome></fgts-recent-welcome>
 
-    <div class="row responsive-sm" ng-repeat="card in cards">
+    <div class="row responsive-sm" ng-repeat="opal in opals">
       <div class="col col-80 col-offset-10">
         <div class="card">
 
           <div class="item item-divider item-energized">
-            <span>{{card.cardNickName}}</span>
-            <span style="float:right">{{card.cardBalanceInDollars}}</span>
+            <span>{{opal.cardNickName}}</span>
+            <span style="float:right">{{opal.cardBalanceInDollars}}</span>
           </div>
 
-          <div ng-show="card.activities.length==0">
+          <div ng-show="opal.activities.length==0">
             <p class="info">Loading...</p>
           </div>
 
-          <div ng-show="card.activities">
+          <div ng-show="opal.activities">
             <p class="info">Most Recent Trip:</p>
-            <fgts-recent-activity class="item item-avatar" ng-repeat="activity in card.activities | limitTo: 5">
+            <fgts-recent-activity class="item item-avatar" ng-repeat="activity in opal.activities | limitTo: 5">
             </fgts>
           </div>
 
-          <div ng-show="!card.activities">
+          <div ng-show="!opal.activities">
             <p class="info">No activities found for this card</p>
           </div>
 

@@ -1,7 +1,7 @@
 // Ionic Starter App
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
-// 'fgts' is the name of this angular module example (also set in a <body> attribute in index.html)
+// 'fgts' is the name of this angular module fingerActions (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'fgts.services' is found in services.js
 // 'fgts.controllers' is found in controllers.js
@@ -57,11 +57,13 @@ angular.module('fgts', ['ionic', 'fgts.controllers', 'fgts.services', 'fgts.dire
       }
     }
   })
-  .state('tab.history.card', {
+
+  .state('tab.history-card', {
     url: '/history/:cardNumber',
     views: {
-      'fgts-history-card': {
-        templateUrl: 'templates/history/fgts-hist-card.html'
+      'tab-history': {
+        templateUrl: 'templates/history/fgts-hist-card.html',
+        controller: 'HistoryCardCtrl'
       }
     }
   })

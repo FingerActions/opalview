@@ -3,11 +3,11 @@
     <fgts-unauth ng-show="!isLoggedin"></fgts-unauth>
     <ion-div ng-show="isLoggedin">
       <ion-list>
-        <ion-div ng-repeat="card in cards">
-          <a class="item item-icon-left item-icon-right item-light" ng-href="#/tab/history/{{card.cardNumber}}">
+        <ion-div ng-repeat="opal in opals">
+          <a class="item item-icon-left item-icon-right item-light" ng-href="#/tab/history/{{opal.cardNumber}}">
             <i class="icon ion-card"></i>
-            {{card.cardNickName}}
-            {{card.cardNumber}}
+            {{opal.cardNickName}}
+            {{opal.cardNumber}}
             <i class="icon ion-ios7-arrow-right"></i>
           </a>
         </ion-div>

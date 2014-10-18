@@ -1,20 +1,10 @@
 'use strict';
 angular.module('fgts.controllers')
-  .controller('HistoryCtrl', function(account, $scope, card, $stateParams) {
+  .controller('HistoryCtrl', function(account, $scope, card) {
     var isLoggedin = $scope.isLoggedin = account.isLoggedin();
     if (isLoggedin) {
       card.getCardsDetails(function(error, data) {
-        $scope.cards = data;
+        $scope.opals = data;
       });
     }
-
-    card.getCardDetails($stateParams.cardNumber, function(error, data) {
-      $scope.card = data;
-    });
-
-    $scope.type = 'day';
-
-    $scope.setType = function(type) {
-      $scope.type = type;
-    };
   });
