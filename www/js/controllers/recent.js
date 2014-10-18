@@ -1,6 +1,6 @@
 'use strict';
 angular.module('fgts.controllers')
-  .controller('RecentCtrl', function(account, $ionicPopup, $http, $scope, $ionicModal, card, $ionicLoading) {
+  .controller('RecentCtrl', function(account, $ionicPopup, url, $http, $scope, $ionicModal, card, $ionicLoading) {
     var isLoggedin = $scope.isLoggedin = account.isLoggedin();
     $scope.doRefresh = function() {
       card.regetCardsDetails(function(error, data) {
@@ -107,6 +107,9 @@ angular.module('fgts.controllers')
         }
       });
     };
+
+    $scope.activateURL = url.activateOpal;
+    $scope.instructionURL = url.instructions;
 
     $ionicModal.fromTemplateUrl('templates/recent/fgts-login.html', {
       scope: $scope,

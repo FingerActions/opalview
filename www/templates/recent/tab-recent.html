@@ -26,26 +26,8 @@
 
           <div ng-show="card.activities">
             <p class="info">Most Recent Trip:</p>
-            <div class="item item-avatar" ng-repeat="activity in card.activities | limitTo: 5">
-              <span ng-bind-html="activity.mode" class="activity-mode"></span>
-              <h4>
-                <span class="details">{{activity.details}}</span>
-                <span class="journeyNumber">
-                  {{activity.journeyNumber?'#':'$'}}
-                  {{activity.journeyNumber}}
-                </span>
-              </h4>
-              <h4>
-                <span class="amount">{{activity.amount}}</span>&nbsp;
-                <span class="fareApplied">
-                  {{activity.fareApplied?'(':''}}
-                  {{activity.fareApplied}}
-                  {{activity.fareApplied?')':''}}
-                </span>
-              </h4>
-              <span class="ribbon"></span>
-              <p>{{activity.dateTime}}</p>
-            </div>
+            <fgts-recent-activity class="item item-activity" ng-repeat="activity in card.activities | limitTo: 5">
+            </fgts>
           </div>
 
           <div ng-show="!card.activities">

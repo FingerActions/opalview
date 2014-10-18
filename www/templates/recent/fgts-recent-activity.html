@@ -1,0 +1,11 @@
+<span ng-bind-html="activity.mode" class="activity-mode"></span>
+<h4>
+  <span ng-clock class="details">{{activity.details}}</span>
+  <span ng-clock class="journeyNumber">{{activity.journeyNumber}}</span>
+</h4>
+<h4>
+  <span ng-clock class="amount">{{activity.amount}}</span>&nbsp;
+  <span ng-clock ng-if="activity.fareApplied">({{activity.fareApplied}})</span>
+</h4>
+<span ng-if="activity.journeyNumber" class="ribbon"></span>
+<p ng-clock>{{activity.dateTime}}</p>
