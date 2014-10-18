@@ -78,25 +78,34 @@ angular.module('fgts', ['ionic', 'fgts.controllers', 'fgts.services', 'fgts.dire
     }
   })
 
-  .state('tab.calculator-bus',{
-    url:'/calculator/bus',
-    views:{
-        'tab-calculator':{
-          templateUrl: 'templates/calculator/fgts-calc-bus.html',
-          controller: 'CalculatorCtrl'
-        }
-    }
-  })
-
-  .state('tab.today', {
-    url: '/today',
+  .state('tab.calculator-bus', {
+    url: '/calculator/bus',
     views: {
-      'tab-today': {
-        templateUrl: 'templates/today/tab-today.html',
-        controller: 'TodayCtrl'
+      'tab-calculator': {
+        templateUrl: 'templates/calculator/fgts-calc-bus.html',
+        controller: 'CalculatorCtrl'
       }
     }
   })
+
+  .state('tab.calculator-ferry', {
+      url: '/calculator/ferry',
+      views: {
+        'tab-calculator': {
+          templateUrl: 'templates/calculator/fgts-calc-ferry.html',
+          controller: 'CalculatorCtrl'
+        }
+      }
+    })
+    .state('tab.today', {
+      url: '/today',
+      views: {
+        'tab-today': {
+          templateUrl: 'templates/today/tab-today.html',
+          controller: 'TodayCtrl'
+        }
+      }
+    })
 
   .state('tab.about', {
     url: '/about',
