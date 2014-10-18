@@ -1,7 +1,7 @@
 <div class="row responsive-sm">
 	<div class="button-bar">
-		<a class="button button-small button-outline button-energized" ng-class="{active:type == 'day'}" ng-click="setType('day')">Day</a>
-		<a class="button button-small button-outline button-energized" ng-class="{active:type == 'week'}" ng-click="setType('week')">Week</a>
-		<a class="button button-small button-outline button-energized" ng-class="{active:type == 'month'}" ng-click="setType('month')">Month</a>
+		<a class="button button-small button-outline button-energized" ng-class="{active:viewBy=='day'}" ng-click="setView('day')">By days</a>
+		<a class="button button-small button-outline button-energized" ng-class="{active:viewBy=='week'}" ng-click="setView('week')">By weeks</a>
+		<a class="button button-small button-outline button-energized" ng-class="{active:viewBy=='month'}" ng-click="setView('month')">By months</a>
 	</div>
 </div>

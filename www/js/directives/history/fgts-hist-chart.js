@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc directive
- * @name fgts.directive:fgtsHistWeek
+ * @name fgts.directive:fgtsHistChart
  * @description
- * # fgtsHistWeek
+ * # fgtsHistChart
  */
 angular.module('fgts.directives')
-  .directive('fgtsHistWeek', function () {
+  .directive('fgtsHistChart', function () {
     return {
-      templateUrl: 'templates/history/fgts-hist-week.html',
+      templateUrl: 'templates/history/fgts-hist-chart.html',
       restrict: 'E'
     };
   });
