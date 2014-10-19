@@ -9,7 +9,7 @@
       </ion-refresher>
     </div>
 
-    <fgts-recent-welcome></fgts-recent-welcome>
+    <fgts-recent-welcome ng-if="!isLoggedin"></fgts-recent-welcome>
 
     <div class="row responsive-sm" ng-repeat="opal in opals">
       <div class="col col-80 col-offset-10">
