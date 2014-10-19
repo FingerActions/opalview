@@ -2,19 +2,6 @@
 angular.module('fgts.controllers')
   .controller('RecentCtrl', function(account, $ionicPopup, url, $http, $scope, $ionicModal, card, $ionicLoading) {
     var isLoggedin = $scope.isLoggedin = account.isLoggedin();
-    $scope.doRefresh = function() {
-      card.regetCardsDetails(function(error, data) {
-        if (error) {
-          $ionicLoading.hide();
-          $ionicPopup.alert({
-            title: 'Sorry',
-            template: error.message
-          });
-        } else {
-          getCardsRecent(data, true);
-        }
-      });
-    };
 
     function getCardsRecent(data, refresh) {
       var opals = data;
@@ -23,6 +10,13 @@ angular.module('fgts.controllers')
       while (length-- > 0) {
         opals[length].activities = [];
         card.getCardActivities(function(error, data, status, headers, config) {
+          if (error) {
+            $ionicLoading.hide();
+            $ionicPopup.alert({
+              title: 'Sorry',
+              template: error.message
+            });
+          }
           var cardIndexIndex = config.url.indexOf('cardIndex');
           var index = cardIndexIndex + 10;
           var url = config.url;
@@ -47,6 +41,20 @@ angular.module('fgts.controllers')
         $scope.$broadcast('scroll.refreshComplete');
       }
     }
+
+    $scope.doRefresh = function() {
+      card.regetCardsDetails(function(error, data) {
+        if (error) {
+          $ionicLoading.hide();
+          $ionicPopup.alert({
+            title: 'Sorry',
+            template: error.message
+          });
+        } else {
+          getCardsRecent(data, true);
+        }
+      });
+    };
 
     if (isLoggedin) {
       card.getCardsDetails(function(error, data) {
