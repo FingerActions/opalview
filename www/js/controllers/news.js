@@ -1,6 +1,6 @@
 'use strict';
 angular.module('fgts.controllers')
-  .controller('NewsCtrl', function($scope, $ionicLoading, $ionicPopup, news) {
+  .controller('NewsCtrl', function($scope, $ionicLoading, $ionicPopup, news, $interval) {
 
     $scope.doRefresh = function() {
 
@@ -31,23 +31,21 @@ angular.module('fgts.controllers')
 				console.log($scope.serviceInfo);
 			}
 		});
+
 		var updateClock = function(){
 			$scope.date = new Date();
 		};
-		setInterval(function(){
-			$scope.$apply(updateClock);
-
-		},1000);
+		$interval(updateClock, 1000);
 		updateClock();
     $scope.moreNews = function(link){
       console.log(link);
-      console.log(link.getAttribute("href"));
+      console.log(link.getAttribute('href'));
       var exteralLink = link.getAttribute('href');
 
       news.detailNews(exteralLink,function(error, data){
 
         console.log(data);
-        
+
 
       });
 
