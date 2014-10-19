@@ -18,7 +18,7 @@
           <i class="icon ion-happy"></i>
             <span>{{info.serviceStatus}}</span>
         </a>
-        <a ng-if="info.serviceStatus !== 'Good service'" class="item item-icon-left item-icon-right item-light">
+        <a ng-if="info.serviceStatus !== 'Good service'" class="item item-icon-left item-icon-right item-light" ng-click="moreNews(info.exteralLink)">
           <i class="icon ion-wrench"></i>
             <span>{{info.serviceStatus}}</span>
           <i class="icon ion-ios7-arrow-right"></i>
