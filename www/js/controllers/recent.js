@@ -3,7 +3,7 @@ angular.module('fgts.controllers')
   .controller('RecentCtrl', function(account, $ionicPopup, url, $http, $scope, $ionicModal, card, $ionicLoading) {
     var isLoggedin = $scope.isLoggedin = account.isLoggedin();
 
-    function getCardsRecent(data, refresh) {
+    function getCardsRecent(data, isRefresh) {
       var opals = data;
       var length = opals.length;
 
@@ -34,12 +34,13 @@ angular.module('fgts.controllers')
           } else {
             $scope.opals[cardIndex].activities = data;
           }
+
+          if (isRefresh) {
+            $scope.$broadcast('scroll.refreshComplete');
+          }
         }, length, 1);
       }
       $scope.opals = opals;
-      if (refresh) {
-        $scope.$broadcast('scroll.refreshComplete');
-      }
     }
 
     $scope.doRefresh = function() {
@@ -50,6 +51,7 @@ angular.module('fgts.controllers')
             title: 'Sorry',
             template: error.message
           });
+          $scope.$broadcast('scroll.refreshComplete');
         } else {
           getCardsRecent(data, true);
         }
