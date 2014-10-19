@@ -16,7 +16,7 @@ angular.module('fgts.services')
                     cb(null, data, status, headers, config);
                   })
                   .error(function (data, status, headers, config) {
-                    cb(new Error(data.errorMessage), data, status, headers, config);
+                    cb(new Error('Please check your network and try again'), data, status, headers, config);
                   });
               }
             });
@@ -26,7 +26,7 @@ angular.module('fgts.services')
           }
         })
         .error(function (data, status, headers, config) {
-          cb(new Error(data.errorMessage), data, status, headers, config);
+          cb(new Error('Please check your network and try again'), data, status, headers, config);
         });
     };
 
