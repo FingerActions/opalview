@@ -2,7 +2,7 @@
 <ion-view title="Recent" hide-nav-bar="true">
   <ion-content>
 
-    <div ng-show="isLoggedin">
+    <div ng-if="isLoggedin">
       <ion-refresher
         pulling-text="Pull to refresh..."
         on-refresh="doRefresh()">
