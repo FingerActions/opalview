@@ -28,8 +28,10 @@ angular.module('fgts.controllers')
       }
     };
 
-    card.getCardDetails($stateParams.cardNumber, function(error, data) {
+    card.getCardActivities(function(error, data) {
       var opal = data;
+      console.log(opal);
+
       $scope.title = opal.cardNickName;
 
       $scope.viewBy = 'day';
@@ -62,6 +64,5 @@ angular.module('fgts.controllers')
           y: [6.8]
         }]
       };
-
-    });
+    }, 1, 1);
   });
