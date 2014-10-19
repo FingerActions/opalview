@@ -107,12 +107,12 @@ angular.module('fgts', ['ionic', 'fgts.controllers', 'fgts.services', 'fgts.dire
         }
       }
     })
-    .state('tab.today', {
-      url: '/today',
+    .state('tab.news', {
+      url: '/news',
       views: {
-        'tab-today': {
-          templateUrl: 'templates/today/tab-today.html',
-          controller: 'TodayCtrl'
+        'tab-news': {
+          templateUrl: 'templates/news/tab-news.html',
+          controller: 'NewsCtrl'
         }
       }
     })

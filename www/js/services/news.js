@@ -1,6 +1,6 @@
 'use strict';
 angular.module('fgts.services')
-  .service('today', function($http, url) {
+  .service('news', function($http, url) {
     this.travelInfo = function(cb) {
       $http.get(url.travelInfo).success(function(data, status, headers, config) {
         var parser = new DOMParser();

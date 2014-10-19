@@ -1,10 +1,10 @@
 'use strict';
 angular.module('fgts.controllers')
-  .controller('TodayCtrl', function($scope, $ionicLoading, $ionicPopup, today) {
+  .controller('NewsCtrl', function($scope, $ionicLoading, $ionicPopup, news) {
 
     $scope.doRefresh = function() {
 
-      today.travelInfo(function(error, data) {
+      news.travelInfo(function(error, data) {
         if (error) {
           $ionicPopup.alert({
             title: 'Sorry',
@@ -19,7 +19,7 @@ angular.module('fgts.controllers')
       });
     };
 
-		today.travelInfo(function(error, data) {
+		news.travelInfo(function(error, data) {
 			if (error) {
 				$ionicLoading.hide();
 				$ionicPopup.alert({
@@ -34,11 +34,18 @@ angular.module('fgts.controllers')
 
 		var updateClock = function(){
 			$scope.date = new Date();
-		}
+		};
+
 		setInterval(function(){
 			$scope.$apply(updateClock);
 
 		},1000);
 		updateClock();
+
+    $scope.moreNews = function(link){
+
+      console.log(link);
+
+    };
 
   });
