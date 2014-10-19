@@ -23,12 +23,12 @@ angular.module('fgts.services')
           var infoNodeRaw = infoRowDoc.getElementsByTagName('td');
           var nodelength = infoNodeRaw.length;
           var statusIndex = nodelength - 1;
-          var hasExternal = infoRowDoc.getElementsByTagName('td')[statusIndex].innerHTML !== "Good service";
+          var isExternal = infoRowDoc.getElementsByTagName('td')[statusIndex].innerHTML !== "Good service";
           var infoNode = {
             className:className,
             lineName: infoRowDoc.getElementsByTagName('td')[0].innerHTML,
-            serviceStatus: infoRowDoc.getElementsByTagName('td')[statusIndex].innerHTML,
-            serviceLink: hasExternal ?  infoRowDoc.getElementsByTagName('td')[statusIndex].getElementsByTagName('a')[0].innerHTML : ''
+            serviceStatus: isExternal ? infoRowDoc.getElementsByTagName('td')[statusIndex].getElementsByTagName('a')[0].innerHTML : infoRowDoc.getElementsByTagName('td')[statusIndex].innerHTML,
+            exteralLink: isExternal ?  infoRowDoc.getElementsByTagName('td')[statusIndex].getElementsByTagName('a')[0] : ''
           };
           info.push(infoNode);
         }
