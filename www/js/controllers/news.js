@@ -31,21 +31,25 @@ angular.module('fgts.controllers')
 				console.log($scope.serviceInfo);
 			}
 		});
-
 		var updateClock = function(){
 			$scope.date = new Date();
 		};
-
 		setInterval(function(){
 			$scope.$apply(updateClock);
 
 		},1000);
 		updateClock();
-
     $scope.moreNews = function(link){
-
       console.log(link);
+      console.log(link.getAttribute("href"));
+      var exteralLink = link.getAttribute('href');
+
+      news.detailNews(exteralLink,function(error, data){
+
+        console.log(data);
+        
+
+      });
 
     };
-
   });
