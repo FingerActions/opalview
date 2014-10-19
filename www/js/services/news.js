@@ -38,4 +38,25 @@ angular.module('fgts.services')
         cb(new Error(data.errorMessage), data);
       });
     };
+
+    this.detailNews = function(externalLink, cb) {
+      var newLink = url.travelInfo + externalLink;
+      console.log(newLink);
+      $http.get(url.travelInfo).success(function(data, status, headers, config) {
+
+        var parser = new DOMParser();
+        var doc = parser.parseFromString(data, 'text/html');
+        console.log(doc);
+        var trackWorkContent = doc.getElementById('main');
+        console.log(trackWorkContent);
+
+
+
+
+
+      }).error(function(data) {
+        cb(new Error(data.errorMessage), data);
+      });
+    };
+
   });
