@@ -86,6 +86,7 @@ angular.module('fgts.controllers')
         } else {
           //logged in
           isLoggedin = $scope.isLoggedin = true;
+          $scope.$root.username = $scope.$root.password = '';
           card.regetCardsDetails(function(error, data) {
             getCardsRecent(data, false);
             $ionicLoading.hide();
