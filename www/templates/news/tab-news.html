@@ -13,6 +13,7 @@
         <a ng-switch="info.serviceStatus" class="item item-icon-left item-icon-right item-light" ng-click="moreNews(info.exteralLink)">
           <i class="icon ion-happy" ng-switch-when="Good service"></i>
           <i class="icon ion-clock" ng-switch-when="Major delays"></i>
+          <i class="icon ion-clock" ng-switch-when="Delays"></i>
           <i class="icon ion-wrench" ng-switch-default></i>
           <span>{{info.serviceStatus}}</span>
           <i class="icon ion-ios7-arrow-right" ng-switch-default></i>
