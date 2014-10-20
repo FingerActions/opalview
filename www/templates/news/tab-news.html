@@ -10,18 +10,12 @@
         <div class="item item-divider {{info.className}}">
           <span>{{info.lineName}}</span>
         </div>
-        <!--<div class="item item-text-wrap">
-          <span ng-if="info.serviceStatus === 'Good service'" >{{info.serviceStatus}}</span>
-          <span ng-if="info.serviceStatus !== 'Good service'" ng-click="moreNews(info.exteralLink)">{{info.serviceStatus}}<span style="float:right;"><i class="icon ion-ios7-arrow-right"></i></span></span>
-        </div>-->
-        <a ng-if="info.serviceStatus === 'Good service'" class="item item-icon-left item-icon-right item-light">
-          <i class="icon ion-happy"></i>
-            <span>{{info.serviceStatus}}</span>
-        </a>
-        <a ng-if="info.serviceStatus !== 'Good service'" class="item item-icon-left item-icon-right item-light" ng-click="moreNews(info.exteralLink)">
-          <i class="icon ion-wrench"></i>
-            <span>{{info.serviceStatus}}</span>
-          <i class="icon ion-ios7-arrow-right"></i>
+        <a ng-switch="info.serviceStatus" class="item item-icon-left item-icon-right item-light" ng-click="moreNews(info.exteralLink)">
+          <i class="icon ion-happy" ng-switch-when="Good service"></i>
+          <i class="icon ion-clock" ng-switch-when="Major delays"></i>
+          <i class="icon ion-wrench" ng-switch-default></i>
+          <span>{{info.serviceStatus}}</span>
+          <i class="icon ion-ios7-arrow-right" ng-switch-default></i>
         </a>
       </div>
   </ion-content>
