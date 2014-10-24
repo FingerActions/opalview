@@ -32,7 +32,9 @@ angular.module('fgts.controllers')
           if (error || !data) {
             $scope.opals[cardIndex].activities = null;
           } else {
-            if(data[0].details.indexOf('No tap off') !== -1) {
+            var now = new Date().getTime();
+            if(data[0].details.indexOf('No tap off') !== -1 && now - card.getTimeStamp() > 3600000) {
+              card.setTimeStamp(now);
               $ionicPopup.alert({
                 title: 'Warning',
                 template: 'At your destination stop tap off with your Opal card at an Opal card reader. <br><br>' +

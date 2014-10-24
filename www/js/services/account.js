@@ -30,7 +30,7 @@ angular.module('fgts.services')
         .success(function(data, status, headers, config) {
           cb(null, data, status, headers, config);
         })
-        .error( function(data, status, headers, config) {
+        .error(function(data, status, headers, config) {
           cb(new Error(data.errorMessage), data, status, headers, config);
         });
     };

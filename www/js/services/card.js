@@ -1,6 +1,6 @@
 'use strict';
 angular.module('fgts.services')
-  .factory('card', function($http, account, url) {
+  .factory('card', function($http, account, url, $window) {
     var cards = [];
     var regetCardsDetails = function (cb) {
       $http.get(url.opal + 'registered/getJsonCardDetailsArray')
@@ -119,10 +119,20 @@ angular.module('fgts.services')
       });
     };
 
+    var getTimeStamp = function() {
+      return $window.localStorage.getItem('timeStamp');
+    };
+
+    var setTimeStamp = function(timeStamp) {
+      $window.localStorage.setItem('timeStamp', timeStamp);
+    };
+
     return {
       getCardsDetails: getCardsDetails,
       regetCardsDetails: regetCardsDetails,
       getCardDetails: getCardDetails,
-      getCardActivities: getCardActivities
+      getCardActivities: getCardActivities,
+      getTimeStamp: getTimeStamp,
+      setTimeStamp: setTimeStamp
     };
   });
