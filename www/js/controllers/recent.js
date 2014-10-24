@@ -32,6 +32,14 @@ angular.module('fgts.controllers')
           if (error || !data) {
             $scope.opals[cardIndex].activities = null;
           } else {
+            if(data[0].details.indexOf('No tap off') !== -1) {
+              $ionicPopup.alert({
+                title: 'Warning',
+                template: 'At your destination stop tap off with your Opal card at an Opal card reader. <br><br>' +
+                  'When tapping on or off, it is important to wait for the ‘ding’ tone so you know that your tap has been successful. <br><br>' +
+                  'Call <a href="tel:136725">13 67 25</a> (13 OPAL) 24 hours, 7 days a week for assistance if you forgot to tap off when you left your station'
+              });
+            }
             $scope.opals[cardIndex].activities = data;
           }
 
