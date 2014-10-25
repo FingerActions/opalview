@@ -40,9 +40,9 @@ angular.module('fgts.services')
     };
 
     this.detailNews = function(externalLink, cb) {
-      var newLink = url.travelInfo + externalLink;
+      var newLink = url.travelInfoMoreDetails + externalLink;
       console.log(newLink);
-      $http.get(url.travelInfo).success(function(data, status, headers, config) {
+      $http.get(newLink).success(function(data, status, headers, config) {
 
         var parser = new DOMParser();
         var doc = parser.parseFromString(data, 'text/html');
