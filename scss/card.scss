@@ -5,9 +5,9 @@
 
 .card-details {
 
+  .lineName{
 
-  .timeInfo{
-
+    color:white !important;
 
   }
 
@@ -27,5 +27,66 @@
     list-style:initial;
   }
 
+  .hunter {
 
+    background: #9aa4a8;
+    color: white;
+  }
+  .southernHighlands {
+    background: #9aa4a8;
+    color: white;
+  }
+  .southCoast {
+
+    background: #9aa4a8;
+    color: white;
+  }
+  .newcastle {
+    color: white;
+    background: #9aa4a8;
+  }
+  .blueMountains {
+    background: #9aa4a8;
+    color: white;
+  }
+  .olympicPark {
+    color: white;
+    background: #9aa4a8;
+  }
+  .carlingford {
+    background: #002b7f;
+    color: white;
+  }
+  .cumberland {
+    color: white;
+    background: #cc00a0;
+  }
+  .easternSuburbs {
+    background: #1b82c5;
+    color: white;
+  }
+  .bankstown {
+    background: #f26726;
+    color: white;
+  }
+  .innerWest {
+    color: white;
+    background: #4b9f47;
+  }
+  .airport {
+    background: #4b9f47;
+    color: white;
+  }
+  .western {
+    background: #f59c00;
+    color: white;
+  }
+  .northern {
+    color: white;
+    background: #f59c00;
+  }
+  .northShore {
+    background: #f59c00;
+    color: white;
+  }
 }

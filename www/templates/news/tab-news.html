@@ -1,5 +1,5 @@
 <ion-view title="Live travel news">
-  <ion-content class="today">
+  <ion-content class="card-details">
     <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()">
     </ion-refresher>
 		<div class="item item-divider">
@@ -8,7 +8,7 @@
     <div class="card" ng-repeat="info in serviceInfo">
       <div>
         <div class="item item-divider {{info.className}}">
-          <span>{{info.lineName}}</span>
+          <p class="lineName" ng-bind-html="info.lineName"></p>
         </div>
         <a ng-switch="info.serviceStatus" class="item item-icon-left item-icon-right item-light" ng-click="moreNews(info.exteralLink,info.lineName)">
           <i class="icon ion-happy" ng-switch-when="Good service"></i>

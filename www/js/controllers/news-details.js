@@ -5,7 +5,7 @@ angular.module('fgts.controllers')
     var localTrackWorkContent = JSON.parse($window.localStorage.getItem('trackWorkContent'));
     var localTrackWorkLineName = $window.localStorage.getItem('lineName');
     $scope.lineName = localTrackWorkLineName;
-    $scope.trackWorkContent = localTrackWorkContent;
+    //$scope.trackWorkContent = localTrackWorkContent;
     console.log('moreInfoNote2: ' + localTrackWorkContent.trackWorkItemHeading);
     //trackWorkItemHeading
     //trackWorkContent
