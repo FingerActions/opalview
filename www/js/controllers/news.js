@@ -40,7 +40,7 @@ angular.module('fgts.controllers')
     $scope.moreNews = function(link,linename){
       var exteralLink = link.getAttribute('href');
       var newsID = exteralLink.split('?')[1];
-      news.detailNews(exteralLink,function(error, data){
+      news.getDetailNews(exteralLink,linename,function(error){
         if (error) {
           $ionicLoading.hide();
           $ionicPopup.alert({
@@ -49,10 +49,6 @@ angular.module('fgts.controllers')
           });
         }else{
           var moreDetailPath = '/tab/news/' + newsID;
-          //console.log(moreDetailPath);
-          $scope.detailNews = data;
-          console.log("YYYYYY: "+ JSON.stringify(data));
-          $scope.detaiLineName = linename;
           $location.path(moreDetailPath);
         }
       });

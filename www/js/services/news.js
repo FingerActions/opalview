@@ -1,7 +1,7 @@
 'use strict';
 angular.module('fgts.services')
-  .service('news', function($http, url) {
-    this.travelInfo = function(cb) {
+  .factory('news', function($http, url,$window) {
+    var travelInfo = function(cb) {
       $http.get(url.travelInfo).success(function(data, status, headers, config) {
         var parser = new DOMParser();
         var doc = parser.parseFromString(data, 'text/html');
@@ -39,7 +39,7 @@ angular.module('fgts.services')
       });
     };
 
-    this.detailNews = function(externalLink, cb) {
+    var getDetailNews = function(externalLink,linename, cb) {
       var newLink = url.travelInfoMoreDetails + externalLink;
       console.log(newLink);
       $http.get(newLink).success(function(data, status, headers, config) {
@@ -47,19 +47,35 @@ angular.module('fgts.services')
         var doc = parser.parseFromString(data, 'text/html');
         //console.log(doc);
         var trackWorkContent = doc.getElementById('trkworkAllItemsHolder');
-        console.log(trackWorkContent);
-        console.log("track work: "+ trackWorkContent.getElementsByClassName('trkworkLineHeading')[0].innerHTML);
-
+        //console.log(trackWorkContent);
+        //console.log('track work: '+ trackWorkContent.getElementsByClassName('trkworkLineHeading')[0].innerHTML);
         var moreInfoNote = {
             lineDirection: trackWorkContent.getElementsByClassName('trkworkLineDirectionText')[0].innerHTML,
             trackWorkItemHeading: trackWorkContent.getElementsByClassName('trkworkDetailsItemHeading')[0].innerHTML,
             trackWorkContentHolder: trackWorkContent.getElementsByClassName('trackworkContentHolder')[0].innerHTML
         };
-        //ng-href="#/tab/history/{{opal.cardNumber}}
-        cb(null, moreInfoNote,status,headers,config);
+        remove();
+        save(JSON.stringify(moreInfoNote),linename);
+        cb(null,moreInfoNote,status,headers,config);
       }).error(function(data) {
         cb(new Error(data.errorMessage), data);
       });
+    };
+
+    var save = function(moreInfoNote,lineName) {
+      //alert(JSON.stringify(moreInfoNote));
+      $window.localStorage.setItem('trackWorkContent', moreInfoNote);
+      $window.localStorage.setItem('lineName', lineName);
+    };
+
+    var remove=function(){
+      $window.localStorage.removeItem('trackWorkContent');
+      $window.localStorage.removeItem('lineName');
+    };
+
+    return {
+      travelInfo: travelInfo,
+      getDetailNews: getDetailNews,
     };
 
   });

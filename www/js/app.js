@@ -118,11 +118,11 @@ angular.module('fgts', ['ionic', 'fgts.controllers', 'fgts.services', 'fgts.dire
     })
 
     .state('tab.news-details', {
-      url: '/news/:details',
+      url: '/news/:detailsID',
       views: {
         'tab-news': {
           templateUrl: 'templates/news/fgts-news-details.html',
-          controller: 'NewsCtrl'
+          controller: 'NewsDetailsCtrl'
         }
       }
     })

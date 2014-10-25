@@ -1,5 +1,16 @@
-<ion-view title="{{detaiLineName}}">
+<ion-view title="">
   <ion-content>
-  {{detailNews.lineDirection}}
+  <div class="col">
+    <div class="card">
+      <div class="item item-divider item-energized">
+        {{lineName}}
+      </div>
+      <div class="item item-text-wrap">
+          <p>{{trackWorkContent.lineDirection}}</p>
+          {{trackWorkContent.trackWorkItemHeading}}
+          {{trackWorkContent.trackWorkContentHolder}}
+      </div>
+    </div>
+  </div>
   </ion-content>
 </ion-view>
