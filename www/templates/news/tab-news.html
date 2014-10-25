@@ -10,7 +10,7 @@
         <div class="item item-divider {{info.className}}">
           <span>{{info.lineName}}</span>
         </div>
-        <a ng-switch="info.serviceStatus" class="item item-icon-left item-icon-right item-light" ng-click="moreNews(info.exteralLink)">
+        <a ng-switch="info.serviceStatus" class="item item-icon-left item-icon-right item-light" ng-click="moreNews(info.exteralLink,info.lineName)">
           <i class="icon ion-happy" ng-switch-when="Good service"></i>
           <i class="icon ion-clock" ng-switch-when="Major delays"></i>
           <i class="icon ion-clock" ng-switch-when="Delays"></i>

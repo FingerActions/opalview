@@ -1,6 +1,6 @@
 'use strict';
 angular.module('fgts.controllers')
-  .controller('NewsCtrl', function($scope, $ionicLoading, $ionicPopup, news, $interval) {
+  .controller('NewsCtrl', function($scope, $location, $ionicLoading, $ionicPopup, news, $interval) {
 
     $scope.doRefresh = function() {
 
@@ -37,17 +37,24 @@ angular.module('fgts.controllers')
 		};
 		$interval(updateClock, 1000);
 		updateClock();
-    $scope.moreNews = function(link){
-      console.log(link);
-      console.log(link.getAttribute('href'));
+    $scope.moreNews = function(link,linename){
       var exteralLink = link.getAttribute('href');
-
+      var newsID = exteralLink.split('?')[1];
       news.detailNews(exteralLink,function(error, data){
-
-        console.log(data);
-
-
+        if (error) {
+          $ionicLoading.hide();
+          $ionicPopup.alert({
+            title: 'Sorry',
+            template: error.message
+          });
+        }else{
+          var moreDetailPath = '/tab/news/' + newsID;
+          //console.log(moreDetailPath);
+          $scope.detailNews = data;
+          console.log("YYYYYY: "+ JSON.stringify(data));
+          $scope.detaiLineName = linename;
+          $location.path(moreDetailPath);
+        }
       });
-
     };
   });

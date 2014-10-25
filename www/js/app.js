@@ -117,6 +117,16 @@ angular.module('fgts', ['ionic', 'fgts.controllers', 'fgts.services', 'fgts.dire
       }
     })
 
+    .state('tab.news-details', {
+      url: '/news/:details',
+      views: {
+        'tab-news': {
+          templateUrl: 'templates/news/fgts-news-details.html',
+          controller: 'NewsCtrl'
+        }
+      }
+    })
+
   .state('tab.about', {
     url: '/about',
     views: {

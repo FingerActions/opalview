@@ -43,17 +43,20 @@ angular.module('fgts.services')
       var newLink = url.travelInfoMoreDetails + externalLink;
       console.log(newLink);
       $http.get(newLink).success(function(data, status, headers, config) {
-
         var parser = new DOMParser();
         var doc = parser.parseFromString(data, 'text/html');
-        console.log(doc);
-        var trackWorkContent = doc.getElementById('main');
+        //console.log(doc);
+        var trackWorkContent = doc.getElementById('trkworkAllItemsHolder');
         console.log(trackWorkContent);
+        console.log("track work: "+ trackWorkContent.getElementsByClassName('trkworkLineHeading')[0].innerHTML);
 
-
-
-
-
+        var moreInfoNote = {
+            lineDirection: trackWorkContent.getElementsByClassName('trkworkLineDirectionText')[0].innerHTML,
+            trackWorkItemHeading: trackWorkContent.getElementsByClassName('trkworkDetailsItemHeading')[0].innerHTML,
+            trackWorkContentHolder: trackWorkContent.getElementsByClassName('trackworkContentHolder')[0].innerHTML
+        };
+        //ng-href="#/tab/history/{{opal.cardNumber}}
+        cb(null, moreInfoNote,status,headers,config);
       }).error(function(data) {
         cb(new Error(data.errorMessage), data);
       });
