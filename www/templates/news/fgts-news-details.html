@@ -1,14 +1,13 @@
-<ion-view title="">
-  <ion-content>
+<ion-view title="Travel Information">
+  <ion-content class='card-details'>
   <div class="col">
     <div class="card">
       <div class="item item-divider item-energized">
         {{lineName}}
       </div>
       <div class="item item-text-wrap">
-          <p>{{trackWorkContent.lineDirection}}</p>
-          {{trackWorkContent.trackWorkItemHeading}}
-          {{trackWorkContent.trackWorkContentHolder}}
+        <b><p class="timeInfo" ng-bind-html='timeInfo'></p></b>
+        <p ng-bind-html="content"></p>
       </div>
     </div>
   </div>
