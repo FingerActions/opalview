@@ -54,8 +54,12 @@ angular.module('fgts.services')
           cb(null, null, status, headers, config);
           return;
         }
+        var dateTime = activityRowDoc[1].innerHTML.replace(reBr, ' ');
+        var dateArr = dateTime.split(' ')[1].split('/');
+        var date = new Date(dateArr[2] + '-' + dateArr[1] + '-' + dateArr[0]);
         var modeDoc = activityRowDoc[2].children[0];
         var mode = '';
+        var fare = activityRowDoc[6].innerHTML;
         if(modeDoc) {
           mode = modeDoc.getAttribute('src').replace(/^\/images\/icons\/mode-(.*).png$/, '$1');
         }
@@ -65,12 +69,14 @@ angular.module('fgts.services')
         }
         var activity = {
           transactionNumber: activityRowDoc[0].innerHTML,
-          dateTime: activityRowDoc[1].innerHTML.replace(reBr, ' '),
+          dateTime: dateTime,
+          date: date,
           mode: mode,
           details: details,
           journeyNumber: activityRowDoc[4].innerHTML,
           fareApplied: activityRowDoc[5].innerHTML,
-          fare: activityRowDoc[6].innerHTML,
+          fare: fare,
+          fareNum: parseFloat(fare.replace('$', '')),
           discount: activityRowDoc[7].innerHTML,
           amount: activityRowDoc[8].innerHTML
         };
@@ -123,6 +129,20 @@ angular.module('fgts.services')
       });
     };
 
+    var getCardActivitiesBy = function(unit, cb) {
+      if(unit === 'days') {
+        cb();
+      }
+
+      else if(unit === 'week') {
+        cb();
+      }
+
+      else if(unit === 'months') {
+        cb();
+      }
+    };
+
     var getTimeStamp = function() {
       return $window.localStorage.getItem('timeStamp');
     };
@@ -136,6 +156,7 @@ angular.module('fgts.services')
       regetCardsDetails: regetCardsDetails,
       getCardDetails: getCardDetails,
       getCardActivities: getCardActivities,
+      getCardActivitiesBy: getCardActivitiesBy,
       getTimeStamp: getTimeStamp,
       setTimeStamp: setTimeStamp
     };

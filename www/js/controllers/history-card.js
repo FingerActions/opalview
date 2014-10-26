@@ -1,8 +1,6 @@
 'use strict';
 angular.module('fgts.controllers')
-  .controller('HistoryCardCtrl', function($scope, $stateParams, card) {
-    $scope.viewType = 'chart';
-
+  .controller('HistoryCardCtrl', function($scope, $stateParams, card, $ionicPopup) {
     $scope.chartType = 'bar';
 
     $scope.acConfig = {
@@ -14,6 +12,8 @@ angular.module('fgts.controllers')
     };
 
     $scope.acData = [];
+
+    $scope.viewType = 'chart';
 
     $scope.toggleButtonImage = 'https://c2.staticflickr.com/4/3214/2699906907_a0d5efa66f.jpg';
 
@@ -28,41 +28,44 @@ angular.module('fgts.controllers')
       }
     };
 
-    card.getCardActivities(function(error, data) {
-      var opal = data;
-      console.log(opal);
+    var setView = $scope.setView = function(view) {
+      $scope.viewBy = view;
 
-      $scope.title = opal.cardNickName;
+      card.getCardActivitiesBy(view, function(error, data) {
+        if(error) {
+          $ionicPopup.alert({
+            title: 'Sorry',
+            template: error.message
+          });
+        }
+        var opalActivities = data;
 
-      $scope.viewBy = 'day';
+        $scope.acData = {
+          data: [{
+            x: 'M',
+            y: [2.75]
+          }, {
+            x: 'T',
+            y: [3.5]
+          }, {
+            x: 'W',
+            y: [2.75]
+          }, {
+            x: 'TS',
+            y: [6.8]
+          }, {
+            x: 'F',
+            y: [5.5]
+          }, {
+            x: 'SA',
+            y: [6.8]
+          }, {
+            x: 'SU',
+            y: [6.8]
+          }]
+        };
+      });
+    };
 
-      $scope.setView = function(view) {
-        $scope.viewBy = view;
-      };
-
-      $scope.acData = {
-        data: [{
-           x: 'M',
-          y: [2.75]
-         }, {
-           x: 'T',
-          y: [3.5]
-         }, {
-           x: 'W',
-          y: [2.75]
-         }, {
-           x: 'TS',
-          y: [6.8]
-         }, {
-           x: 'F',
-          y: [5.5]
-        }, {
-          x: 'SA',
-          y: [6.8]
-        }, {
-          x: 'SU',
-          y: [6.8]
-        }]
-      };
-    }, 1, 1);
+    setView('days');
   });
