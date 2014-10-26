@@ -91,7 +91,7 @@ angular.module('fgts.services')
       $http.get(url.opal + 'registered/opal-card-activities-list?AMonth=' +
         month + '&AYear=' + year + '&cardIndex=' + cardId + '&pageIndex=' + pageIndex)
         .success(function (data, status, headers, config) {
-          if (data.indexOf('You are not logged into the Opal website.') === -1) {
+          if (data.indexOf('You are not logged into the Opal website.') !== -1) {
             $http.get(url.opal + 'registered/opal-card-activities-list?AMonth=' +
               month + '&AYear=' + year + '&cardIndex=' + cardId + '&pageIndex=' + pageIndex)
               .success(function (data, status, headers, config) {
