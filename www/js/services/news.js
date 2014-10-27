@@ -1,6 +1,6 @@
 'use strict';
 angular.module('fgts.services')
-  .factory('news', function($http, url,$window) {
+  .factory('news', function($http, url, $window) {
     var travelInfo = function(cb) {
       $http.get(url.travelInfo).success(function(data, status, headers, config) {
         var parser = new DOMParser();
@@ -25,10 +25,10 @@ angular.module('fgts.services')
           var statusIndex = nodelength - 1;
           var isExternal = infoRowDoc.getElementsByTagName('td')[statusIndex].innerHTML !== 'Good service';
           var infoNode = {
-            className:className,
+            className: className,
             lineName: infoRowDoc.getElementsByTagName('td')[0].innerHTML,
             serviceStatus: isExternal ? infoRowDoc.getElementsByTagName('td')[statusIndex].getElementsByTagName('a')[0].innerHTML : infoRowDoc.getElementsByTagName('td')[statusIndex].innerHTML,
-            exteralLink: isExternal ?  infoRowDoc.getElementsByTagName('td')[statusIndex].getElementsByTagName('a')[0] : ''
+            exteralLink: isExternal ? infoRowDoc.getElementsByTagName('td')[statusIndex].getElementsByTagName('a')[0] : ''
           };
           info.push(infoNode);
         }
@@ -39,36 +39,51 @@ angular.module('fgts.services')
       });
     };
 
-    var getDetailNews = function(externalLink,linename, cb) {
+    var getDetailNews = function(externalLink, linename, trstatus, cb) {
       var newLink = url.travelInfoMoreDetails + externalLink;
-      console.log(newLink);
+      console.log("newLink:" + newLink);
+      console.log("status:" + status);
       $http.get(newLink).success(function(data, status, headers, config) {
         var parser = new DOMParser();
         var doc = parser.parseFromString(data, 'text/html');
         //console.log(doc);
-        var trackWorkContent = doc.getElementById('trkworkAllItemsHolder');
+
         //console.log(trackWorkContent);
         //console.log('track work: '+ trackWorkContent.getElementsByClassName('trkworkLineHeading')[0].innerHTML);
-        var moreInfoNote = {
+        console.log('status:' + trstatus);
+        if (trstatus == 'Delays' || trstatus == 'Major delays' || trstatus == 'Partial Closure') {
+          var delayContent = doc.getElementById('serviceInterruptionDetailItemHolder');
+          var moreInfoNote = {
+            infoType:'delay',
+            lineDirection: delayContent.getElementsByClassName('trkworkLineHeading')[0].innerHTML,
+            //trackWorkItemHeading: trackWorkContent.getElementsByClassName('trkworkDetailsItemHeading')[0].innerHTML,
+            trkworkItemText: delayContent.getElementsByClassName('trkworkItemText')[0].innerHTML
+          };
+
+        } else {
+          var trackWorkContent = doc.getElementById('trkworkAllItemsHolder');
+          var moreInfoNote = {
+            infoType:'trackwork',
             lineDirection: trackWorkContent.getElementsByClassName('trkworkLineDirectionText')[0].innerHTML,
             trackWorkItemHeading: trackWorkContent.getElementsByClassName('trkworkDetailsItemHeading')[0].innerHTML,
             trackWorkContentHolder: trackWorkContent.getElementsByClassName('trackworkContentHolder')[0].innerHTML
-        };
+          };
+        }
         remove();
-        save(JSON.stringify(moreInfoNote),linename);
-        cb(null,moreInfoNote,status,headers,config);
+        save(JSON.stringify(moreInfoNote), linename);
+        cb(null, moreInfoNote, status, headers, config);
       }).error(function(data) {
         cb(new Error(data.errorMessage), data);
       });
     };
 
-    var save = function(moreInfoNote,lineName) {
+    var save = function(moreInfoNote, lineName) {
       //alert(JSON.stringify(moreInfoNote));
       $window.localStorage.setItem('trackWorkContent', moreInfoNote);
       $window.localStorage.setItem('lineName', lineName);
     };
 
-    var remove=function(){
+    var remove = function() {
       $window.localStorage.removeItem('trackWorkContent');
       $window.localStorage.removeItem('lineName');
     };

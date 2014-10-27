@@ -37,10 +37,11 @@ angular.module('fgts.controllers')
 		};
 		$interval(updateClock, 1000);
 		updateClock();
-    $scope.moreNews = function(link,linename){
+    $scope.moreNews = function(link,linename,status){
       var exteralLink = link.getAttribute('href');
+      console.log("externalLink"+ exteralLink);
       var newsID = exteralLink.split('?')[1];
-      news.getDetailNews(exteralLink,linename,function(error){
+      news.getDetailNews(exteralLink,linename,status,function(error){
         if (error) {
           $ionicLoading.hide();
           $ionicPopup.alert({
@@ -49,6 +50,7 @@ angular.module('fgts.controllers')
           });
         }else{
           var moreDetailPath = '/tab/news/' + newsID;
+          console.log(moreDetailPath);
           $location.path(moreDetailPath);
         }
       });

@@ -9,7 +9,16 @@ angular.module('fgts.controllers')
     //trackWorkItemHeading
     //trackWorkContent
     //lineName
+    if(localTrackWorkContent.infoType === 'trackwork')
+    {
+        $scope.type = localTrackWorkContent.infoType;
+        $scope.timeInfo = localTrackWorkContent.trackWorkItemHeading;
+        $scope.content =  localTrackWorkContent.trackWorkContentHolder;
+    }else{
+        console.log('content: ===> ' + localTrackWorkContent.trkworkItemText);
+        $scope.type = localTrackWorkContent.infoType;
+        $scope.timeInfo = localTrackWorkContent.trackWorkItemHeading;
+        $scope.content =  localTrackWorkContent.trkworkItemText;
+    }
 
-    $scope.timeInfo = localTrackWorkContent.trackWorkItemHeading;
-    $scope.content =  localTrackWorkContent.trackWorkContentHolder;
   });
