@@ -8,7 +8,7 @@ angular.module('fgts.controllers')
         if (error) {
           $ionicPopup.alert({
             title: 'Sorry',
-            template: "Cannot connect to the internet. Check your internet settings."
+            template: "Cannot connect to the Internet now."
           });
         } else {
           $scope.serviceInfo = data;
@@ -24,7 +24,7 @@ angular.module('fgts.controllers')
 				$ionicLoading.hide();
 				$ionicPopup.alert({
 					title: 'Sorry',
-					template: "Cannot connect to the internet. Check your internet settings."
+					template: "Cannot connect to the Internet now."
 				});
 			} else {
 				$scope.serviceInfo = data;
