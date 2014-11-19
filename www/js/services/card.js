@@ -64,8 +64,11 @@ angular.module('fgts.services')
           mode = modeDoc.getAttribute('src').replace(/^\/images\/icons\/mode-(.*).png$/, '$1');
         }
         var details = activityRowDoc[3].innerHTML;
-        if(details.indexOf('Auto top up') !== -1) {
+        if (details.indexOf('Auto top up') !== -1) {
           mode = 'auto-top-up';
+        }
+        else if (details.indexOf('Top up') !== -1) {
+          mode = 'manual-top-up';
         }
         var activity = {
           transactionNumber: activityRowDoc[0].innerHTML,
