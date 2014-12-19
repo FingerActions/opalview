@@ -11,4 +11,13 @@ angular.module('fgts.controllers')
 			$scope.type = type;
 		};
 
+		$scope.result1 = '';
+    	$scope.options1 = null;
+    	$scope.details1 = '';
+
+    	$scope.result2 = '';
+    	$scope.options1 = null;
+    	$scope.details1 = '';
+
+
 	});

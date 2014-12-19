@@ -6,13 +6,14 @@
 			<div class="item item-input-inset">
 				 <img class="transportation" src="img/train.png"></img>
 				<label class="item-input-wrapper">
-					<input type="text" placeholder="From station">
+					<!--<input type="search" placeholder="From station">-->
+				<input type="text" id="Autocomplete" class="form-control" ng-autocomplete ng-model="result1" />
 				</label>
 			</div>
 			<div class="item item-input-inset">
 				<img class="transportation" src="img/train.png"></img>
 				<label class="item-input-wrapper">
-					<input type="text" placeholder="To station">
+        		<input type="text" id="Autocomplete" class="form-control" ng-autocomplete ng-model="result2" details="details2" options="options2"/>
 				</label>
 			</div>
 			
