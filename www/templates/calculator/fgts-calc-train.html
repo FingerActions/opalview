@@ -2,12 +2,11 @@
   <ion-content class="train">
     <div class="item">Please select the stations:</div>
     <form name="loginForm">
-	    <div class="list">
+	    	<!--
 			<div class="item item-input-inset">
 				 <img class="transportation" src="img/train.png"></img>
 				<label class="item-input-wrapper">
-					<!--<input type="search" placeholder="From station">-->
-				<input type="text" id="Autocomplete" class="form-control" ng-autocomplete ng-model="result1" />
+      			<autocomplete ng-model="yourchoice" data="movies" on-type="updateMovies"></autocomplete>
 				</label>
 			</div>
 			<div class="item item-input-inset">
@@ -16,13 +15,27 @@
         		<input type="text" id="Autocomplete" class="form-control" ng-autocomplete ng-model="result2" details="details2" options="options2"/>
 				</label>
 			</div>
-			
+			-->
+			<div>
+				<!--<div class="trainIcon"><img class="transportation" src="img/train.png"></img></div>-->
+				<div class="trainIcon">From Station:</div>
+				<div class="autoCompleteField"><autocomplete ng-model="yourchoice1" data="stationFrom"></autocomplete></div>
+			</div>
+
+			<div style="clear:both;"></div>
+
+	    	<div>
+				<!--<div class="trainIcon"><img class="transportation" src="img/train.png"></img></div>-->
+				<div class="trainIcon">To Station:</div>
+				<div class="autoCompleteField"><autocomplete ng-model="yourchoice2" data="stationTo"></autocomplete></div>
+			</div>
+
 			<div class="row responsive-sm">
 		        <button class="button button-full button-block button-positive" ng-click="search()">
 		          Search
 		        </button>
       		</div>
-		</div>  
+	 
 	</form>
   </ion-content>
 </ion-view>

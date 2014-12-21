@@ -1,2 +1,2 @@
 'use strict';
-angular.module('fgts.controllers', ['angularCharts','ngAutocomplete']);
+angular.module('fgts.controllers', ['angularCharts','autocomplete']);
