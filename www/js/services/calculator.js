@@ -11,7 +11,7 @@ angular.module('fgts.services')
       ).success(function(data) {
         var parser = new DOMParser();
         var doc = parser.parseFromString(data, 'text/html');
-        var fareDoc = doc.getElementsByClassName('fareOptions')[2].
+        var fareDoc = doc.getElementById('frmFareCalculator:farelist2').
           getElementsByTagName('tbody')[0].getElementsByTagName('tr');
         var singlePeakDoc = fareDoc[0].getElementsByTagName('td'),
         singleOffPeakDoc = fareDoc[1].getElementsByTagName('td'),
