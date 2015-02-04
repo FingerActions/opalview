@@ -62,11 +62,17 @@ angular.module('fgts.services')
 
         } else {
           var trackWorkContent = doc.getElementById('trkworkAllItemsHolder');
+
+          Array.prototype.forEach.call(trackWorkContent,function(el){
+
+            console.log(el.tagName);
+            
+          });
           var moreInfoNote = {
             infoType:'trackwork',
-            lineDirection: trackWorkContent.getElementsByClassName('trkworkLineDirectionText')[0].innerHTML,
-            trackWorkItemHeading: trackWorkContent.getElementsByClassName('trkworkDetailsItemHeading')[0].innerHTML,
-            trackWorkContentHolder: trackWorkContent.getElementsByClassName('trackworkContentHolder')[0].innerHTML
+            lineDirection: trackWorkContent.getElementsByClassName('trkworkLineHeading')[0].innerHTML,
+            trackWorkItemHeading: trackWorkContent.getElementsByClassName('trkworkItemHeading')[0].innerHTML,
+            trackWorkContentHolder: trackWorkContent.getElementsByClassName('trkworkItemText')[0].innerHTML
           };
         }
         remove();
