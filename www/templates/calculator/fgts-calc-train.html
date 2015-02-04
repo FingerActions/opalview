@@ -19,7 +19,7 @@
 			<div>
 				<!--<div class="trainIcon"><img class="transportation" src="img/train.png"></img></div>-->
 				<div class="trainIcon">From Station:</div>
-				<div class="autoCompleteField"><autocomplete ng-model="yourchoice1" data="stationFrom"></autocomplete></div>
+				<div class="autoCompleteField"><autocomplete ng-model="yourchoice1" data="stationFrom" on-type="updateFrom"></autocomplete></div>
 			</div>
 
 			<div style="clear:both;"></div>
@@ -27,7 +27,7 @@
 	    	<div>
 				<!--<div class="trainIcon"><img class="transportation" src="img/train.png"></img></div>-->
 				<div class="trainIcon">To Station:</div>
-				<div class="autoCompleteField"><autocomplete ng-model="yourchoice2" data="stationTo"></autocomplete></div>
+				<div class="autoCompleteField"><autocomplete ng-model="yourchoice2" data="stationTo" on-type="updateTo"></autocomplete></div>
 			</div>
 
 			<div class="row responsive-sm">
