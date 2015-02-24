@@ -1,6 +1,6 @@
 'use strict';
 angular.module('fgts.controllers')
-	.controller('CalculatorCtrl', function ($scope, calculator,stations) {
+	.controller('CalculatorCtrl', function ($scope, $ionicPopup,calculator,stations) {
 
 		//calculator.train('Ashfield', 'Town Hall', function(error, data){
 		//	console.log(data);
@@ -37,12 +37,23 @@ angular.module('fgts.controllers')
 
         $scope.search = function(){
 
-            console.log("Calculate: " + fromStation + " to "+ toStation);
-            calculator.train(fromStation,toStation,function(error,data){
 
-                console.log(data);
+            if(fromStation == undefined || toStation == undefined)
+            {
+                $ionicPopup.alert({
+                    title: '',
+                    template: 'Please type in station names.'
+                });
 
-            });
+            }
+            else {
+                console.log("Calculate: " + fromStation + " to " + toStation);
+                calculator.train(fromStation, toStation, function (error, data) {
+
+                    console.log(data);
+
+                });
+            }
         };
 
 	});
