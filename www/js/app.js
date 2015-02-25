@@ -88,6 +88,16 @@ angular.module('fgts', ['ionic', 'fgts.controllers', 'fgts.services', 'fgts.dire
     }
   })
 
+      .state('tab.calculator-train-details', {
+        url: '/calculator/train/details',
+        views: {
+          'tab-calculator': {
+            templateUrl: 'templates/calculator/fgts-calc-train-details.html',
+            controller: 'trainDetailsCtrl'
+          }
+        }
+      })
+
   .state('tab.calculator-bus', {
     url: '/calculator/bus',
     views: {

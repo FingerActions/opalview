@@ -1,6 +1,6 @@
 'use strict';
 angular.module('fgts.controllers')
-	.controller('CalculatorCtrl', function ($scope, $ionicPopup,calculator,stations) {
+	.controller('CalculatorCtrl', function ($scope,$window,$location,$ionicPopup,calculator,stations) {
 
 		//calculator.train('Ashfield', 'Town Hall', function(error, data){
 		//	console.log(data);
@@ -51,6 +51,12 @@ angular.module('fgts.controllers')
                 calculator.train(fromStation, toStation, function (error, data) {
 
                     console.log(data);
+                    // save data to localstorage
+                    $window.localStorage.setItem('trainFareOpal', data);
+
+                    var moreDetailPath = '/tab/calculator/train/details';
+                    console.log(moreDetailPath);
+                    $location.path(moreDetailPath);
 
                 });
             }
