@@ -37,7 +37,6 @@ angular.module('fgts.controllers')
 
         $scope.search = function(){
 
-
             if(fromStation == undefined || toStation == undefined)
             {
                 $ionicPopup.alert({
@@ -50,9 +49,12 @@ angular.module('fgts.controllers')
                 console.log("Calculate: " + fromStation + " to " + toStation);
                 calculator.train(fromStation, toStation, function (error, data) {
 
-                    console.log(data);
+                    console.log(data.adult.dailyCapMonToSat);
+
+                    console.log(JSON.stringify(data));
+
                     // save data to localstorage
-                    $window.localStorage.setItem('trainFareOpal', data);
+                    $window.localStorage.setItem('trainFareOpal', JSON.stringify(data));
 
                     var moreDetailPath = '/tab/calculator/train/details';
                     console.log(moreDetailPath);

@@ -5,12 +5,12 @@
 angular.module('fgts.controllers')
     .controller('trainDetailsCtrl', function($scope, $window) {
 
+        var fareInfo = JSON.parse($window.localStorage.getItem('trainFareOpal'));
 
-        var fareInfo = $window.localStorage.getItem('trainFareOpal');
+        console.log(fareInfo.adult.singlePeak);
 
-        console.log(fareInfo.adult);
+        //console.log(fareInfo.adult.dailyCapMonToSat);
 
         $scope.fareInfo = fareInfo;
-
 
     });
