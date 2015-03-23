@@ -6,7 +6,7 @@ angular.module('fgts.controllers')
 		//	console.log(data);
 		//});
 
-        var fromStation,toStation;
+        var fromStation,toStation,cardTypeSelected;
 
 		$scope.type = 'map';
 		$scope.setType = function(type) {
@@ -15,8 +15,11 @@ angular.module('fgts.controllers')
         var stationsArray = stations.fareCalcFrom;
         var length = stations.fareCalcFrom.length;
         console.log(length);
+
         $scope.stationFrom = [];
         $scope.stationTo = [];
+        $scope.cardType = [];
+
         while(length>0)
         {
             length--;
@@ -36,10 +39,15 @@ angular.module('fgts.controllers')
         }
 
         $scope.cardTypes = ["none","adult","child","senior","concession"];
-        $scope.cardType = $scope.cardTypes[0];
-        
 
-        $scope.search = function(){
+        $scope.cardType = $scope.cardTypes[0];
+
+        $scope.updateType = function(type){
+            cardTypeSelected = type;
+        };
+
+        $scope.search = function($scope){
+
 
             if(fromStation == undefined || toStation == undefined)
             {
@@ -47,18 +55,20 @@ angular.module('fgts.controllers')
                     title: '',
                     template: 'Please type in station names.'
                 });
-
             }
             else {
+
                 console.log("Calculate: " + fromStation + " to " + toStation);
+                console.log("selected card type: " + cardTypeSelected);
+
                 calculator.train(fromStation, toStation, function (error, data) {
 
                     console.log(data.adult.dailyCapMonToSat);
-
                     console.log(JSON.stringify(data));
 
                     // save data to localstorage
                     $window.localStorage.setItem('trainFareOpal', JSON.stringify(data));
+                    $window.localStorage.setItem('cardType',cardTypeSelected);
 
                     var moreDetailPath = '/tab/calculator/train/details';
                     console.log(moreDetailPath);

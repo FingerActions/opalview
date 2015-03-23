@@ -31,7 +31,7 @@
 
 			<div>
 				<div class="trainIcon">Card type:&nbsp</div>
-				<select ng-model="cardType" ng-options="type for type in cardTypes"></select>
+				<select ng-model="cardType" ng-options="type for type in cardTypes" ng-change="updateType(cardType)"></select>
 			</div>
 
 			<div class="row responsive-sm">
