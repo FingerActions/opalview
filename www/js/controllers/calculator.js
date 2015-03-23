@@ -35,6 +35,10 @@ angular.module('fgts.controllers')
             toStation = typed;
         }
 
+        $scope.cardTypes = ["none","adult","child","senior","concession"];
+        $scope.cardType = $scope.cardTypes[0];
+        
+
         $scope.search = function(){
 
             if(fromStation == undefined || toStation == undefined)

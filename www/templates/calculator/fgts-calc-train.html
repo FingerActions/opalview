@@ -31,12 +31,7 @@
 
 			<div>
 				<div class="trainIcon">Card type:&nbsp</div>
-				<select>
-					<option selected>adult</option>
-					<option>child</option>
-					<option>senior</option>
-					<option>concession</option>
-				</select>
+				<select ng-model="cardType" ng-options="type for type in cardTypes"></select>
 			</div>
 
 			<div class="row responsive-sm">
