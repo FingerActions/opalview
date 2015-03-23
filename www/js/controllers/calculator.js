@@ -67,8 +67,11 @@ angular.module('fgts.controllers')
                     console.log(JSON.stringify(data));
 
                     // save data to localstorage
-                    $window.localStorage.setItem('trainFareOpal', JSON.stringify(data));
-                    $window.localStorage.setItem('cardType',cardTypeSelected);
+                    $window.localStorage.setItem('fare.trainFareOpal', JSON.stringify(data));
+                    $window.localStorage.setItem('fare.cardType',cardTypeSelected);
+                    $window.localStorage.setItem('fare.fromStation',fromStation);
+                    $window.localStorage.setItem('fare.toStation',toStation);
+
 
                     var moreDetailPath = '/tab/calculator/train/details';
                     console.log(moreDetailPath);
