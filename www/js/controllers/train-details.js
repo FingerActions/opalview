@@ -18,5 +18,5 @@ angular.module('fgts.controllers')
         $scope.fromStation = fromStation;
         $scope.toStation = toStation;
 
-        
+
     });
