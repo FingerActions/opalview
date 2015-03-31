@@ -1,36 +1,20 @@
 <ion-view title="Fare Information">
     <ion-content class='card-details'>
 
-        <div>From: {{fromStation}} To {{toStation}}</div>
-
+        <div class="title">Costs from: <span class="stationName">{{fromStation}}</span> To <span class="stationName">{{toStation}}</span></div>
         <div class="card" ng-repeat="fare in fareInfo">
-            <div>
-                <!--<div class="item item-divider {{info.className}}">-->
-                    <!--<p class="lineName" ng-bind-html="info.lineName"></p>-->
-                <!--</div>-->
-                <!--<a ng-switch="info.serviceStatus" class="item item-icon-left item-icon-right item-light" ng-click="moreNews(info.exteralLink,info.lineName,info.serviceStatus)">-->
-                    <!--<i class="icon ion-happy" ng-switch-when="Good service"></i>-->
-                    <!--<i class="icon ion-clock" ng-switch-when="Major delays"></i>-->
-                    <!--<i class="icon ion-clock" ng-switch-when="Delays"></i>-->
-                    <!--<i class="icon ion-wrench" ng-switch-default></i>-->
-                    <!--<span>{{info.serviceStatus}}</span>-->
-                    <!--<i class="icon ion-ios7-arrow-right" ng-if="info.serviceStatus != 'Good service'"></i>-->
-                <!--</a>-->
-
-                <div class="item item-divider {{info.className}}">
-                    <p class="lineName" ng-bind-html="info.lineName"></p>
+            <div class="list">
+                <div class="item item-divider {{fare.group}}">
+                    <p class="lineName" ng-bind-html="fare.group"></p>
                 </div>
 
-                <p>Single Peak: {{fare.singlePeak}}</p>
-                <p>Single Off Peak: {{fare.singleOffPeak}}</p>
-                <p>Daily Cap Mon-Sat:{{fare.dailyCapMonToSat}}</p>
-                <p>Daily Cap Sun:{{fare.dailyCapSun}}</p>
-                <p>Default Peak:{{fare.defaultPeak}}</p>
-                <p>Default Off Peak:{{fare.defaultOffPeak}}</p>
-
+                    <p class="item">Single Peak: <span class="costs">{{fare.singlePeak}}</span></p>
+                    <p class="item">Single Off Peak: <span class="costs">{{fare.singleOffPeak}}</span></p>
+                    <p class="item">Daily Cap Mon-Sat:<span class="costs">{{fare.dailyCapMonToSat}}</span></p>
+                    <p class="item">Daily Cap Sun:<span class="costs">{{fare.dailyCapSun}}</span></p>
+                    <p class="item">Default Peak:<span class="costs">{{fare.defaultPeak}}</span></p>
+                    <p class="item">Default Off Peak:<span class="costs">{{fare.defaultOffPeak}}</span></p>
             </div>
         </div>
-
-
     </ion-content>
 </ion-view>

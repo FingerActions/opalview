@@ -13,10 +13,8 @@ angular.module('fgts.controllers')
         console.log('cardType: ' + cardType);
         console.log(fareInfo.adult.singlePeak);
         //console.log(fareInfo.adult.dailyCapMonToSat);
-
         $scope.fareInfo = fareInfo;
         $scope.fromStation = fromStation;
         $scope.toStation = toStation;
-
-
+        $scope.group = cardType;
     });

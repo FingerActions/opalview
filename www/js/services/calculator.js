@@ -24,6 +24,7 @@ angular.module('fgts.services')
           child = {},
           senior = {},
           concession = {};
+            adult.group = "Adult";
         adult.singlePeak = singlePeakDoc[1].innerHTML;
         adult.singleOffPeak = singleOffPeakDoc[1].innerHTML;
         adult.dailyCapMonToSat = dailyCapMonToSatDoc[1].innerHTML;
@@ -31,6 +32,7 @@ angular.module('fgts.services')
         adult.defaultPeak = defaultFarePeakDoc[1].innerHTML;
         adult.defaultOffPeak = defaultFareOffPeakDoc[1].innerHTML;
 
+            child.group = "Child";
         child.singlePeak = singlePeakDoc[2].innerHTML;
         child.singleOffPeak = singleOffPeakDoc[2].innerHTML;
         child.dailyCapMonToSat = dailyCapMonToSatDoc[2].innerHTML;
@@ -38,6 +40,7 @@ angular.module('fgts.services')
         child.defaultPeak = defaultFarePeakDoc[2].innerHTML;
         child.defaultOffPeak = defaultFareOffPeakDoc[2].innerHTML;
 
+            senior.group = "Senior";
         senior.singlePeak = singlePeakDoc[3].innerHTML;
         senior.singleOffPeak = singleOffPeakDoc[3].innerHTML;
         senior.dailyCapMonToSat = dailyCapMonToSatDoc[3].innerHTML;
@@ -45,6 +48,7 @@ angular.module('fgts.services')
         senior.defaultPeak = defaultFarePeakDoc[3].innerHTML;
         senior.defaultOffPeak = defaultFareOffPeakDoc[3].innerHTML;
 
+            concession.group = "Concession";
         concession.singlePeak = singlePeakDoc[4].innerHTML;
         concession.singleOffPeak = singleOffPeakDoc[4].innerHTML;
         concession.dailyCapMonToSat = dailyCapMonToSatDoc[4].innerHTML;

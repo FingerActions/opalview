@@ -5,17 +5,30 @@
 
 .card-details {
 
+  .title{
+    padding:20px 20px 0px 20px;
+  }
+
+  .fareBodyTxt
+  {
+    padding:20px;
+  }
   .lineName{
-
     color:white !important;
+  }
 
+  .stationName{
+    font-size:20px;
+  }
+
+  .costs{
+    float: right;
+    padding-right: 20px;
   }
 
   .trkworkDetailsItemHeading{
-
     font-size: 0.9em;
     font-weight: 700;
-
   }
 
   .trkworkItemHeading{
@@ -65,6 +78,10 @@
     background: #1b82c5;
     color: white;
   }
+  .southWest {
+    background: #f37f89;
+    color: #fff;
+  }
   .bankstown {
     background: #f26726;
     color: white;
@@ -89,4 +106,24 @@
     background: #f59c00;
     color: white;
   }
+
+  .Adult{
+    background: #2c2a28;
+    color: white;
+  }
+
+  .Child{
+    background: #75a769;
+    color: white;
+  }
+  .Senior{
+    background: #f7cd64;
+    color: white;
+  }
+  .Concession{
+    background: #acabab;
+    color: white;
+  }
+
+
 }
