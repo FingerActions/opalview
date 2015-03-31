@@ -38,7 +38,7 @@ angular.module('fgts.controllers')
             toStation = typed;
         }
 
-        $scope.cardTypes = ["none","adult","child","senior","concession"];
+        $scope.cardTypes = ["None","Adult","Child","Senior","Concession"];
 
         $scope.cardType = $scope.cardTypes[0];
 

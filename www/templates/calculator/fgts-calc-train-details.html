@@ -2,19 +2,18 @@
     <ion-content class='card-details'>
 
         <div class="title">Costs from: <span class="stationName">{{fromStation}}</span> To <span class="stationName">{{toStation}}</span></div>
-        <div class="card" ng-repeat="fare in fareInfo">
-            <div class="list">
-                <div class="item item-divider {{fare.group}}">
-                    <p class="lineName" ng-bind-html="fare.group"></p>
+        <div class="card" ng-repeat="fare in fareInfo" ng-if="fare.group == group || group == 'undefined'">
+                <div class="list">
+                    <div class="item item-divider {{fare.group}}">
+                        <p class="lineName" ng-bind-html="fare.group"></p>
+                    </div>
+                        <p class="item">Single Peak: <span class="costs">{{fare.singlePeak}}</span></p>
+                        <p class="item">Single Off Peak: <span class="costs">{{fare.singleOffPeak}}</span></p>
+                        <p class="item">Daily Cap Mon-Sat:<span class="costs">{{fare.dailyCapMonToSat}}</span></p>
+                        <p class="item">Daily Cap Sun:<span class="costs">{{fare.dailyCapSun}}</span></p>
+                        <p class="item">Default Peak:<span class="costs">{{fare.defaultPeak}}</span></p>
+                        <p class="item">Default Off Peak:<span class="costs">{{fare.defaultOffPeak}}</span></p>
                 </div>
-
-                    <p class="item">Single Peak: <span class="costs">{{fare.singlePeak}}</span></p>
-                    <p class="item">Single Off Peak: <span class="costs">{{fare.singleOffPeak}}</span></p>
-                    <p class="item">Daily Cap Mon-Sat:<span class="costs">{{fare.dailyCapMonToSat}}</span></p>
-                    <p class="item">Daily Cap Sun:<span class="costs">{{fare.dailyCapSun}}</span></p>
-                    <p class="item">Default Peak:<span class="costs">{{fare.defaultPeak}}</span></p>
-                    <p class="item">Default Off Peak:<span class="costs">{{fare.defaultOffPeak}}</span></p>
-            </div>
         </div>
     </ion-content>
 </ion-view>
