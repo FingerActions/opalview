@@ -19,7 +19,7 @@ angular.module('fgts.services')
             return;
           }
           var className = infoList[length].className;
-          console.log(className);
+          console.log("--------------" + className);
           var infoNodeRaw = infoRowDoc.getElementsByTagName('td');
           var nodelength = infoNodeRaw.length;
           var statusIndex = nodelength - 1;
