@@ -1,6 +1,6 @@
 'use strict';
 angular.module('fgts.controllers')
-  .controller('RecentCtrl', function(account, $ionicPopup, url, $http, $scope, $ionicModal, card, $ionicLoading) {
+  .controller('RecentCtrl', function($cordovaInAppBrowser, account, $ionicPopup, url, $http, $scope, $ionicModal, card, $ionicLoading) {
     var isLoggedin = $scope.isLoggedin = account.isLoggedin();
 
     function getCardsRecent(data, isRefresh) {
@@ -52,6 +52,7 @@ angular.module('fgts.controllers')
       }
       $scope.opals = opals;
     }
+
 
     $scope.doRefresh = function() {
       card.regetCardsDetails(function(error, data) {

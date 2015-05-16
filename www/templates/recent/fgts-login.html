@@ -9,8 +9,12 @@
     <div class="row responsive-sm">
       <div class="text">
         To add your Opal cards, please use login details from the Opal offical website.<br>
-        <a ng-href="{{activateURL}}" target="_blank">Haven’t activated your card yet?</a><br>
-        <a ng-href="{{instructionURL}}" target="_blank">How do I use my Opal Card?</a>
+        <!-- <a ng-click="openBrowser('activateURL')">Haven’t activated your card yet?</a><br>
+        <a ng-click="openBrowser('instructionURL')">How do I use my Opal Card?</a> -->
+        <a href="#" onclick="window.open('http://www.opal.com.au/en/customer-care/about-opal-card-activation/', '_system', 'location=yes'); return false;">Haven’t activated your card yet?</a><br>
+
+        <a href="#" onclick="window.open('http://www.youtube.com/watch?v=2vcvxuR_vXk', '_system', 'location=yes'); return false;">How do I use my Opal Card?</a><br>
+
       </div>
     </div>
     <form name="loginForm">

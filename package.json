@@ -16,5 +16,11 @@
     "test": "grunt test",
     "install": "node node_modules/protractor/bin/webdriver-manager update"
   },
-  "private": true
+  "private": true,
+  "cordovaPlugins": [
+    "org.apache.cordova.inappbrowser"
+  ],
+  "cordovaPlatforms": [
+    "ios"
+  ]
 }
