@@ -64,11 +64,15 @@ angular.module('fgts.services')
           mode = modeDoc.getAttribute('src').replace(/^\/images\/icons\/mode-(.*).png$/, '$1');
         }
         var details = activityRowDoc[3].innerHTML;
+        console.log(details);
         if (details.indexOf('Auto top up') !== -1) {
           mode = 'auto-top-up';
         }
         else if (details.indexOf('Top up') !== -1) {
           mode = 'manual-top-up';
+        }else if(details.indexOf('Tap on reversal') !== -1)
+        {
+          mode = 'tap-on-reversal';
         }
         var activity = {
           transactionNumber: activityRowDoc[0].innerHTML,
@@ -134,6 +138,7 @@ angular.module('fgts.services')
 
     var getCardActivitiesBy = function(unit, cb) {
       if(unit === 'day') {
+
         cb();
       }
 
