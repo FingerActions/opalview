@@ -133,7 +133,7 @@ angular.module('fgts.services')
     };
 
     var getCardActivitiesBy = function(unit, cb) {
-      if(unit === 'days') {
+      if(unit === 'day') {
         cb();
       }
 
@@ -141,7 +141,7 @@ angular.module('fgts.services')
         cb();
       }
 
-      else if(unit === 'months') {
+      else if(unit === 'month') {
         cb();
       }
     };

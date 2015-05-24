@@ -30,7 +30,7 @@ angular.module('fgts.controllers')
 
     var setView = $scope.setView = function(view) {
       $scope.viewBy = view;
-
+      console.log("viewby: " + view);
       card.getCardActivitiesBy(view, function(error, data) {
         if(error) {
           $ionicPopup.alert({
@@ -40,32 +40,49 @@ angular.module('fgts.controllers')
         }
         var opalActivities = data;
 
-        $scope.acData = {
-          data: [{
-            x: 'M',
-            y: [2.75]
-          }, {
-            x: 'T',
-            y: [3.5]
-          }, {
-            x: 'W',
-            y: [2.75]
-          }, {
-            x: 'TS',
-            y: [6.8]
-          }, {
-            x: 'F',
-            y: [5.5]
-          }, {
-            x: 'SA',
-            y: [6.8]
-          }, {
-            x: 'SU',
-            y: [6.8]
-          }]
-        };
-      });
-    };
+        switch(view)
+        {
+          case 'day':
 
-    setView('days');
+            console.log("display day");
+          break;
+
+          case 'week':
+
+            console.log("display week");
+          break;
+
+          case 'month':
+
+            console.log("display month");
+          break;
+        }
+
+        // $scope.acData = {
+        //   data: [{
+        //     x: 'M',
+        //     y: [2.75]
+        //   }, {
+        //     x: 'T',
+        //     y: [3.5]
+        //   }, {
+        //     x: 'W',
+        //     y: [2.75]
+        //   }, {
+        //     x: 'TS',
+        //     y: [6.8]
+        //   }, {
+        //     x: 'F',
+        //     y: [5.5]
+        //   }, {
+        //     x: 'SA',
+        //     y: [6.8]
+        //   }, {
+        //     x: 'SU',
+        //     y: [6.8]
+        //   }]
+        // };
+
+      });
+    }; // end of setView
   });
