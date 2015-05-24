@@ -15,15 +15,15 @@ angular.module('fgts.controllers')
 
     $scope.viewType = 'chart';
 
-    $scope.toggleButtonImage = '../../img/data.jpg';
+    $scope.toggleButtonImage = '../../img/charts.png';
 
     $scope.toggleViewType = function() {
-      if ($scope.viewType === 'chart') {
-        $scope.viewType = 'text';
+      if ($scope.viewType === 'text') {
+        $scope.viewType = 'chart';
         $scope.toggleButtonImage = '../../img/charts.png';
       }
       else {
-        $scope.viewType = 'chart';
+        $scope.viewType = 'text';
         $scope.toggleButtonImage = '../../img/data.jpg';
       }
     };

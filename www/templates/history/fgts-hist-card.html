@@ -9,14 +9,22 @@
   </ion-content>
 
   <div class="bottom-buttons">
-    <a href="#" ng-click="prev()" class="nav prev">
-      <i class="icon ion-ios7-arrow-left"></i>
-    </a>
+
+    <ng-pane> 
+      <a href="#" ng-click="prev()" class="nav prev">
+        <i class="icon ion-ios7-arrow-left" ng-if="viewType=='chart'"></i>
+      </a>
+    </ng-pane>
+
     <a ng-click="toggleViewType()" class="toggle-view-type">
       <img ng-src="{{toggleButtonImage}}" alt="" />
     </a>
-    <a href="#" ng-click="next()" class="nav next">
-      <i class="icon ion-ios7-arrow-right"></i>
-    </a>
+
+    <ng-pane >
+      <a href="#" ng-click="next()" class="nav next">
+        <i class="icon ion-ios7-arrow-right" ng-if="viewType=='chart'"></i>
+      </a>
+    </ng-pane>
+
   </div>
 </ion-view>
