@@ -64,7 +64,6 @@ angular.module('fgts.services')
           mode = modeDoc.getAttribute('src').replace(/^\/images\/icons\/mode-(.*).png$/, '$1');
         }
         var details = activityRowDoc[3].innerHTML;
-        console.log(details);
         if (details.indexOf('Auto top up') !== -1) {
           mode = 'auto-top-up';
         }
