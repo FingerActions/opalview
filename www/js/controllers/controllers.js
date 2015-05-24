@@ -1,3 +1,3 @@
 'use strict';
-angular.module('fgts.controllers', ['angularCharts','autocomplete','ngCordova'])
+angular.module('fgts.controllers', ['angularCharts','autocomplete'])
  

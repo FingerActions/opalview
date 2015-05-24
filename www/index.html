@@ -25,6 +25,10 @@
     <script src='lib/angular-charts/dist/angular-charts.js'></script>
     <script src='lib/angular-sanitize/angular-sanitize.js'></script>
 
+    <!-- Frosted glass -->
+    <link href="lib/ionic-ion-frost/ionic.contrib.frost.css" rel="stylesheet">
+    <script src="lib/ionic-ion-frost/ionic.contrib.frost.js"></script>
+
     <!-- app -->
     <script type="text/javascript" src="js/libs/ngAutocomplete.js"></script>
     <script src="js/app.js"></script>
@@ -72,11 +76,16 @@
     <!--
       The nav bar that will be updated as we navigate between views.
     -->
-    <ion-nav-bar class="bar-stable nav-title-slide-ios7 bar-dark">
+    <!-- <ion-nav-bar class="bar-stable nav-title-slide-ios7 " type="bar-frosted" frosted-bar>
       <ion-nav-back-button class="button-icon icon ion-ios7-arrow-back">
         Back
       </ion-nav-back-button>
-    </ion-nav-bar>
+    </ion-nav-bar> -->
+     <ion-nav-bar frosted-bar title="'Title'" type="bar-frosted"  class="bar-dark">
+      <ion-nav-back-button class="button-icon icon ion-ios7-arrow-back">
+        Back
+      </ion-nav-back-button>
+    </ion-nav-bar >
     <!--
       The views will be rendered in the <ion-nav-view> directive below
       Templates are in the /templates folder (but you could also

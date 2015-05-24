@@ -6,7 +6,7 @@
 // 'fgts.services' is found in services.js
 // 'fgts.controllers' is found in controllers.js
 'use strict';
-angular.module('fgts', ['ionic', 'fgts.controllers', 'fgts.services', 'fgts.directives'])
+angular.module('fgts', ['ionic', 'fgts.controllers', 'fgts.services', 'fgts.directives','ngCordova','ionic.contrib.frost'])
 
 .run(function ($ionicPlatform, $ionicPopup, $window) {
   $ionicPlatform.ready(function () {
