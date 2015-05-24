@@ -15,16 +15,16 @@ angular.module('fgts.controllers')
 
     $scope.viewType = 'chart';
 
-    $scope.toggleButtonImage = 'https://c2.staticflickr.com/4/3214/2699906907_a0d5efa66f.jpg';
+    $scope.toggleButtonImage = '../../img/data.jpg';
 
     $scope.toggleViewType = function() {
       if ($scope.viewType === 'chart') {
         $scope.viewType = 'text';
-        $scope.toggleButtonImage = 'http://pandas-xlsxwriter-charts.readthedocs.org/en/latest/_images/chart_grouped_column_farms.png';
+        $scope.toggleButtonImage = '../../img/charts.png';
       }
       else {
         $scope.viewType = 'chart';
-        $scope.toggleButtonImage = 'https://c2.staticflickr.com/4/3214/2699906907_a0d5efa66f.jpg';
+        $scope.toggleButtonImage = '../../img/data.jpg';
       }
     };
 
