@@ -85,4 +85,6 @@ angular.module('fgts.controllers')
 
       });
     }; // end of setView
+
+    setView('day');
   });
