@@ -1,3 +1,2 @@
 'use strict';
-angular.module('fgts.controllers', ['angularCharts','autocomplete'])
- 
+angular.module('fgts.controllers', ['angularCharts','autocomplete',"highcharts-ng"])

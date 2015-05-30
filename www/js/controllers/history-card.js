@@ -1,22 +1,8 @@
 'use strict';
-angular.module('fgts.controllers',["highcharts-ng"])
+angular.module('fgts.controllers')
   .controller('HistoryCardCtrl', function($scope, account,$stateParams, card, $ionicPopup) {
 
     var isLoggedin = $scope.isLoggedin = account.isLoggedin();
-
-    // $scope.chartType = 'bar';
-    //
-    // $scope.acConfig = {
-    //   labels: true,
-    //   legend: {
-    //     display: false,
-    //     position: 'left'
-    //   }
-    // };
-    //
-    // $scope.acData = [];
-    //
-    // $scope.viewType = 'chart';
 
     $scope.toggleButtonImage = '../../img/charts.png';
 
@@ -82,24 +68,6 @@ angular.module('fgts.controllers',["highcharts-ng"])
       $scope.opals = opals;
     }
 
-    $scope.chartConfig = {
-      options: {
-        chart: {
-          type: 'bar'
-        }
-      },
-      series: [{
-        data: [10, 15, 12, 8, 7]
-      }],
-      title: {
-        text: 'Hello'
-      },
-
-      loading: false
-    }
-
-
-
     function renderTextView()
     {
 
@@ -148,6 +116,62 @@ angular.module('fgts.controllers',["highcharts-ng"])
 
             console.log("display month");
           break;
+        }
+
+        $scope.chartConfig = {
+
+          options: {
+
+            chart: {
+              type: 'column'
+            },
+
+          },
+          tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+            '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+          },
+
+          title: {
+            text: 'Daily spends'
+          },
+          subtitle: {
+            text: ''
+          },
+          series: [{
+            name: 'spends',
+            data: [4.39, 2.56, 0, 12.5, 7.6, 0, 0]
+
+          }],
+
+          xAxis: {
+            categories: [
+            'Mon',
+            'Tue',
+            'Wed',
+            'Thur',
+            'Friday',
+            'Staturday',
+            'Sunday'
+            ],
+            crosshair: true
+          },
+          yAxis: {
+            min: 0,
+            title: {
+              text: 'expenses ($)'
+            }
+          },
+          plotOptions: {
+            column: {
+              pointPadding: 2,
+              borderWidth: 0
+            }
+          },
         }
 
       });
