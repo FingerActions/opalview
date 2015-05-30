@@ -1,22 +1,22 @@
 'use strict';
-angular.module('fgts.controllers')
+angular.module('fgts.controllers',["highcharts-ng"])
   .controller('HistoryCardCtrl', function($scope, account,$stateParams, card, $ionicPopup) {
 
     var isLoggedin = $scope.isLoggedin = account.isLoggedin();
 
-    $scope.chartType = 'bar';
-
-    $scope.acConfig = {
-      labels: true,
-      legend: {
-        display: false,
-        position: 'left'
-      }
-    };
-
-    $scope.acData = [];
-
-    $scope.viewType = 'chart';
+    // $scope.chartType = 'bar';
+    //
+    // $scope.acConfig = {
+    //   labels: true,
+    //   legend: {
+    //     display: false,
+    //     position: 'left'
+    //   }
+    // };
+    //
+    // $scope.acData = [];
+    //
+    // $scope.viewType = 'chart';
 
     $scope.toggleButtonImage = '../../img/charts.png';
 
@@ -82,6 +82,22 @@ angular.module('fgts.controllers')
       $scope.opals = opals;
     }
 
+    $scope.chartConfig = {
+      options: {
+        chart: {
+          type: 'bar'
+        }
+      },
+      series: [{
+        data: [10, 15, 12, 8, 7]
+      }],
+      title: {
+        text: 'Hello'
+      },
+
+      loading: false
+    }
+
 
 
     function renderTextView()
@@ -133,31 +149,6 @@ angular.module('fgts.controllers')
             console.log("display month");
           break;
         }
-
-        // $scope.acData = {
-        //   data: [{
-        //     x: 'M',
-        //     y: [2.75]
-        //   }, {
-        //     x: 'T',
-        //     y: [3.5]
-        //   }, {
-        //     x: 'W',
-        //     y: [2.75]
-        //   }, {
-        //     x: 'TS',
-        //     y: [6.8]
-        //   }, {
-        //     x: 'F',
-        //     y: [5.5]
-        //   }, {
-        //     x: 'SA',
-        //     y: [6.8]
-        //   }, {
-        //     x: 'SU',
-        //     y: [6.8]
-        //   }]
-        // };
 
       });
     }; // end of setView
