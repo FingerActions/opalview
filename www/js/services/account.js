@@ -15,6 +15,7 @@ angular.module('fgts.services')
           remove();
           cb(new Error(data.errorMessage), data, status, headers, config);
         } else {
+          console.log("Hey, succeed......");
           save(username, password);
           cb(null, data, status, headers, config);
         }

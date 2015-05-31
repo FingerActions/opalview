@@ -3,17 +3,22 @@ angular.module('fgts.services')
   .factory('card', function($http, account, url, $window) {
     var cards = [];
     var regetCardsDetails = function (cb) {
-      $http.get(url.opal + 'registered/getJsonCardDetailsArray')
+      $http.get(url.opal + 'registered/getJsonCardDetailsArray?_=1433081759347')
         .success(function (data, status, headers, config) {
+
+          console.log(url.opal + 'registered/getJsonCardDetailsArray' + data);
+
           if (data.indexOf('<!DOCTYPE') === 0) {
             account.login(function(error, data, status, headers, config) {
               if(error) {
                 cb(error, data, status, headers, config);
               }
               else{
-                $http.get(url.opal + 'registered/getJsonCardDetailsArray')
+                $http.get(url.opal + 'registered/getJsonCardDetailsArray?_=1433081759347')
                   .success(function (data, status, headers, config) {
+                    //console.log(data);
                     cb(null, data, status, headers, config);
+                    
                   })
                   .error(function (data, status, headers, config) {
                     cb(new Error('Please check your network and try again'), data, status, headers, config);
@@ -32,10 +37,12 @@ angular.module('fgts.services')
 
     var getCardsDetails = function (cb) {
       var length = cards.length;
+      console.log("------"+length);
       if (length !== 0) {
         cb(null, cards);
       }
       else {
+        console.log("*********");
         regetCardsDetails(cb);
       }
     };

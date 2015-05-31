@@ -7,9 +7,9 @@
  * # fgtsHistText
  */
 angular.module('fgts.directives')
-  .directive('fgtsHistText', function () {
+  .directive('fgtsHistTxt', function () {
     return {
-      templateUrl: 'templates/history/fgts-hist-text.html',
+      templateUrl: 'templates/history/fgts-hist-txt.html',
       restrict: 'E'
     };
   });

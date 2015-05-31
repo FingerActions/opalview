@@ -1,6 +1,6 @@
 'use strict';
 angular.module('fgts.controllers')
-  .controller('HistoryCardCtrl', function($scope, account,$stateParams, card, $ionicPopup) {
+  .controller('HistoryCardCtrl', function($scope, account,$stateParams, card,  url, $http, $ionicModal, $ionicLoading) {
 
     var isLoggedin = $scope.isLoggedin = account.isLoggedin();
 
@@ -12,6 +12,7 @@ angular.module('fgts.controllers')
         $scope.toggleButtonImage = '../../img/charts.png';
       }
       else {
+        console.log("I am fucking changing");
         $scope.viewType = 'text';
         $scope.toggleButtonImage = '../../img/data.jpg';
       }
@@ -21,7 +22,7 @@ angular.module('fgts.controllers')
     function getCardsRecent(data, isRefresh) {
       var opals = data;
       var length = opals.length;
-
+      console.log("--------- " + length);
       while (length-- > 0) {
         opals[length].activities = [];
         card.getCardActivities(function(error, data, status, headers, config) {
@@ -99,11 +100,14 @@ angular.module('fgts.controllers')
           });
         }
         var opalActivities = data;
-
+      
+        console.log(data);
+       
         switch(view)
         {
           case 'day':
-            renderTextView();
+            //renderTextView();
+            
             console.log("display day");
           break;
 
@@ -145,8 +149,13 @@ angular.module('fgts.controllers')
           series: [{
             name: 'spends',
             data: [4.39, 2.56, 0, 12.5, 7.6, 0, 0]
-
-          }],
+          },
+            {
+            "name": "trends",
+            "data": [4.39,2.56, 0, 12.5, 7.6, 0, 0],
+            "type": "line",
+           },
+          ],
 
           xAxis: {
             categories: [

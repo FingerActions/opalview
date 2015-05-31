@@ -6,6 +6,10 @@ angular.module('fgts.controllers')
     function getCardsRecent(data, isRefresh) {
       var opals = data;
       var length = opals.length;
+      
+     console.log(length);
+     //console.log(JSON.stringify(opals));
+
 
       while (length-- > 0) {
         opals[length].activities = [];
@@ -100,6 +104,9 @@ angular.module('fgts.controllers')
           $scope.$root.username = $scope.$root.password = '';
           card.regetCardsDetails(function(error, data) {
             getCardsRecent(data, false);
+
+            console.log(data);
+
             $ionicLoading.hide();
             $scope.loginModal.hide();
             $ionicPopup.alert({
