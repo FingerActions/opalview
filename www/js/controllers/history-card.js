@@ -92,6 +92,19 @@ angular.module('fgts.controllers')
     var setView = $scope.setView = function(view) {
       $scope.viewBy = view;
       console.log("viewby: " + view);
+
+
+      // retrieve all card activities data
+      // temporily put here. Need put to somewhere when user login
+      // in to the system.
+      card.getAllTransactionData(function(error, data, status, headers, config) {
+
+        console.log("************************************************");
+        console.log(JSON.stringify(data));
+
+      },1,1);
+
+
       card.getCardActivitiesBy(view, function(error, data) {
         if(error) {
           $ionicPopup.alert({
@@ -101,13 +114,12 @@ angular.module('fgts.controllers')
         }
         var opalActivities = data;
       
-        console.log(data);
+        console.log("++++++" + data);
        
         switch(view)
         {
           case 'day':
-            //renderTextView();
-            
+
             console.log("display day");
           break;
 
