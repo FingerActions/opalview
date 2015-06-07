@@ -100,7 +100,16 @@ angular.module('fgts.controllers')
       card.getAllTransactionData(function(error, data, status, headers, config) {
 
         console.log("************************************************");
+
         console.log(JSON.stringify(data));
+
+        var dataArray = data;
+
+        _.each(dataArray,function(e){
+
+          console.log(e.transactionNumber);
+
+        });
 
       },1,1);
 

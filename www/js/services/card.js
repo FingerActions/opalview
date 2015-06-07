@@ -169,49 +169,58 @@ angular.module('fgts.services')
             $http.get(url.opal + 'registered/opal-card-activities-list?AMonth=' +
                     month + '&AYear=' + year + '&cardIndex=' + cardId + '&pageIndex=' + pageIndex)
                 .success(function(data, status, headers, config) {
+
+                    console.log("_----------_" + data);
                     if (data.indexOf('You are not logged into the Opal website.') !== -1) {
                         $http.get(url.opal + 'registered/opal-card-activities-list?AMonth=' +
                                 month + '&AYear=' + year + '&cardIndex=' + cardId + '&pageIndex=' + pageIndex)
                             .success(function(data, status, headers, config) {
-
+                                
                                 setCardActivitiesData(cb, data, status, headers, config);
+                                
                                 pageIndex++;
-                                if (pageIndex > 50) {
-                                    console.log("Reach limit ************************");
+                                
+                                if (pageIndex > 70) {
+                                    
                                 } else {
-                                    getAllTransactionData(function(error, data, status, headers, config) {
 
+                                    getAllTransactionData(function(error, data, status, headers, config) {
                                         console.log("************************************************");
                                         console.log(JSON.stringify(data));
-
                                     }, 1, pageIndex);
                                 }
-
+                                
                             })
                             .error(function(data, status, headers, config) {
+
                                 cb(new Error(data.errorMessage), data, status, headers, config);
+
                             });
+
                     } else {
-
+                        
                         setCardActivitiesData(cb, data, status, headers, config);
+
                         pageIndex++;
-                        if (pageIndex > 50) {
+
+                        if (pageIndex > 70) {
+
                             console.log("Reach limit ************************");
+
                         } else {
-                            getAllTransactionData(function(error, data, status, headers, config) {
 
-                                console.log("************************************************");
-                                console.log(JSON.stringify(data));
+                            // getAllTransactionData(function(error, data, status, headers, config) {
 
-                            }, 1, pageIndex);
+                            //     console.log("************************************************");
+                            //     console.log(JSON.stringify(data));
+
+                            // }, 1, pageIndex);
                         }
                     }
                 })
                 .error(function(data, status, headers, config) {
                     cb(new Error(data.errorMessage), data, status, headers, config);
                 });
-
-            pageIndex++;
         };
 
 
