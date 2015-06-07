@@ -1,7 +1,6 @@
 <ion-view title="{{title}}">
-  <ion-content>
-    <fgts-hist-tabs></fgts-hist-tabs>
-
+  <fgts-hist-tabs></fgts-hist-tabs>
+  <ion-content class="subHeader">
     <div ng-switch="viewType">
       <fgts-hist-chart ng-switch-default></fgts-hist-chart>
       <fgts-hist-txt ng-switch-when="text"></fgts-hist-txt>
@@ -10,7 +9,6 @@
   </ion-content>
 
   <div class="bottom-buttons">
-
     <ng-pane> 
       <a href="#" ng-click="prev()" class="nav prev">
         <i class="icon ion-ios7-arrow-left" ng-if="viewType=='chart'"></i>

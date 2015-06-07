@@ -93,25 +93,21 @@ angular.module('fgts.controllers')
       $scope.viewBy = view;
       console.log("viewby: " + view);
 
-
       // retrieve all card activities data
       // temporily put here. Need put to somewhere when user login
       // in to the system.
       card.getAllTransactionData(function(error, data, status, headers, config) {
 
-        console.log("************************************************");
+        // Example of how to user underscore data //
+        // var dataArray = data;
+        // _.each(dataArray,function(e){
+        //   console.log(e.transactionNumber);
+        // });
 
-        console.log(JSON.stringify(data));
+        $scope.opals = data;
 
-        var dataArray = data;
 
-        _.each(dataArray,function(e){
-
-          console.log(e.transactionNumber);
-
-        });
-
-      },1,1);
+      },1,0);
 
 
       card.getCardActivitiesBy(view, function(error, data) {
